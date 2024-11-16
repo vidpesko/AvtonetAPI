@@ -1,2 +1,8 @@
+# API
 Django
 djangorestframework
+
+# Scraping
+Scrapy
+scrapy-nodriver
+websockets==13.1
