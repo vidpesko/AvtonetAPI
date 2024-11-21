@@ -8,6 +8,7 @@ from .utils import cleanse_str, str_to_int
 
 class VehiclePipeline:
     def process_item(self, item, spider):
+        return item
         adapter = ItemAdapter(item)
 
         # Extract id
