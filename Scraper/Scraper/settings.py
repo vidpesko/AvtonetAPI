@@ -15,14 +15,10 @@ NEWSPIDER_MODULE = "Scraper.spiders"
 
 # Crawl responsibly by identifying yourself (and your website) on the user-agent
 # USER_AGENT = "Scraper (+http://www.yourdomain.com)"
+# USER_AGENT = "Mozilla/5.0 (iPad; CPU OS 12_2 like Mac OS X) AppleWebKit/605.1.15 (KHTML, like Gecko) Mobile/15E148"
 
 # Obey robots.txt rules
 ROBOTSTXT_OBEY = False
-
-DOWNLOAD_HANDLERS = {
-    "http": "scrapy_nodriver.handler.ScrapyNodriverDownloadHandler",
-    "https": "scrapy_nodriver.handler.ScrapyNodriverDownloadHandler",
-}
 
 # Configure maximum concurrent requests performed by Scrapy (default: 16)
 # CONCURRENT_REQUESTS = 32
@@ -30,7 +26,7 @@ DOWNLOAD_HANDLERS = {
 # Configure a delay for requests for the same website (default: 0)
 # See https://docs.scrapy.org/en/latest/topics/settings.html#download-delay
 # See also autothrottle settings and docs
-# DOWNLOAD_DELAY = 3
+# DOWNLOAD_DELAY = 2
 # The download delay setting will honor only one of:
 # CONCURRENT_REQUESTS_PER_DOMAIN = 16
 # CONCURRENT_REQUESTS_PER_IP = 16
@@ -55,9 +51,9 @@ DOWNLOAD_HANDLERS = {
 
 # Enable or disable downloader middlewares
 # See https://docs.scrapy.org/en/latest/topics/downloader-middleware.html
-# DOWNLOADER_MIDDLEWARES = {
-#    "Scraper.middlewares.ScraperDownloaderMiddleware": 543,
-# }
+DOWNLOADER_MIDDLEWARES = {
+    "Scraper.middlewares.NoDriverMiddleware": 543,
+}
 
 # Enable or disable extensions
 # See https://docs.scrapy.org/en/latest/topics/extensions.html
@@ -67,9 +63,9 @@ DOWNLOAD_HANDLERS = {
 
 # Configure item pipelines
 # See https://docs.scrapy.org/en/latest/topics/item-pipeline.html
-# ITEM_PIPELINES = {
-#    "Scraper.pipelines.ScraperPipeline": 300,
-# }
+ITEM_PIPELINES = {
+   "Scraper.pipelines.VehiclePipeline": 300,
+}
 
 # Enable and configure the AutoThrottle extension (disabled by default)
 # See https://docs.scrapy.org/en/latest/topics/autothrottle.html

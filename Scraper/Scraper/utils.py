@@ -1,0 +1,46 @@
+# Selection of utils functions used by scraper
+from unicodedata import normalize
+
+
+def cleanse_str(input: str):
+    """
+    Remove all unnecessary characters from string, such as new line chars, whitespace,...
+    """
+
+    # Remove \n
+    input = input.replace("\n", "")
+
+    # Strip str
+    input = input.strip()
+
+    # Normalize it
+    input = normalize("NFKD", input)
+
+    return input
+
+
+def str_to_int(input: str, replace_unit: str = "€"):
+    """
+    Convert verbose number as string (19.00 $) to int
+    """
+
+    # Remove .
+    input = input.replace(".", "")
+
+    # Remove whitespace
+    input = input.replace(" ", "")
+
+    # Remove unit
+    input = input.replace(replace_unit, "")
+
+    # Strip it
+    input = input.strip()
+
+    # Convert it to int or float
+    if input.find(",") != -1:
+        # If number is float
+        input = float(input)
+    else:
+        input = int(input)
+
+    return input

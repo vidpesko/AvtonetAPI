@@ -1,12 +1,20 @@
-# Define here the models for your scraped items
-#
-# See documentation in:
-# https://docs.scrapy.org/en/latest/topics/items.html
+from scrapy import Item, Field
 
-import scrapy
+from .utils import cleanse_str
 
 
-class ScraperItem(scrapy.Item):
-    # define the fields for your item here like:
-    # name = scrapy.Field()
-    pass
+class VehicleItem(Item):
+    """
+    Base vehicle item, parent class for all types of vehicles.
+    Defines all shared attributes
+    """
+    url = Field()
+    name = Field()
+    full_name = Field()
+    avtonet_id = Field()
+    # Price
+    price = Field()
+    price_verbose = Field()
+    # Images
+    images = Field()
+    thumbnails = Field()

@@ -3,10 +3,14 @@
 # See documentation in:
 # https://docs.scrapy.org/en/latest/topics/spider-middleware.html
 
-from scrapy import signals
+import asyncio, time
 
-# useful for handling different item types with a single interface
+from scrapy import signals
+from scrapy import signals
+from scrapy.http import HtmlResponse
+
 from itemadapter import is_item, ItemAdapter
+import nodriver as uc
 
 
 class ScraperSpiderMiddleware:
@@ -101,3 +105,46 @@ class ScraperDownloaderMiddleware:
 
     def spider_opened(self, spider):
         spider.logger.info("Spider opened: %s" % spider.name)
+
+
+class NoDriverMiddleware:
+    """
+    Custom Scrapy download middleware to route requests via nodriver package
+    """
+    def __init__(self):
+        self.browser = None
+
+    @classmethod
+    def from_crawler(cls, crawler):
+        # Initialize the middleware and start the browser
+        instance = cls()
+        # crawler.signals.connect(instance.spider_closed, signal=signals.spider_closed)
+        return instance
+
+    async def process_request(self, request, spider):
+        # Use NoDriver to fetch the page
+        if request.meta.get("use_nodriver", False):  # Use NoDriver only for specific requests
+            spider.logger.info(f"Processing request with NoDriver: {request.url}")
+            # Open browser
+            if not self.browser:
+                self.browser = await uc.start()
+            start_time = time.perf_counter()
+            # Get HTML
+            page = await self.browser.get(request.url)
+            await asyncio.sleep(1)
+            content = await page.get_content()
+            # Close everything
+            await page.close()
+            # self.browser.stop()
+
+            spider.logger.info(f"Page was closed. Request finished in: {time.perf_counter() - start_time}seconds")
+
+            # Create an HtmlResponse with the fetched content
+            return HtmlResponse(
+                url=request.url,
+                body=content,
+                encoding="utf-8",
+                request=request,
+            )
+
+        return None  # Allow other requests to proceed as normal
