@@ -1,7 +1,7 @@
 from dataclasses import dataclass, field
 from scrapy import Item
 from scrapy.loader import ItemLoader
-from itemloaders.processors import TakeFirst, Identity, MapCompose, Compose
+from itemloaders.processors import TakeFirst, Identity, MapCompose, Compose, Join
 
 from typing import Optional
 
@@ -32,6 +32,8 @@ class Vehicle:
     engine_power: str | None = field(default=None)
     # Comment below property table
     comment: str | None = field(default=None)
+    # Description
+    description: str | None = field(default=None)
     # Inconsistent data / metadata
     metadata: dict = field(default_factory=dict)
     # Seller
@@ -65,6 +67,12 @@ class VehicleLoader(ItemLoader):
     mileage_in = process_int()
     # Owners
     num_of_owners = process_int()
+
+    # Description
+    description_in = Compose(
+        Join(separator=""),
+        str.strip
+    )
 
     # Metadata
     metadata_in = Identity()

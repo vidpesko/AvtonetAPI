@@ -10,10 +10,11 @@ class VehicleSpider(scrapy.Spider):
 
     allowed_domains = ["avto.net"]
     start_urls = [
-        # "https://www.avto.net/Ads/details.asp?id=20258324",
+        "https://www.avto.net/Ads/details.asp?id=20258324",
         # "https://www.avto.net/Ads/details.asp?id=20294615",
         # "https://www.avto.net/Ads/details.asp?id=20293150",
-        "https://www.avto.net/Ads/details.asp?id=20305237&display=Audi%20A7"
+        # "https://www.avto.net/Ads/details.asp?id=20303389",
+        # "https://www.avto.net/Ads/details.asp?id=20305237&display=Audi%20A7"
         # "https://www.avto.net/Ads/details.asp?id=20311825&display=Ssangyong%20Rexton"
     ]
 
@@ -69,9 +70,14 @@ class VehicleSpider(scrapy.Spider):
         except IndexError:
             pass
 
+        # Description
+        vehicle.add_xpath("description", "//div[@id='StareOpombe']/node()")
+
         # Tables
         metadata = {}
-        tables_selector = response.css("table")  # Select all tables
+        tables_selector = response.xpath(
+            "//div[contains(@class, 'col-12') and .//table[thead/tr/th[contains(text(), 'Osnovni podatki')]]]/table"
+        )  # Select all tables
         # Enumerate all tables and add values to metadata dict
         for table in tables_selector:
             # Get table title
