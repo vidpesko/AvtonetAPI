@@ -67,16 +67,16 @@ def parse_other_data_table(
 
     table_data = {}
     rows = table_selector.css("tbody tr")
-    for index, row in enumerate(rows[::2]):
+    for header_row, value_row in zip(rows[::2], rows[1::2]):
         # Extract header
-        header = list(map(cleanse_str, row.css("*::text").getall()))
+        header = list(map(cleanse_str, header_row.css("*::text").getall()))
         header = next(h for h in header if h).replace(":", "")
         # Extract values
         values = []
-        next_row = rows[index + 1]
-        for val in next_row.css("ul li::text"):
-            values.append(cleanse_str(val.get()))
-
+        for val in value_row.css("ul li::text"):
+            value = cleanse_str(val.get())
+            values.append(value)
+        # Add to output
         table_data[header] = values
 
     return table_data
