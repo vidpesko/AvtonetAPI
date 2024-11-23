@@ -38,3 +38,11 @@ def process_seller_type(values):
     """
 
     return ["company"] if values else ["person"]
+
+
+def take_last(values):
+    """
+    Returns last item
+    """
+
+    return values[-1]

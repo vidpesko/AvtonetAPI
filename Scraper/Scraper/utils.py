@@ -1,9 +1,10 @@
 # Selection of utils functions used by scraper
+import scrapy
 from unicodedata import normalize
 
 
 # Data formatting utils
-def cleanse_str(input: str):
+def cleanse_str(input: str) -> str:
     """
     Remove all unnecessary characters from string, such as new line chars, whitespace,...
     """
@@ -13,6 +14,9 @@ def cleanse_str(input: str):
 
     # Strip str
     input = input.strip()
+
+    # Remove duplicate spaces
+    input = " ".join(input.split())
 
     # Normalize it
     input = normalize("NFKD", input)
@@ -54,6 +58,3 @@ def str_to_int(input: str, replace_unit: str = "€") -> int | None:
 
 
 set_empty_val_to_none = lambda x: x if x else None
-
-
-# HTML parsing utils

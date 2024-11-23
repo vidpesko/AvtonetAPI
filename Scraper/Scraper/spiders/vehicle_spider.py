@@ -1,8 +1,8 @@
 import scrapy
 
 from Scraper.items import Vehicle, VehicleLoader
-from .translation_tables import CAR_BASIC_PROPERTY_DATA, CAR_METADATA_TABLE
-from Scraper.utils import cleanse_str, str_to_int
+from .translation_tables import CAR_BASIC_PROPERTY_DATA, CAR_METADATA_PARSING_TABLE, CAR_METADATA_VALUES_TABLE
+from .parsing_utils import get_table_title
 
 
 class VehicleSpider(scrapy.Spider):
@@ -13,8 +13,8 @@ class VehicleSpider(scrapy.Spider):
         # "https://www.avto.net/Ads/details.asp?id=20258324",
         # "https://www.avto.net/Ads/details.asp?id=20294615",
         # "https://www.avto.net/Ads/details.asp?id=20293150",
-        # "https://www.avto.net/Ads/details.asp?id=20305237&display=Audi%20A7"
-        "https://www.avto.net/Ads/details.asp?id=20311825&display=Ssangyong%20Rexton"
+        "https://www.avto.net/Ads/details.asp?id=20305237&display=Audi%20A7"
+        # "https://www.avto.net/Ads/details.asp?id=20311825&display=Ssangyong%20Rexton"
     ]
 
     def __init__(self, start_urls = None, name = None, **kwargs):
@@ -72,11 +72,21 @@ class VehicleSpider(scrapy.Spider):
         # Tables
         metadata = {}
         tables_selector = response.css("table")  # Select all tables
-        # First table - "Osnovni podatki"
-        first_table = tables_selector[0]  # "Osnovni podatki" table
-        
+        # Enumerate all tables and add values to metadata dict
+        for table in tables_selector:
+            # Get table title
+            table_title = get_table_title(table)
+            # Check if table is defined in CAR_METADATA_PARSING_TABLE
+            if table_title not in CAR_METADATA_PARSING_TABLE:
+                continue
+            table_handle_dict = CAR_METADATA_PARSING_TABLE[table_title]
+            # Get and execute parsing function from CAR_METADATA_PARSING_TABLE
+            parsing_func = table_handle_dict["parsing_function"]
+            table_data = parsing_func(table, CAR_METADATA_VALUES_TABLE)
 
-        metadata["basic_data"] = first_table_data
+            new_table_title = table_handle_dict["new_table_title"]
+            metadata[new_table_title] = table_data
+
         vehicle.add_value("metadata", metadata)
 
         # Seller type

@@ -6,7 +6,7 @@ from itemloaders.processors import TakeFirst, Identity, MapCompose, Compose
 from typing import Optional
 
 from .utils import cleanse_str, str_to_int, set_empty_val_to_none
-from .item_processors import process_str, process_int, process_seller_type
+from .item_processors import process_str, process_int, process_seller_type, take_last
 
 
 @dataclass
@@ -32,7 +32,7 @@ class Vehicle:
     engine_power: str | None = field(default=None)
     # Comment below property table
     comment: str | None = field(default=None)
-    # Large table - "Osnovni podatki" -> inconsistent data / metadata
+    # Inconsistent data / metadata
     metadata: dict = field(default_factory=dict)
     # Seller
     seller_type: str | None = field(default=None)
@@ -68,7 +68,7 @@ class VehicleLoader(ItemLoader):
 
     # Metadata
     metadata_in = Identity()
-    metadata_out = Identity()
+    metadata_out = take_last
 
     # Seller type
     seller_type_in = process_seller_type
