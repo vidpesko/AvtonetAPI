@@ -9,7 +9,6 @@ from scrapy import signals
 from scrapy import signals
 from scrapy.http import HtmlResponse
 
-from itemadapter import is_item, ItemAdapter
 import nodriver as uc
 
 
@@ -118,6 +117,8 @@ class NoDriverMiddleware:
     def from_crawler(cls, crawler):
         # Initialize the middleware and start the browser
         instance = cls()
+        # instance.browser = uc.loop().run_until_complete(instance.open_browser())
+        # crawler.signals.connect(instance.spider_opened, signal=signals.spider_opened)
         # crawler.signals.connect(instance.spider_closed, signal=signals.spider_closed)
         return instance
 
@@ -131,7 +132,7 @@ class NoDriverMiddleware:
             start_time = time.perf_counter()
             # Get HTML
             page = await self.browser.get(request.url)
-            await asyncio.sleep(1)
+            await asyncio.sleep(0.5)
             content = await page.get_content()
             # Close everything
             await page.close()
@@ -148,3 +149,13 @@ class NoDriverMiddleware:
             )
 
         return None  # Allow other requests to proceed as normal
+
+    async def open_browser(self):
+        return await uc.start()
+
+    def spider_opened(self, spider):
+        # spider.test = self.something
+        print("1.) OPENED", self.browser)
+
+    def spider_closed(self, spider):
+        print("3.) CLOSED")
