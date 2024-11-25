@@ -1,12 +1,16 @@
+import json
 from dataclasses import dataclass, field
 from scrapy import Item
 from scrapy.loader import ItemLoader
 from itemloaders.processors import TakeFirst, Identity, MapCompose, Compose, Join
 
-from typing import Optional
-
-from .utils import cleanse_str, str_to_int, set_empty_val_to_none
-from .item_processors import process_str, process_int, process_seller_type, take_last
+from .utils.item_utils import (
+    process_str,
+    process_int,
+    process_seller_type,
+    take_last,
+    EnhancedJSONEncoder,
+)
 
 
 @dataclass

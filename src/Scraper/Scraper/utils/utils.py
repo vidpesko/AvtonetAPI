@@ -1,5 +1,5 @@
 # Selection of utils functions used by scraper
-import scrapy
+import dataclasses, json
 from unicodedata import normalize
 
 

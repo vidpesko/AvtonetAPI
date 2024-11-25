@@ -1,6 +1,9 @@
 # API
-Django
-djangorestframework
+fastapi
+fastapi[standard]
+
+celery
+celery[redis]
 
 # Scraping
 Scrapy

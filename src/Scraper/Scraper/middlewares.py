@@ -135,8 +135,8 @@ class NoDriverMiddleware:
             await asyncio.sleep(0.5)
             content = await page.get_content()
             # Close everything
-            # await page.close()
-            # self.browser.stop()
+            await page.close()
+            self.browser.stop()
 
             spider.logger.info(f"Page was closed. Request finished in: {time.perf_counter() - start_time}seconds")
 

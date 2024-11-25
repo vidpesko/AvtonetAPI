@@ -2,7 +2,7 @@
 Collection of translation tables. Translation table is used to convert human readable property names on website
 and turn them into machine-friendly
 """
-from .parsing_utils import parse_table, parse_other_data_table
+from ..utils.parsing_utils import parse_table, parse_other_data_table
 
 
 # On car page this is the first table, right below images

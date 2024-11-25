@@ -2,7 +2,7 @@ import scrapy
 
 from Scraper.items import Vehicle, VehicleLoader
 from .translation_tables import CAR_BASIC_PROPERTY_DATA, CAR_METADATA_PARSING_TABLE, CAR_METADATA_VALUES_TABLE
-from .parsing_utils import get_table_title
+from ..utils.parsing_utils import get_table_title
 
 
 class VehicleSpider(scrapy.Spider):

@@ -3,7 +3,7 @@ from urllib.parse import parse_qs, urlparse
 # useful for handling different item types with a single interface
 from itemadapter import ItemAdapter
 
-from .utils import cleanse_str, str_to_int
+from .utils.utils import cleanse_str, str_to_int
 
 
 class VehiclePipeline:
