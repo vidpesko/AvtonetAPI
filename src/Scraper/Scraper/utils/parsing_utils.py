@@ -2,7 +2,7 @@
 Collection of HTML parsing function
 """
 import scrapy.selector
-from .utils import cleanse_str, str_to_int
+from .formatting_utils import cleanse_str, str_to_int
 
 
 def get_table_title(table_selector: scrapy.selector):

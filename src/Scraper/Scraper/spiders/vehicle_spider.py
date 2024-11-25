@@ -10,9 +10,9 @@ class VehicleSpider(scrapy.Spider):
 
     allowed_domains = ["avto.net"]
     start_urls = [
-        "https://www.avto.net/Ads/details.asp?id=20258324",
+        # "https://www.avto.net/Ads/details.asp?id=20258324",  # PRODANO
         # "https://www.avto.net/Ads/details.asp?id=20294615",
-        # "https://www.avto.net/Ads/details.asp?id=20293150",
+        "https://www.avto.net/Ads/details.asp?id=20293150",
         # "https://www.avto.net/Ads/details.asp?id=20303389",
         # "https://www.avto.net/Ads/details.asp?id=20305237&display=Audi%20A7",
         # "https://www.avto.net/Ads/details.asp?id=20311825&display=Ssangyong%20Rexton",

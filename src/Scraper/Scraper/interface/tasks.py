@@ -6,7 +6,7 @@ from scrapy.signalmanager import dispatcher
 from scrapy.utils.project import get_project_settings
 
 from Scraper.items import Vehicle
-from src.Scraper.Scraper.utils.utils import EnhancedJSONEncoder
+from src.Scraper.Scraper.utils.formatting_utils import EnhancedJSONEncoder
 
 
 app = Celery(

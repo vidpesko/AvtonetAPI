@@ -1,7 +1,7 @@
 import json, dataclasses
 from itemloaders.processors import TakeFirst, Identity, MapCompose, Compose
 
-from .utils import cleanse_str, str_to_int, set_empty_val_to_none
+from .formatting_utils import cleanse_str, str_to_int, set_empty_val_to_none
 
 
 def process_int(*extra_functions):
@@ -45,5 +45,10 @@ class EnhancedJSONEncoder(json.JSONEncoder):
     def default(self, o):
         if dataclasses.is_dataclass(o):
             r = dataclasses.asdict(o)
+            print(r)
             return r
         return super().default(o)
+
+
+def dataclass_to_json(dtcls: dataclasses):
+    return json.dumps(dtcls, cls=EnhancedJSONEncoder)

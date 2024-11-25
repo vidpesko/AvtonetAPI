@@ -9,7 +9,7 @@ from .utils.item_utils import (
     process_int,
     process_seller_type,
     take_last,
-    EnhancedJSONEncoder,
+    dataclass_to_json,
 )
 
 
@@ -44,7 +44,9 @@ class Vehicle:
     seller_type: str | None = field(default=None)
     # Images
     images: list[str] = field(default_factory=list)
-    thumbnails: list[str] = field(default=list)
+    thumbnails: list[str] = field(default_factory=list)
+
+    to_json = dataclass_to_json
 
 
 class VehicleLoader(ItemLoader):
