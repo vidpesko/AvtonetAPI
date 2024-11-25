@@ -6,7 +6,6 @@ from scrapy.signalmanager import dispatcher
 from scrapy.utils.project import get_project_settings
 
 from Scraper.items import Vehicle
-from src.Scraper.Scraper.utils.formatting_utils import EnhancedJSONEncoder
 
 
 app = Celery(
@@ -39,7 +38,7 @@ def get_vehicle(urls: list[str]) -> list[Vehicle]:
     process.crawl("vehicle", urls)
     process.start()  # the script will block here until the crawling is finished
 
-    return dataclasses.asdict(results[0])
+    return results
     return ["vehicle"]
 
 # if __name__ == "__main__":

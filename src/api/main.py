@@ -5,7 +5,7 @@ sys.path.append("../Scraper")
 from fastapi import FastAPI
 from celery.result import AsyncResult
 
-from Scraper.tasks import get_vehicle, add # type: ignore
+from Scraper.interface.tasks import get_vehicle, add # type: ignore
 
 app = FastAPI()
 
@@ -29,6 +29,7 @@ async def get(job_id):
         case "FAILURE":
             return {"error": True}
         case "SUCCESS":
+            print(result.get())
             return {"data": result.get()}
         case "PENDING":
             return {"job_status": "processing"}

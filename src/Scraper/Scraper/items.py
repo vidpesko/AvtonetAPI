@@ -1,5 +1,5 @@
 import json
-from dataclasses import dataclass, field
+from dataclasses import dataclass, field, asdict
 from scrapy import Item
 from scrapy.loader import ItemLoader
 from itemloaders.processors import TakeFirst, Identity, MapCompose, Compose, Join
@@ -46,7 +46,9 @@ class Vehicle:
     images: list[str] = field(default_factory=list)
     thumbnails: list[str] = field(default_factory=list)
 
+    # Converting methods
     to_json = dataclass_to_json
+    to_dict = asdict
 
 
 class VehicleLoader(ItemLoader):

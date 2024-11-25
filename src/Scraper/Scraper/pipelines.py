@@ -21,4 +21,4 @@ class VehiclePipeline:
                 except ValueError:
                     adapter["avtonet_id"] = avtonet_id
 
-        return item.to_json()
+        return item.to_dict()
