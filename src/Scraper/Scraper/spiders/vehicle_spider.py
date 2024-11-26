@@ -10,10 +10,10 @@ class VehicleSpider(scrapy.Spider):
 
     allowed_domains = ["avto.net"]
     start_urls = [
-        "https://www.avto.net/Ads/details.asp?id=20258324",  # PRODANO
-        "https://www.avto.net/Ads/details.asp?id=20294615",
+        # "https://www.avto.net/Ads/details.asp?id=20258324",  # PRODANO
+        # "https://www.avto.net/Ads/details.asp?id=20294615",
         # "https://www.avto.net/Ads/details.asp?id=20293150",
-        # "https://www.avto.net/Ads/details.asp?id=20303389",
+        "https://www.avto.net/Ads/details.asp?id=20303389",  # PRODANO
         # "https://www.avto.net/Ads/details.asp?id=20305237&display=Audi%20A7",
         # "https://www.avto.net/Ads/details.asp?id=20311825&display=Ssangyong%20Rexton",
         # "https://www.avto.net/Ads/details.asp?id=20315148&display=Volkswagen%20Tiguan",
@@ -44,7 +44,11 @@ class VehicleSpider(scrapy.Spider):
         is_error = "".join(response.css("h4 *::text").getall()).find("Napaka")
         if is_error != -1:
             # If error has occured (due to faulty link, expired offer,...)
-            yield Error(url=response.url, error_code=404, description="Listing not found. Has it expired?")
+            # Get error message
+            error_msg = " ".join(response.css(".GO-Shadow-B *::text").getall())
+
+            yield Error(url=response.url, error_code=404, description="Listing not found. Has it expired?", error_message=error_msg)
+            return  # Exit to avoid running the rest of the code
 
         vehicle.add_value("url", response.url)
 

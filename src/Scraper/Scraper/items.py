@@ -105,5 +105,6 @@ class Error:
     url: str
     error_code: int
     description: str | None = field(default=None)
+    error_message: str | None = field(default=None)
 
     to_dict = asdict

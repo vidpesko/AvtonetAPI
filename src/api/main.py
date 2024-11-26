@@ -12,7 +12,7 @@ from Scraper.interface.tasks import get_vehicle, add # type: ignore
 
 
 # Dependencies
-def validate_avtonet_urls(urls: list[str]) -> list[str]:
+def validate_avtonet_urls(urls: Annotated[list[str], Query()]) -> list[str]:
     for url in urls:
         # Parse url
         url_parse = urlparse(url)
@@ -27,7 +27,7 @@ def validate_avtonet_urls(urls: list[str]) -> list[str]:
                 status_code=400, detail="Wrong url. Invalid domain"
             )
 
-    return q
+    return urls
 
 
 app = FastAPI()

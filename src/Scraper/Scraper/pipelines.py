@@ -5,6 +5,7 @@ from urllib.parse import parse_qs, urlparse
 from itemadapter import ItemAdapter
 
 from .items import Vehicle, Error
+from .utils.formatting_utils import cleanse_str
 
 
 class ErrorPipeline:
@@ -15,7 +16,8 @@ class ErrorPipeline:
     def process_item(self, item: Error, spider):
         adapter = ItemAdapter(item)
 
-        # if adapter.get("error_code"):
+        if adapter.get("error_message"):
+            adapter["error_message"] = cleanse_str(adapter["error_message"])
 
         return item
 
@@ -32,7 +34,7 @@ class VehiclePipeline:
         adapter = ItemAdapter(item)
 
         # Extract id
-        if adapter.get("url"):
+        if adapter.get("url") and not adapter.get("error_code"):
             parsed_url = urlparse(adapter.get("url"))
             avtonet_id = parse_qs(parsed_url.query)["id"][0]
             if avtonet_id:
