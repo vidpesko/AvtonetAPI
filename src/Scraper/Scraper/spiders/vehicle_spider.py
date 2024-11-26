@@ -12,8 +12,8 @@ class VehicleSpider(scrapy.Spider):
     start_urls = [
         # "https://www.avto.net/Ads/details.asp?id=20258324",  # PRODANO
         # "https://www.avto.net/Ads/details.asp?id=20294615",
-        # "https://www.avto.net/Ads/details.asp?id=20293150",
-        "https://www.avto.net/Ads/details.asp?id=20303389",  # PRODANO
+        "https://www.avto.net/Ads/details.asp?id=20293150",
+        # "https://www.avto.net/Ads/details.asp?id=20303389",  # PRODANO
         # "https://www.avto.net/Ads/details.asp?id=20305237&display=Audi%20A7",
         # "https://www.avto.net/Ads/details.asp?id=20311825&display=Ssangyong%20Rexton",
         # "https://www.avto.net/Ads/details.asp?id=20315148&display=Volkswagen%20Tiguan",

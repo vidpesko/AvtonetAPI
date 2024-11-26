@@ -30,10 +30,10 @@ class Vehicle:
     # Basic propery table - the first one
     first_registration: str | None = field(default=None)
     new_vehicle: bool | None = field(default=False)
-    mileage: str | None = field(default=None)
-    num_of_owners: str | None = field(default=None)
+    mileage: int | None = field(default=None)
+    num_of_owners: int | None = field(default=None)
     fuel_type: str | None = field(default=None)
-    engine_power: str | None = field(default=None)
+    engine_power: int | None = field(default=None)
     # Comment below property table
     comment: str | None = field(default=None)
     # Description
