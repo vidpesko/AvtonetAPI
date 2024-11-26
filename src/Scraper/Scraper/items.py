@@ -94,3 +94,16 @@ class VehicleLoader(ItemLoader):
     images_out = Identity()
     thumbnails_in = Identity()
     thumbnails_out = Identity()
+
+
+@dataclass
+class Error:
+    """
+    This class defines structure for returning error that occurr during scraping
+    """
+
+    url: str
+    error_code: int
+    description: str | None = field(default=None)
+
+    to_dict = asdict

@@ -64,7 +64,9 @@ DOWNLOADER_MIDDLEWARES = {
 # Configure item pipelines
 # See https://docs.scrapy.org/en/latest/topics/item-pipeline.html
 ITEM_PIPELINES = {
-   "Scraper.pipelines.VehiclePipeline": 300,
+    "Scraper.pipelines.ErrorPipeline": 290,
+    "Scraper.pipelines.VehiclePipeline": 300,
+    "Scraper.pipelines.ToDictPipeline": 310,
 }
 
 # Enable and configure the AutoThrottle extension (disabled by default)

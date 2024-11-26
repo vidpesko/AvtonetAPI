@@ -1,6 +1,6 @@
 import scrapy
 
-from Scraper.items import Vehicle, VehicleLoader
+from Scraper.items import Vehicle, VehicleLoader, Error
 from .translation_tables import CAR_BASIC_PROPERTY_DATA, CAR_METADATA_PARSING_TABLE, CAR_METADATA_VALUES_TABLE
 from ..utils.parsing_utils import get_table_title
 
@@ -10,9 +10,9 @@ class VehicleSpider(scrapy.Spider):
 
     allowed_domains = ["avto.net"]
     start_urls = [
-        # "https://www.avto.net/Ads/details.asp?id=20258324",  # PRODANO
-        # "https://www.avto.net/Ads/details.asp?id=20294615",
-        "https://www.avto.net/Ads/details.asp?id=20293150",
+        "https://www.avto.net/Ads/details.asp?id=20258324",  # PRODANO
+        "https://www.avto.net/Ads/details.asp?id=20294615",
+        # "https://www.avto.net/Ads/details.asp?id=20293150",
         # "https://www.avto.net/Ads/details.asp?id=20303389",
         # "https://www.avto.net/Ads/details.asp?id=20305237&display=Audi%20A7",
         # "https://www.avto.net/Ads/details.asp?id=20311825&display=Ssangyong%20Rexton",
@@ -40,10 +40,16 @@ class VehicleSpider(scrapy.Spider):
         # Initialise and set all attributes on Item object
         vehicle = VehicleLoader(item=Vehicle(), response=response)
 
+        # Add URL & check availability
+        is_error = "".join(response.css("h4 *::text").getall()).find("Napaka")
+        if is_error != -1:
+            # If error has occured (due to faulty link, expired offer,...)
+            yield Error(url=response.url, error_code=404, description="Listing not found. Has it expired?")
+
         vehicle.add_value("url", response.url)
-        raw_name_selector = response.css("h3")[0]
 
         # Name
+        raw_name_selector = response.css("h3")[0]
         vehicle.add_value("name", raw_name_selector.css("::text").get())
         vehicle.add_value("full_name", "".join(raw_name_selector.css("*::text").getall()))
 
