@@ -65,5 +65,5 @@ session_manager = DatabaseSessionManager(
 
 
 async def get_db_session():
-    async with sessionmanager.session() as session:
+    async with session_manager.session() as session:
         yield session

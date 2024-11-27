@@ -30,6 +30,8 @@ async def lifespan(app: FastAPI):
 app = FastAPI(lifespan=lifespan, title=settings.project_name, docs_url="/api/docs")
 
 
+
+
 # @app.get("/vehicle")
 # def root(urls: Annotated[list[str], Depends(validate_avtonet_urls)]):
 #     # Check in db for vehicles. If found, check their updated_at propety
