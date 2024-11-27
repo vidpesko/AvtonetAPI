@@ -1,8 +1,11 @@
 """
 Collection of HTML parsing function
 """
+from urllib.parse import parse_qs, urlparse
+
 import scrapy.selector
-from .formatting_utils import cleanse_str, str_to_int
+
+from .formatting_utils import cleanse_str
 
 
 def get_table_title(table_selector: scrapy.selector):
@@ -80,3 +83,23 @@ def parse_other_data_table(
         table_data[header] = values
 
     return table_data
+
+
+def get_id_from_url(url: str) -> int:
+    """Get id from avto.net url
+
+    Args:
+        url (str): avto.net vehicle url
+
+    Returns:
+        int: id
+    """
+
+    parsed_url = urlparse(url)
+    try:
+        id = parse_qs(parsed_url.query)["id"][0]
+        return int(id)
+    except (IndexError, KeyError):
+        raise Exception(f"Url '{url}' does not have id parameter")
+    except ValueError:
+        raise ValueError(f"Vehicle id extracted from url '{url}' can not be parsed to integer")

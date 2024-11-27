@@ -1,11 +1,11 @@
 import scrapy.item
-from urllib.parse import parse_qs, urlparse
 
 # useful for handling different item types with a single interface
 from itemadapter import ItemAdapter
 
 from .items import Vehicle, Error
 from .utils.formatting_utils import cleanse_str
+from .utils.parsing_utils import get_id_from_url
 
 
 class ErrorPipeline:
@@ -35,13 +35,9 @@ class VehiclePipeline:
 
         # Extract id
         if adapter.get("url") and not adapter.get("error_code"):
-            parsed_url = urlparse(adapter.get("url"))
-            avtonet_id = parse_qs(parsed_url.query)["id"][0]
+            avtonet_id = get_id_from_url(adapter.get("url"))
             if avtonet_id:
-                try:
-                    adapter["avtonet_id"] = int(avtonet_id)
-                except ValueError:
-                    adapter["avtonet_id"] = avtonet_id
+                adapter["avtonet_id"] = avtonet_id
 
         return item
 
