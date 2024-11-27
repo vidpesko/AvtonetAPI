@@ -1,4 +1,5 @@
 import sys, os
+
 sys.path.append(os.path.abspath(os.path.join(os.getcwd(), os.pardir)))
 
 from contextlib import asynccontextmanager
@@ -22,12 +23,13 @@ async def lifespan(app: FastAPI):
     """
 
     # Execute on startup
-    Reflected.prepare(session_manager._sync)
+    Reflected.prepare(session_manager._sync_engine)  # Reflect db using sync engine
+    session_manager._sync_engine.dispose()  # Close that engine, it won't be needed
 
     yield
 
     # Execute on exit
-    if session_manager._engine is not None:
+    if session_manager._async_engine is not None:
         # Close the DB connection
         await session_manager.close()
 
