@@ -1,7 +1,8 @@
-from urllib
+from urllib.parse import urlparse
 from typing import Annotated
 
-from fastapi import Query
+from fastapi import Query, HTTPException
+from app.config import settings
 
 
 def validate_avtonet_urls(urls: Annotated[list[str], Query()]) -> list[str]:
@@ -9,7 +10,7 @@ def validate_avtonet_urls(urls: Annotated[list[str], Query()]) -> list[str]:
         # Parse url
         url_parse = urlparse(url)
         # Check scheme
-        if url_parse.scheme not in settings.SCRAPER_ALLOWED_SCHEMES:
+        if url_parse.scheme not in settings.pos:
             raise HTTPException(status_code=400, detail="Wrong url. Invalid url schema")
         # Check domain
         if url_parse.netloc not in settings.SCRAPER_ALLOWED_DOMAINS:

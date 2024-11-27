@@ -10,8 +10,6 @@ from celery.result import AsyncResult
 from app.config import settings
 from app.database import session_manager
 
-from Scraper.interface.tasks import get_vehicle # type: ignore
-
 
 @asynccontextmanager
 async def lifespan(app: FastAPI):
