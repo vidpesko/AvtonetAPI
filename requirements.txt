@@ -18,6 +18,8 @@ pydantic-settings
 # Data storage
 SQLAlchemy
 psycopg2
+asyncpg
+greenlet
 
 # Tests
 pytest

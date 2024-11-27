@@ -10,6 +10,8 @@ from sqlalchemy.ext.asyncio import (
 )
 from sqlalchemy.orm import DeclarativeBase
 
+from app.utils import create_engine_url
+
 
 class Base(DeclarativeBase):
     # https://docs.sqlalchemy.org/en/14/orm/extensions/asyncio.html#preventing-implicit-io-when-using-asyncsession
@@ -60,7 +62,7 @@ class DatabaseSessionManager:
 
 
 session_manager = DatabaseSessionManager(
-    settings.database_url, {"echo": settings.echo_sql}
+    create_engine_url(settings), {"echo": settings.echo_sql}
 )
 
 

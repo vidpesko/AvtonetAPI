@@ -1,14 +1,17 @@
-import sys
-sys.path.append("../Scraper")
+import sys, os
+sys.path.append(os.path.abspath(os.path.join(os.getcwd(), os.pardir)))
 
 from contextlib import asynccontextmanager
 
+import uvicorn
 from fastapi import FastAPI, Query, Depends, HTTPException
 from sqlmodel import select
 from celery.result import AsyncResult
 
 from app.config import settings
 from app.database import session_manager
+from app.models.vehicle import DeferredReflection
+from app.api.routers import vehicles
 
 
 @asynccontextmanager
@@ -19,6 +22,7 @@ async def lifespan(app: FastAPI):
     """
 
     # Execute on startup
+    DeferredReflection.prepare(session_manager._engine)
     yield
 
     # Execute on exit
@@ -30,6 +34,8 @@ async def lifespan(app: FastAPI):
 app = FastAPI(lifespan=lifespan, title=settings.project_name, docs_url="/api/docs")
 
 
+# Vehicle router: all operation regarding scraping vehicles
+app.include_router(vehicles.router)
 
 
 # @app.get("/vehicle")
@@ -56,3 +62,7 @@ app = FastAPI(lifespan=lifespan, title=settings.project_name, docs_url="/api/doc
 #             return {"data": data}
 #         case "PENDING":
 #             return {"job_status": "processing"}
+
+
+if __name__ == "__main__":
+    uvicorn.run("main:app", host="0.0.0.0", reload=True, port=8000)
