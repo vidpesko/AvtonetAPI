@@ -10,7 +10,7 @@ from celery.result import AsyncResult
 
 from app.config import settings
 from app.database import session_manager
-from app.models.vehicle import DeferredReflection
+from app.models.vehicle import Reflected
 from app.api.routers import vehicles
 
 
@@ -22,7 +22,8 @@ async def lifespan(app: FastAPI):
     """
 
     # Execute on startup
-    DeferredReflection.prepare(session_manager._engine)
+    Reflected.prepare(session_manager._sync)
+
     yield
 
     # Execute on exit

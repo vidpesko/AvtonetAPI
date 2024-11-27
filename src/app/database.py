@@ -2,6 +2,7 @@ import contextlib
 from typing import Any, AsyncIterator
 
 from app.config import settings
+from sqlalchemy import create_engine
 from sqlalchemy.ext.asyncio import (
     AsyncConnection,
     AsyncSession,
@@ -22,6 +23,10 @@ class Base(DeclarativeBase):
 class DatabaseSessionManager:
     def __init__(self, host: str, engine_kwargs: dict[str, Any] = {}):
         self._engine = create_async_engine(host, **engine_kwargs)
+        self._sync = create_engine(
+            "postgresql://postgres:cehvux-qemce9-marnaC@localhost:5433/avtonet_api_dev"
+        )
+
         self._sessionmaker = async_sessionmaker(
             autocommit=False, bind=self._engine, expire_on_commit=False
         )
