@@ -29,8 +29,8 @@ class ScraperSettings(BaseSettings):
 
 
 class CelerySettings(BaseSettings):
-    rabbitmq_broker_url: str
-    redis_backend_url: str
+    rabbitmq_broker_url: str = ""
+    redis_backend_url: str = ""
 
 
 class Settings(ProjectSettings, PostgresSettings, ScraperSettings, CelerySettings):

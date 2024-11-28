@@ -2,7 +2,10 @@ import subprocess
 
 from celery import Celery
 
-from app.config import settings
+try:
+    from app.config import settings
+except ModuleNotFoundError:
+    from config import settings
 
 
 app = Celery(
@@ -19,4 +22,8 @@ def start_spider(spider_name: str, *args):
     """
 
     # Generate command
-    subprocess.call(["scrapy", "crawl", spider_name])
+    out = subprocess.run(
+        ["./scraper_interface/run_spider.sh"],
+        text=True,
+        capture_output=True,
+    )
