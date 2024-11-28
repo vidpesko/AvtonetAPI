@@ -28,7 +28,12 @@ class ScraperSettings(BaseSettings):
     max_vehicle_age: int = 15  # In minutes
 
 
-class Settings(ProjectSettings, PostgresSettings, ScraperSettings):
+class CelerySettings(BaseSettings):
+    rabbitmq_broker_url: str
+    redis_backend_url: str
+
+
+class Settings(ProjectSettings, PostgresSettings, ScraperSettings, CelerySettings):
     model_config = SettingsConfigDict(env_file=dotenv_path, env_file_encoding="utf-8", extra="ignore")
 
 

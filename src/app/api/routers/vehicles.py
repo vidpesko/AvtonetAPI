@@ -10,7 +10,7 @@ from app.api.dependencies.validation import validate_avtonet_urls
 from app.crud.vehicle_operations import get_vehicle
 from app.schemas.vehicle_schemas import ScrapeJobResponse, VehicleDataResponse
 
-from Scraper.interface import tasks  # type: ignore
+# from Scraper.interface import tasks  # type: ignore
 
 
 router = APIRouter(
@@ -33,9 +33,10 @@ async def scrape(
     Start scraping job
     """
 
-    job = tasks.get_vehicles.delay(url)
 
-    return ScrapeJobResponse(job_id=job.id, urls=url)
+    # job = tasks.get_vehicles.delay(url)
+
+    return ScrapeJobResponse(job_id="job.id", urls=url)
 
 
 @router.get("/job/{job_id}")
