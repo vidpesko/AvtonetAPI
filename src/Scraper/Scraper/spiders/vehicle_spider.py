@@ -1,6 +1,6 @@
 import scrapy
 
-from Scraper.items import Vehicle, VehicleLoader, Error
+from ..items import Vehicle, VehicleLoader, Error
 from .translation_tables import CAR_BASIC_PROPERTY_DATA, CAR_METADATA_PARSING_TABLE, CAR_METADATA_VALUES_TABLE
 from ..utils.parsing_utils import get_table_title
 

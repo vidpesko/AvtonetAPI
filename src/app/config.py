@@ -5,6 +5,11 @@ from pydantic_settings import BaseSettings, SettingsConfigDict
 dotenv_path = os.path.join(os.path.abspath(os.path.join(os.getcwd(), os.pardir)), ".env")
 
 
+class ProjectSettings(BaseSettings):
+    project_name: str = "My FastAPI project"
+    log_level: str = "DEBUG"
+
+
 class PostgresSettings(BaseSettings):
     postgres_username: str
     postgres_password: str
@@ -12,15 +17,18 @@ class PostgresSettings(BaseSettings):
     postgres_port: int = 5433
     postgres_database: str
 
-    echo_sql: bool = True
+    echo_sql: bool = False
 
 
-class ProjectSettings(BaseSettings):
-    project_name: str = "My FastAPI project"
-    log_level: str = "DEBUG"
+class ScraperSettings(BaseSettings):
+    scraper_allowed_domains: list[str] = ["www.avto.net", "avto.net"]
+    scraper_allowed_schemas: list[str] = ["https", ]
+
+    # Maximum Vehicle entry age - maximum amount of time before Vehicle needs updating
+    max_vehicle_age: int = 15  # In minutes
 
 
-class Settings(ProjectSettings, PostgresSettings):
+class Settings(ProjectSettings, PostgresSettings, ScraperSettings):
     model_config = SettingsConfigDict(env_file=dotenv_path, env_file_encoding="utf-8", extra="ignore")
 
 

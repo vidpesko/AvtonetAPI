@@ -5,7 +5,7 @@ from scrapy.crawler import CrawlerProcess
 from scrapy.signalmanager import dispatcher
 from scrapy.utils.project import get_project_settings
 
-from Scraper.items import Vehicle
+from ..items import Vehicle
 
 
 app = Celery(
@@ -16,14 +16,9 @@ app = Celery(
 
 
 @app.task
-def add(x, y):
-    return x + y
-
-
-@app.task
-def get_vehicle(urls: list[str]) -> list[Vehicle]:
+def get_vehicles(urls: list[str]) -> list[Vehicle]:
     """
-    Fixture to run VehicleSpider and return all yielded items
+    Run VehicleSpider and return all yielded items
     """
 
     results: list[Vehicle] = []
@@ -40,7 +35,3 @@ def get_vehicle(urls: list[str]) -> list[Vehicle]:
 
     return results
     return ["vehicle"]
-
-# if __name__ == "__main__":
-#     v = get_vehicle()
-#     print(v)
