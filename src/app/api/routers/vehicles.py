@@ -33,23 +33,20 @@ async def scrape(
     Start scraping job
     """
 
-
     job = tasks.get_vehicles.delay(url)
 
     return ScrapeJobResponse(job_id=job.id, urls=url)
-    # vehicle = await get_vehicle(db_session, vehicle_id)
-    # return vehicle
 
 
-# @app.get("/job/{job_id}")
-# async def get(job_id):
-#     result = AsyncResult(job_id)
+@router.get("/job/{job_id}")
+async def get(job_id):
+    result = AsyncResult(job_id)
 
-#     match result.state:
-#         case "FAILURE":
-#             return {"error": True}
-#         case "SUCCESS":
-#             data = result.get()
-#             return {"data": data}
-#         case "PENDING":
-#             return {"job_status": "processing"}
+    match result.state:
+        case "FAILURE":
+            return VehicleDataResponse(job_status="error")
+        case "SUCCESS":
+            data = result.get()
+            return VehicleDataResponse(job_status="success", data=data)
+        case "PENDING":
+            return VehicleDataResponse(job_status="processing")

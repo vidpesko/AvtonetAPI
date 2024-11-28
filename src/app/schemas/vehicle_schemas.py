@@ -9,4 +9,7 @@ class ScrapeJobResponse(BaseModel):
 
 class VehicleDataResponse(BaseModel):
     # When job is finished, return vehicle data
-    data: list[dict]
+    job_status: str
+    data: list[dict] | None = None
+
+    error: str | None = None

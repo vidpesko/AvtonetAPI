@@ -10,6 +10,7 @@ celery[redis]
 Scrapy
 scrapy-nodriver
 websockets==13.1
+crochet
 
 # Data validation
 pydantic
