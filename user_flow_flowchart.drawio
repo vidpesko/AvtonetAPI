@@ -1,9 +1,126 @@
 <mxfile host="app.diagrams.net" agent="Mozilla/5.0 (Macintosh; Intel Mac OS X 10_15_7) AppleWebKit/605.1.15 (KHTML, like Gecko) Version/17.5 Safari/605.1.15" version="24.9.3">
   <diagram name="Page-1" id="v0LKuzYFnmjtAsJau-sU">
-    <mxGraphModel>
+    <mxGraphModel dx="1931" dy="1577" grid="1" gridSize="10" guides="1" tooltips="1" connect="1" arrows="1" fold="1" page="1" pageScale="1" pageWidth="827" pageHeight="1169" math="0" shadow="0">
       <root>
         <mxCell id="0" />
         <mxCell id="1" parent="0" />
+        <mxCell id="MTgvpF7t2lDiuaN47-wz-1" value="Actor" style="shape=umlActor;verticalLabelPosition=bottom;verticalAlign=top;html=1;outlineConnect=0;" vertex="1" parent="1">
+          <mxGeometry x="151" y="410" width="30" height="60" as="geometry" />
+        </mxCell>
+        <mxCell id="MTgvpF7t2lDiuaN47-wz-3" value="" style="endArrow=classic;html=1;rounded=0;" edge="1" parent="1">
+          <mxGeometry width="50" height="50" relative="1" as="geometry">
+            <mxPoint x="190" y="430" as="sourcePoint" />
+            <mxPoint x="321" y="430" as="targetPoint" />
+          </mxGeometry>
+        </mxCell>
+        <mxCell id="MTgvpF7t2lDiuaN47-wz-4" value="&amp;lt; avto.net url &amp;gt;" style="shape=callout;whiteSpace=wrap;html=1;perimeter=calloutPerimeter;" vertex="1" parent="1">
+          <mxGeometry x="106" y="310" width="120" height="80" as="geometry" />
+        </mxCell>
+        <mxCell id="MTgvpF7t2lDiuaN47-wz-5" value="/api/vehicle?url=" style="text;html=1;align=center;verticalAlign=middle;resizable=0;points=[];autosize=1;strokeColor=none;fillColor=none;" vertex="1" parent="1">
+          <mxGeometry x="190" y="430" width="110" height="30" as="geometry" />
+        </mxCell>
+        <mxCell id="MTgvpF7t2lDiuaN47-wz-19" style="edgeStyle=orthogonalEdgeStyle;rounded=0;orthogonalLoop=1;jettySize=auto;html=1;exitX=1;exitY=0.25;exitDx=0;exitDy=0;" edge="1" parent="1" source="MTgvpF7t2lDiuaN47-wz-6">
+          <mxGeometry relative="1" as="geometry">
+            <mxPoint x="401.0689655172414" y="409.68965517241384" as="targetPoint" />
+          </mxGeometry>
+        </mxCell>
+        <mxCell id="MTgvpF7t2lDiuaN47-wz-6" value="get_vehicle&lt;div&gt;view&lt;/div&gt;" style="whiteSpace=wrap;html=1;aspect=fixed;" vertex="1" parent="1">
+          <mxGeometry x="321" y="390" width="80" height="80" as="geometry" />
+        </mxCell>
+        <mxCell id="MTgvpF7t2lDiuaN47-wz-7" value="DB" style="shape=cylinder3;whiteSpace=wrap;html=1;boundedLbl=1;backgroundOutline=1;size=15;" vertex="1" parent="1">
+          <mxGeometry x="331" y="690" width="60" height="80" as="geometry" />
+        </mxCell>
+        <mxCell id="MTgvpF7t2lDiuaN47-wz-8" value="" style="endArrow=classic;startArrow=classic;html=1;rounded=0;exitX=0.5;exitY=1;exitDx=0;exitDy=0;" edge="1" parent="1" source="MTgvpF7t2lDiuaN47-wz-6" target="MTgvpF7t2lDiuaN47-wz-7">
+          <mxGeometry width="50" height="50" relative="1" as="geometry">
+            <mxPoint x="461" y="420" as="sourcePoint" />
+            <mxPoint x="511" y="370" as="targetPoint" />
+          </mxGeometry>
+        </mxCell>
+        <mxCell id="MTgvpF7t2lDiuaN47-wz-9" value="1. Check if vehicle exists &amp;amp;&lt;div&gt;it has been updated in the last x min&lt;/div&gt;" style="edgeLabel;html=1;align=center;verticalAlign=middle;resizable=0;points=[];" vertex="1" connectable="0" parent="MTgvpF7t2lDiuaN47-wz-8">
+          <mxGeometry x="0.008" y="1" relative="1" as="geometry">
+            <mxPoint as="offset" />
+          </mxGeometry>
+        </mxCell>
+        <mxCell id="MTgvpF7t2lDiuaN47-wz-17" style="edgeStyle=orthogonalEdgeStyle;rounded=0;orthogonalLoop=1;jettySize=auto;html=1;exitX=0.5;exitY=1;exitDx=0;exitDy=0;entryX=0.617;entryY=0.017;entryDx=0;entryDy=0;entryPerimeter=0;" edge="1" parent="1" target="MTgvpF7t2lDiuaN47-wz-15">
+          <mxGeometry relative="1" as="geometry">
+            <mxPoint x="691" y="540" as="sourcePoint" />
+            <mxPoint x="691" y="689.9999999999999" as="targetPoint" />
+            <Array as="points">
+              <mxPoint x="691" y="580" />
+              <mxPoint x="690" y="580" />
+            </Array>
+          </mxGeometry>
+        </mxCell>
+        <mxCell id="MTgvpF7t2lDiuaN47-wz-18" value="Use subproccess module&lt;div&gt;to execute command&lt;/div&gt;" style="edgeLabel;html=1;align=center;verticalAlign=middle;resizable=0;points=[];rotation=90;" vertex="1" connectable="0" parent="MTgvpF7t2lDiuaN47-wz-17">
+          <mxGeometry x="-0.1076" y="1" relative="1" as="geometry">
+            <mxPoint x="19" as="offset" />
+          </mxGeometry>
+        </mxCell>
+        <mxCell id="MTgvpF7t2lDiuaN47-wz-11" value="Scraper handler" style="whiteSpace=wrap;html=1;aspect=fixed;" vertex="1" parent="1">
+          <mxGeometry x="631" y="460" width="80" height="80" as="geometry" />
+        </mxCell>
+        <mxCell id="MTgvpF7t2lDiuaN47-wz-12" value="" style="endArrow=classic;html=1;rounded=0;exitX=1.01;exitY=0.693;exitDx=0;exitDy=0;entryX=0;entryY=0.75;entryDx=0;entryDy=0;exitPerimeter=0;" edge="1" parent="1" source="MTgvpF7t2lDiuaN47-wz-6" target="MTgvpF7t2lDiuaN47-wz-11">
+          <mxGeometry width="50" height="50" relative="1" as="geometry">
+            <mxPoint x="501" y="520" as="sourcePoint" />
+            <mxPoint x="551" y="470" as="targetPoint" />
+          </mxGeometry>
+        </mxCell>
+        <mxCell id="MTgvpF7t2lDiuaN47-wz-13" value="2. If the vehicle needs scraping,&lt;div&gt;use Scraper handler to initiate scrape&lt;/div&gt;" style="edgeLabel;html=1;align=center;verticalAlign=middle;resizable=0;points=[];" vertex="1" connectable="0" parent="MTgvpF7t2lDiuaN47-wz-12">
+          <mxGeometry x="-0.0635" y="-1" relative="1" as="geometry">
+            <mxPoint x="-8" y="18" as="offset" />
+          </mxGeometry>
+        </mxCell>
+        <mxCell id="MTgvpF7t2lDiuaN47-wz-23" style="edgeStyle=orthogonalEdgeStyle;rounded=0;orthogonalLoop=1;jettySize=auto;html=1;exitX=0.25;exitY=0;exitDx=0;exitDy=0;entryX=0.25;entryY=1;entryDx=0;entryDy=0;" edge="1" parent="1" source="MTgvpF7t2lDiuaN47-wz-15" target="MTgvpF7t2lDiuaN47-wz-11">
+          <mxGeometry relative="1" as="geometry">
+            <Array as="points">
+              <mxPoint x="651" y="735" />
+            </Array>
+          </mxGeometry>
+        </mxCell>
+        <mxCell id="MTgvpF7t2lDiuaN47-wz-24" value="Scraper zakljuci&lt;div&gt;&lt;div&gt;(subproccess module&lt;/div&gt;&lt;div&gt;return-a neko vrednost)&lt;/div&gt;&lt;/div&gt;" style="edgeLabel;html=1;align=center;verticalAlign=middle;resizable=0;points=[];rotation=90;" vertex="1" connectable="0" parent="MTgvpF7t2lDiuaN47-wz-23">
+          <mxGeometry x="-0.0248" y="-1" relative="1" as="geometry">
+            <mxPoint x="-27" as="offset" />
+          </mxGeometry>
+        </mxCell>
+        <mxCell id="MTgvpF7t2lDiuaN47-wz-15" value="Scrapy&lt;div&gt;project&lt;br&gt;&lt;/div&gt;" style="whiteSpace=wrap;html=1;aspect=fixed;" vertex="1" parent="1">
+          <mxGeometry x="641" y="735" width="80" height="80" as="geometry" />
+        </mxCell>
+        <mxCell id="MTgvpF7t2lDiuaN47-wz-20" value="" style="endArrow=classic;startArrow=classic;html=1;rounded=0;entryX=0;entryY=0.5;entryDx=0;entryDy=0;exitX=1;exitY=0.5;exitDx=0;exitDy=0;exitPerimeter=0;" edge="1" parent="1" source="MTgvpF7t2lDiuaN47-wz-7" target="MTgvpF7t2lDiuaN47-wz-15">
+          <mxGeometry width="50" height="50" relative="1" as="geometry">
+            <mxPoint x="551" y="770" as="sourcePoint" />
+            <mxPoint x="601" y="720" as="targetPoint" />
+          </mxGeometry>
+        </mxCell>
+        <mxCell id="MTgvpF7t2lDiuaN47-wz-22" value="Scraper writes directly&lt;div&gt;to db&lt;/div&gt;" style="edgeLabel;html=1;align=center;verticalAlign=middle;resizable=0;points=[];" vertex="1" connectable="0" parent="MTgvpF7t2lDiuaN47-wz-20">
+          <mxGeometry x="0.0319" relative="1" as="geometry">
+            <mxPoint as="offset" />
+          </mxGeometry>
+        </mxCell>
+        <mxCell id="MTgvpF7t2lDiuaN47-wz-32" value="get_job_status" style="whiteSpace=wrap;html=1;aspect=fixed;" vertex="1" parent="1">
+          <mxGeometry x="414" y="190" width="86" height="86" as="geometry" />
+        </mxCell>
+        <mxCell id="MTgvpF7t2lDiuaN47-wz-34" value="" style="endArrow=classic;html=1;rounded=0;exitX=0.75;exitY=0.1;exitDx=0;exitDy=0;exitPerimeter=0;entryX=0;entryY=0.75;entryDx=0;entryDy=0;" edge="1" parent="1" target="MTgvpF7t2lDiuaN47-wz-32">
+          <mxGeometry width="50" height="50" relative="1" as="geometry">
+            <mxPoint x="181" y="410" as="sourcePoint" />
+            <mxPoint x="298.5" y="334" as="targetPoint" />
+          </mxGeometry>
+        </mxCell>
+        <mxCell id="MTgvpF7t2lDiuaN47-wz-36" value="/api/jobs/&amp;lt; id &amp;gt;" style="edgeLabel;html=1;align=center;verticalAlign=middle;resizable=0;points=[];" vertex="1" connectable="0" parent="MTgvpF7t2lDiuaN47-wz-34">
+          <mxGeometry x="0.0082" y="3" relative="1" as="geometry">
+            <mxPoint as="offset" />
+          </mxGeometry>
+        </mxCell>
+        <mxCell id="MTgvpF7t2lDiuaN47-wz-37" value="" style="endArrow=none;dashed=1;html=1;dashPattern=1 3;strokeWidth=2;rounded=0;exitX=0.5;exitY=0;exitDx=0;exitDy=0;entryX=0.5;entryY=1;entryDx=0;entryDy=0;" edge="1" parent="1" source="MTgvpF7t2lDiuaN47-wz-6" target="MTgvpF7t2lDiuaN47-wz-32">
+          <mxGeometry width="50" height="50" relative="1" as="geometry">
+            <mxPoint x="401" y="330" as="sourcePoint" />
+            <mxPoint x="451" y="280" as="targetPoint" />
+          </mxGeometry>
+        </mxCell>
+        <mxCell id="MTgvpF7t2lDiuaN47-wz-38" value="Ko scraper konca,&lt;div&gt;bo ponoven klic&lt;/div&gt;&lt;div&gt;get_vehicle_view&lt;/div&gt;&lt;div&gt;vrnil podatke&lt;/div&gt;" style="edgeLabel;html=1;align=center;verticalAlign=middle;resizable=0;points=[];" vertex="1" connectable="0" parent="MTgvpF7t2lDiuaN47-wz-37">
+          <mxGeometry x="0.1962" y="3" relative="1" as="geometry">
+            <mxPoint x="-13" y="14" as="offset" />
+          </mxGeometry>
+        </mxCell>
       </root>
     </mxGraphModel>
   </diagram>
