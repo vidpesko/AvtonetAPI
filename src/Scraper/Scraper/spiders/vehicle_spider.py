@@ -32,8 +32,10 @@ class VehicleSpider(scrapy.Spider):
             self.start_urls = start_urls
         
         if kwargs.get("urls"):
-            print(kwargs)
             self.start_urls = literal_eval(kwargs["urls"])
+
+        if kwargs.get("url"):
+            self.start_urls = [kwargs["url"], ]
 
     def start_requests(self):
         # GET request
@@ -127,5 +129,4 @@ class VehicleSpider(scrapy.Spider):
         ])
 
         vehicle_item = vehicle.load_item()
-        # print(vehicle_item)
         yield vehicle_item

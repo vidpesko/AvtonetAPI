@@ -45,7 +45,6 @@ class EnhancedJSONEncoder(json.JSONEncoder):
     def default(self, o):
         if dataclasses.is_dataclass(o):
             r = dataclasses.asdict(o)
-            print(r)
             return r
         return super().default(o)
 

@@ -6,7 +6,7 @@ from celery.result import AsyncResult
 # from app.api.dependencies.auth import validate_is_authenticated
 
 from app.api.dependencies.core import DBSessionDep
-from app.api.dependencies.validation import validate_avtonet_urls
+from app.api.dependencies.validation import validate_avtonet_vehicle_page_url
 from app.crud.vehicle_operations import get_vehicle
 from app.schemas.vehicle_schemas import ScrapeJobResponse, VehicleDataResponse
 from app.scraper_interface import vehicle_scraper
@@ -25,17 +25,16 @@ router = APIRouter(
     # dependencies=[Depends(validate_is_authenticated)],
 )
 async def scrape(
-    url: Annotated[list[str], Depends(validate_avtonet_urls)],
+    url: Annotated[str, Depends(validate_avtonet_vehicle_page_url)],
     db_session: DBSessionDep,
 ):
     """
     Start scraping job
     """
 
-
     job_id = vehicle_scraper.scrape_vehicle_page(url)
 
-    return ScrapeJobResponse(job_id=job_id, urls=url)
+    return ScrapeJobResponse(job_id=job_id, url=url)
 
 
 @router.get("/job/{job_id}")
@@ -46,7 +45,11 @@ async def get(job_id):
         case "FAILURE":
             return VehicleDataResponse(job_status="error")
         case "SUCCESS":
-            data = result.get()
-            return VehicleDataResponse(job_status="success", data=data)
+            code = result.get()
+            if code > 0:
+                job_status = "error"
+            else:
+                job_status = "success"
+            return VehicleDataResponse(job_status=job_status, job_output_code=code)
         case "PENDING":
             return VehicleDataResponse(job_status="processing")
