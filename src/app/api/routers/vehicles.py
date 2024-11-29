@@ -9,7 +9,6 @@ from app.api.dependencies.core import DBSessionDep
 from app.api.dependencies.validation import validate_avtonet_urls
 from app.crud.vehicle_operations import get_vehicle
 from app.schemas.vehicle_schemas import ScrapeJobResponse, VehicleDataResponse
-
 from app.scraper_interface import vehicle_scraper
 
 
