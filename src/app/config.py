@@ -27,6 +27,9 @@ class ScraperSettings(BaseSettings):
     # Maximum Vehicle entry age - maximum amount of time before Vehicle needs updating
     max_vehicle_age: int = 15  # In minutes
 
+    vehicle_page_spider_name: str = "vehicle"
+    vehicle_listing_spider_name: str = "vehicle_listing"
+
 
 class CelerySettings(BaseSettings):
     rabbitmq_broker_url: str = ""

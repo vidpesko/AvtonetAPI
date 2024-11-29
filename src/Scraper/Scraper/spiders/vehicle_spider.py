@@ -1,3 +1,5 @@
+from ast import literal_eval
+
 import scrapy
 
 from ..items import Vehicle, VehicleLoader, Error
@@ -25,8 +27,13 @@ class VehicleSpider(scrapy.Spider):
     def __init__(self, start_urls = None, name = None, **kwargs):
         super().__init__(name, **kwargs)
         # Check if start_urls have been provided as argument to init
+
         if start_urls:
             self.start_urls = start_urls
+        
+        if kwargs.get("urls"):
+            print(kwargs)
+            self.start_urls = literal_eval(kwargs["urls"])
 
     def start_requests(self):
         # GET request
