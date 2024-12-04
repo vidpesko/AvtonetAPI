@@ -126,14 +126,22 @@ class NoDriverMiddleware:
         # Use NoDriver to fetch the page
         if request.meta.get("use_nodriver", False):  # Use NoDriver only for specific requests
             spider.logger.info(f"Processing request with NoDriver: {request.url}")
+            start_time = time.perf_counter()
             # Open browser
             if not self.browser:
+                browser_st = time.perf_counter()
                 self.browser = await uc.start()
-            start_time = time.perf_counter()
+                print("Browser opened in", time.perf_counter() - browser_st)
+
             # Get HTML
+            page_st = time.perf_counter()
             page = await self.browser.get(request.url)
+            print("Page opened in", time.perf_counter() - page_st)
+
             await asyncio.sleep(0.5)
+            html_st = time.perf_counter()
             content = await page.get_content()
+            print("HTML collected in", time.perf_counter() - html_st)
             # Close everything
             await page.close()
             self.browser.stop()
@@ -141,6 +149,7 @@ class NoDriverMiddleware:
             spider.logger.info(f"Page was closed. Request finished in: {time.perf_counter() - start_time}seconds")
 
             # Create an HtmlResponse with the fetched content
+            print("Custom middleware finished in", time.perf_counter() - start_time)
             return HtmlResponse(
                 url=request.url,
                 body=content,

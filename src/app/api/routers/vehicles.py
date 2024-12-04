@@ -11,6 +11,8 @@ from app.crud.vehicle_operations import get_vehicle
 from app.schemas.vehicle_schemas import ScrapeJobResponse, VehicleDataResponse
 from app.scraper_interface import vehicle_scraper
 
+from client import client as c # type: ignore
+
 
 router = APIRouter(
     prefix="/api/vehicle",
@@ -32,9 +34,12 @@ async def scrape(
     Start scraping job
     """
 
-    job_id = vehicle_scraper.scrape_vehicle_page(url)
+    client = c.ScraperApiClient("amqp:://localhost/", "avtonet_api_queue")
+    client.connect()
+    return client.get(url)
 
-    return ScrapeJobResponse(job_id=job_id, url=url)
+    # job_id = vehicle_scraper.scrape_vehicle_page(url)
+    # return ScrapeJobResponse(job_id=job_id, url=url)
 
 
 @router.get("/job/{job_id}")
@@ -50,6 +55,7 @@ async def get(job_id):
                 job_status = "error"
             else:
                 job_status = "success"
+
             return VehicleDataResponse(job_status=job_status, job_output_code=code)
         case "PENDING":
             return VehicleDataResponse(job_status="processing")
