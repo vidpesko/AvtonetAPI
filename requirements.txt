@@ -11,6 +11,8 @@ Scrapy
 scrapy-nodriver
 websockets==13.1
 crochet
+# Installation location of custom ScraperAPI package 
+git+https://github.com/vidpesko/ScraperAPI.git@main   
 
 # Data validation
 pydantic
