@@ -11,6 +11,8 @@ from scrapy.http import HtmlResponse
 
 import nodriver as uc
 
+from client import client as c  # type: ignore
+
 
 class ScraperSpiderMiddleware:
     # Not all methods need to be defined. If a method is not defined,
@@ -168,3 +170,36 @@ class NoDriverMiddleware:
 
     def spider_closed(self, spider):
         print("3.) CLOSED")
+
+
+class ScraperAPIMiddleware:
+    """
+    Custom Scrapy download middleware to route requests via custom ScraperAPI package
+    """
+    def __init__(self):
+        self.browser = None
+
+    def process_request(self, request, spider):
+        # Use NoDriver to fetch the page
+        if request.meta.get("use_scraperapi", False):  # Use NoDriver only for specific requests
+            spider.logger.info(f"Processing request with NoDriver: {request.url}")
+            start_time = time.perf_counter()
+
+            print("HEHRHEHR")
+
+            client = c.ScraperApiClient("amqp:://localhost/", "avtonet_api_queue")
+            client.connect()
+            content = client.get(request.url)
+
+            spider.logger.info(f"Page was closed. Request finished in: {time.perf_counter() - start_time}seconds")
+
+            # Create an HtmlResponse with the fetched content
+            print("Custom middleware finished in", time.perf_counter() - start_time)
+            return HtmlResponse(
+                url=request.url,
+                body=content,
+                encoding="utf-8",
+                request=request,
+            )
+
+        return None  # Allow other requests to proceed as normal

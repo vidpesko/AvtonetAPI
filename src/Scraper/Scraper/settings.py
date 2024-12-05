@@ -52,7 +52,8 @@ ROBOTSTXT_OBEY = False
 # Enable or disable downloader middlewares
 # See https://docs.scrapy.org/en/latest/topics/downloader-middleware.html
 DOWNLOADER_MIDDLEWARES = {
-    "Scraper.middlewares.NoDriverMiddleware": 543,
+    # "Scraper.middlewares.NoDriverMiddleware": 543,
+    "Scraper.middlewares.ScraperAPIMiddleware": 543,
 }
 
 # Enable or disable extensions

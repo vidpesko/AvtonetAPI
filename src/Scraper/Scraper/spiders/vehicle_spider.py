@@ -13,11 +13,11 @@ class VehicleSpider(scrapy.Spider):
     allowed_domains = ["avto.net"]
     start_urls = [
         # "https://www.avto.net/Ads/details.asp?id=20258324",  # PRODANO
-        # "https://www.avto.net/Ads/details.asp?id=20294615",
-        "https://www.avto.net/Ads/details.asp?id=20293150",
+        # "https://www.avto.net/Ads/details.asp?id=20294615",  # PRODANO
+        # "https://www.avto.net/Ads/details.asp?id=20293150",  # PRODANO
         # "https://www.avto.net/Ads/details.asp?id=20303389",  # PRODANO
-        # "https://www.avto.net/Ads/details.asp?id=20305237&display=Audi%20A7",
-        # "https://www.avto.net/Ads/details.asp?id=20311825&display=Ssangyong%20Rexton",
+        # "https://www.avto.net/Ads/details.asp?id=20305237&display=Audi%20A7",  # PRODANO
+        "https://www.avto.net/Ads/details.asp?id=20311825&display=Ssangyong%20Rexton",
         # "https://www.avto.net/Ads/details.asp?id=20315148&display=Volkswagen%20Tiguan",
         # "https://www.avto.net/Ads/details.asp?id=20315146&display=Audi%20A6%20Avant",
         # "https://www.avto.net/Ads/details.asp?id=20315137&display=Peugeot%205008",
@@ -30,7 +30,7 @@ class VehicleSpider(scrapy.Spider):
 
         if start_urls:
             self.start_urls = start_urls
-        
+
         if kwargs.get("urls"):
             self.start_urls = literal_eval(kwargs["urls"])
 
@@ -42,7 +42,7 @@ class VehicleSpider(scrapy.Spider):
         for url in self.start_urls:
             yield scrapy.Request(
                 url,
-                meta={"use_nodriver": True},
+                meta={"use_scraperapi": True},
             )
 
     def parse(self, response, **kwargs):

@@ -19,7 +19,6 @@ def validate_avtonet_url(url: Annotated[str, Query()]) -> str:
 
 
 def validate_avtonet_vehicle_page_url(url: Annotated[str, Depends(validate_avtonet_url)]):
-    return url
     # Check if url is for avto.net vehicle page -> it should start with "/Ads/details.asp"
     url_parse = urlparse(url)
 

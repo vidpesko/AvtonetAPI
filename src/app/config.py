@@ -21,7 +21,7 @@ class PostgresSettings(BaseSettings):
 
 
 class ScraperSettings(BaseSettings):
-    scraper_allowed_domains: list[str] = ["www.avto.net", "avto.net", "nepremicnine.net"]
+    scraper_allowed_domains: list[str] = ["www.avto.net", "avto.net"]
     scraper_allowed_schemas: list[str] = ["https", ]
 
     # Maximum Vehicle entry age - maximum amount of time before Vehicle needs updating
