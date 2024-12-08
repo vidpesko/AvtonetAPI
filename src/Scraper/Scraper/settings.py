@@ -53,7 +53,8 @@ ROBOTSTXT_OBEY = False
 # See https://docs.scrapy.org/en/latest/topics/downloader-middleware.html
 DOWNLOADER_MIDDLEWARES = {
     # "Scraper.middlewares.NoDriverMiddleware": 543,
-    "Scraper.middlewares.ScraperAPIMiddleware": 543,
+    # "Scraper.middlewares.TimingMiddleware": 530,
+    "Scraper.middlewares.ScraperAPIMiddleware": 540,
 }
 
 # Enable or disable extensions

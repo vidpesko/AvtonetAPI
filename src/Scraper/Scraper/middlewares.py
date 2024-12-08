@@ -6,7 +6,6 @@
 import asyncio, time
 
 from scrapy import signals
-from scrapy import signals
 from scrapy.http import HtmlResponse
 
 import nodriver as uc
@@ -192,12 +191,31 @@ class ScraperAPIMiddleware:
             spider.logger.info(f"Page was closed. Request finished in: {time.perf_counter() - start_time}seconds")
 
             # Create an HtmlResponse with the fetched content
-            print("Custom middleware finished in", time.perf_counter() - start_time)
+            # print("Custom middleware finished in", time.perf_counter() - start_time)
             return HtmlResponse(
                 url=request.url,
-                body=content,
+                body=content["html"],
                 encoding="utf-8",
                 request=request,
             )
 
         return None  # Allow other requests to proceed as normal
+
+
+class TimingMiddleware:
+    def __init__(self):
+        self.start_time = None
+
+    @classmethod
+    def from_crawler(cls, crawler):
+        middleware = cls()
+        crawler.signals.connect(middleware.spider_opened, signal=signals.spider_opened)
+        crawler.signals.connect(middleware.spider_closed, signal=signals.spider_closed)
+        return middleware
+
+    def spider_opened(self):
+        self.start_time = time.perf_counter()
+
+    def spider_closed(self):
+        elapsed_time = time.perf_counter() - self.start_time
+        print(f"Spider run time: {elapsed_time:.2f} seconds")

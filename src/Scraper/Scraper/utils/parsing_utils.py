@@ -97,7 +97,11 @@ def get_id_from_url(url: str) -> int:
 
     parsed_url = urlparse(url)
     try:
-        id = parse_qs(parsed_url.query)["id"][0]
+        id = (
+            parse_qs(parsed_url.query)["id"][0]
+            if parse_qs(parsed_url.query).get("id", False)
+            else parse_qs(parsed_url.query)["ID"][0]
+        )
         return int(id)
     except (IndexError, KeyError):
         raise Exception(f"Url '{url}' does not have id parameter")

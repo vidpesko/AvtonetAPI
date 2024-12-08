@@ -1,6 +1,6 @@
 from ast import literal_eval
 
-import scrapy
+import scrapy, time
 
 from ..items import Vehicle, VehicleLoader, Error
 from .translation_tables import CAR_BASIC_PROPERTY_DATA, CAR_METADATA_PARSING_TABLE, CAR_METADATA_VALUES_TABLE
@@ -12,17 +12,9 @@ class VehicleSpider(scrapy.Spider):
 
     allowed_domains = ["avto.net"]
     start_urls = [
-        # "https://www.avto.net/Ads/details.asp?id=20258324",  # PRODANO
-        # "https://www.avto.net/Ads/details.asp?id=20294615",  # PRODANO
-        # "https://www.avto.net/Ads/details.asp?id=20293150",  # PRODANO
-        # "https://www.avto.net/Ads/details.asp?id=20303389",  # PRODANO
-        # "https://www.avto.net/Ads/details.asp?id=20305237&display=Audi%20A7",  # PRODANO
-        # "https://www.avto.net/Ads/details.asp?id=20311825&display=Ssangyong%20Rexton",  # PRODANO
         # "https://www.avto.net/Ads/details.asp?id=20315148&display=Volkswagen%20Tiguan",
-        # "https://www.avto.net/Ads/details.asp?id=20315146&display=Audi%20A6%20Avant",
-        # "https://www.avto.net/Ads/details.asp?id=20315137&display=Peugeot%205008",
-        # "https://www.avto.net/Ads/details.asp?id=20315130&display=Mercedes-Benz%20C-Razred",
-        "https://www.avto.net/Ads/details.asp?id=20231532&display=Volkswagen%20Jetta",
+        # "https://www.avto.net/Ads/details.asp?id=20231532&display=Volkswagen%20Jetta",
+        "https://www.avto.net/Ads/details.asp?ID=20178302",
     ]
 
     def __init__(self, start_urls = None, name = None, **kwargs):
@@ -41,10 +33,12 @@ class VehicleSpider(scrapy.Spider):
     def start_requests(self):
         # GET request
         for url in self.start_urls:
+            start = time.perf_counter()
             yield scrapy.Request(
                 url,
                 meta={"use_scraperapi": True},
             )
+            print("Request took", time.perf_counter() - start)
 
     def parse(self, response, **kwargs):
         # Initialise and set all attributes on Item object

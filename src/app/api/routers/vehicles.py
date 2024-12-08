@@ -1,3 +1,4 @@
+import time
 from typing import Annotated
 
 from fastapi import APIRouter, Depends
@@ -35,8 +36,9 @@ async def scrape(
     # client = ScraperApiClient("amqp:://localhost/", "avtonet_api_queue")
     # client.connect()
     # return client.get(url)
-
+    start = time.perf_counter()
     job_id = vehicle_scraper.scrape_vehicle_page(url)
+    print("Scraper took:6", time.perf_counter() - start)
     return ScrapeJobResponse(job_id=job_id, url=url)
 
 

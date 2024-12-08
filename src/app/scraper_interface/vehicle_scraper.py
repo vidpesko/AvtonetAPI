@@ -1,10 +1,29 @@
-import sys
-sys.path.insert(0, "/Users/vidpesko/Documents/Learning/Projects/AvtonetAPI/src/app")
-
+import subprocess, time
 from urllib.parse import quote, urlparse, parse_qsl, urlencode, urlunparse
 
 from app.config import settings
-from scraper_interface.tasks import start_spider
+
+
+def generate_spider_params_string(params: dict) -> str:
+    """Generates param string that can be passed to -a argument of scrapy crawl
+
+    Args:
+        params (dict): parameters
+
+    Returns:
+        str: parameter string
+    """
+
+    parameters = ""
+    for key, value in params.items():
+        value = str(value)
+        # Check if spaces are present in value
+        if value.find(" ") == -1:
+            parameters += f"{key}={str(value)} "
+        else:
+            parameters += f"{key}='{str(value)}' "
+
+    return parameters
 
 
 def encode_url(url):
@@ -28,12 +47,38 @@ def encode_url(url):
             parsed_url.fragment,
         )
     )
-
+    print(url, encoded_url)
     return encoded_url
 
 
+def start_spider(spider_name: str, params: dict = None) -> int:
+    """
+    Runs run_spider.sh script. It starts scrapy spider and blocks until finished. After completion, it returns system exit code
+
+    Args:
+        spider_name (str): name of the spider to run
+        params (dict): key-value pairs of scrapy spider parameters (scrapy crawl <spider_name> -a <params>)
+
+    Returns:
+        _type_: _description_
+    """
+
+    # Generate command
+    if params:
+        parameter_string = generate_spider_params_string(params)
+        code = subprocess.call(
+            ["./scraper_interface/run_spider.sh", spider_name, parameter_string],
+        )
+    else:
+        code = subprocess.call(
+            ["./scraper_interface/run_spider.sh", spider_name],
+        )
+
+    return code
+
+
 def scrape_vehicle_page(url: str) -> str:
-    """Wrapper for start_spider function, made specifically for vehicle page
+    """Run scrapy spider for provided url. Url should lead to vehicle page
 
     Args:
         url (str): vehicle page url
@@ -42,7 +87,7 @@ def scrape_vehicle_page(url: str) -> str:
     """
 
     params = {"url": encode_url(url)}
+    process = start_spider(settings.vehicle_page_spider_name, params)
 
-    job = start_spider.delay(settings.vehicle_page_spider_name, params)
-
-    return job.id
+    return "hello"
+    # return job.id

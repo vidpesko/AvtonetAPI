@@ -25,6 +25,7 @@ class ErrorPipeline:
 class VehiclePipeline:
     """
     Handle and process Vehicle item.
+
     Tasks:
         - add avtonet_id
         - store data to database
@@ -38,6 +39,8 @@ class VehiclePipeline:
             avtonet_id = get_id_from_url(adapter.get("url"))
             if avtonet_id:
                 adapter["avtonet_id"] = avtonet_id
+
+        # Save data
 
         return item
 
