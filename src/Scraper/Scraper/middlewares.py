@@ -11,7 +11,7 @@ from scrapy.http import HtmlResponse
 
 import nodriver as uc
 
-from client import client as c  # type: ignore
+from scraperapi.client import ScraperApiClient
 
 
 class ScraperSpiderMiddleware:
@@ -185,9 +185,7 @@ class ScraperAPIMiddleware:
             spider.logger.info(f"Processing request with NoDriver: {request.url}")
             start_time = time.perf_counter()
 
-            print("HEHRHEHR")
-
-            client = c.ScraperApiClient("amqp:://localhost/", "avtonet_api_queue")
+            client = ScraperApiClient("amqp:://localhost/", "avtonet_api_queue")
             client.connect()
             content = client.get(request.url)
 

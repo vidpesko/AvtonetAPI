@@ -17,11 +17,12 @@ class VehicleSpider(scrapy.Spider):
         # "https://www.avto.net/Ads/details.asp?id=20293150",  # PRODANO
         # "https://www.avto.net/Ads/details.asp?id=20303389",  # PRODANO
         # "https://www.avto.net/Ads/details.asp?id=20305237&display=Audi%20A7",  # PRODANO
-        "https://www.avto.net/Ads/details.asp?id=20311825&display=Ssangyong%20Rexton",
+        # "https://www.avto.net/Ads/details.asp?id=20311825&display=Ssangyong%20Rexton",  # PRODANO
         # "https://www.avto.net/Ads/details.asp?id=20315148&display=Volkswagen%20Tiguan",
         # "https://www.avto.net/Ads/details.asp?id=20315146&display=Audi%20A6%20Avant",
         # "https://www.avto.net/Ads/details.asp?id=20315137&display=Peugeot%205008",
         # "https://www.avto.net/Ads/details.asp?id=20315130&display=Mercedes-Benz%20C-Razred",
+        "https://www.avto.net/Ads/details.asp?id=20231532&display=Volkswagen%20Jetta",
     ]
 
     def __init__(self, start_urls = None, name = None, **kwargs):
