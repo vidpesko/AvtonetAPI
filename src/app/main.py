@@ -5,7 +5,7 @@ from fastapi import FastAPI, Query, Depends, HTTPException
 from app.config import settings
 from app.database import session_manager
 from app.models.vehicle import Reflected
-from app.api.routers import vehicles
+from src.app.api.routers import car
 
 
 @asynccontextmanager
@@ -26,4 +26,4 @@ app = FastAPI(lifespan=lifespan, title=settings.project_name, docs_url="/api/doc
 
 
 # Vehicle router: all operation regarding scraping vehicles
-app.include_router(vehicles.router)
+app.include_router(car.router)

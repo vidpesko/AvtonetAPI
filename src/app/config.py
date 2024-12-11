@@ -27,9 +27,14 @@ class ScraperSettings(BaseSettings):
     # Maximum Vehicle entry age - maximum amount of time before Vehicle needs updating
     max_vehicle_age: int = 15  # In minutes
 
-    vehicle_page_spider_name: str = "vehicle"
-    vehicle_listing_spider_name: str = "vehicle_listing"
+    # Shared
     vehicle_page_path_prefix: str = "/Ads/details.asp"
+
+    # Car
+    car_listing_page_spider_name: str = "vehicle"
+    car_listings_spider_name: str = "vehicle_listing"
+
+    # Motorcycle
 
 
 class CelerySettings(BaseSettings):
