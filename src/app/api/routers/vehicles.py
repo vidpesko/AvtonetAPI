@@ -10,7 +10,9 @@ from app.api.dependencies.core import DBSessionDep
 from app.api.dependencies.validation import validate_avtonet_vehicle_page_url
 from app.crud.vehicle_operations import get_vehicle
 from app.schemas.vehicle_schemas import ScrapeJobResponse, VehicleDataResponse
-from app.scraper_interface import vehicle_scraper
+# from app.scraper_interface import vehicle_scraper
+
+from Scraper.Scraper.runner import run_spider
 
 
 router = APIRouter(
@@ -37,25 +39,27 @@ async def scrape(
     # client.connect()
     # return client.get(url)
     start = time.perf_counter()
-    job_id = vehicle_scraper.scrape_vehicle_page(url)
-    print("Scraper took:6", time.perf_counter() - start)
-    return ScrapeJobResponse(job_id=job_id, url=url)
+    # job_id = vehicle_scraper.scrape_vehicle_page(url)
+    output = run_spider("vehicle")
+    print("Scraper took:", time.perf_counter() - start)
+    return output
+    # return ScrapeJobResponse(job_id=job_id, url=url)
 
 
-@router.get("/job/{job_id}")
-async def get(job_id):
-    result = AsyncResult(job_id)
+# @router.get("/job/{job_id}")
+# async def get(job_id):
+#     result = AsyncResult(job_id)
 
-    match result.state:
-        case "FAILURE":
-            return VehicleDataResponse(job_status="error")
-        case "SUCCESS":
-            code = result.get()
-            if code > 0:
-                job_status = "error"
-            else:
-                job_status = "success"
+#     match result.state:
+#         case "FAILURE":
+#             return VehicleDataResponse(job_status="error")
+#         case "SUCCESS":
+#             code = result.get()
+#             if code > 0:
+#                 job_status = "error"
+#             else:
+#                 job_status = "success"
 
-            return VehicleDataResponse(job_status=job_status, job_output_code=code)
-        case "PENDING":
-            return VehicleDataResponse(job_status="processing")
+#             return VehicleDataResponse(job_status=job_status, job_output_code=code)
+#         case "PENDING":
+#             return VehicleDataResponse(job_status="processing")
