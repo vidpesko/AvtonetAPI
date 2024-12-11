@@ -10,11 +10,6 @@ from app.api.routers import vehicles
 
 @asynccontextmanager
 async def lifespan(app: FastAPI):
-    """
-    Function that handles startup and shutdown events.
-    To understand more, read https://fastapi.tiangolo.com/advanced/events/
-    """
-
     # Execute on startup
     Reflected.prepare(session_manager._sync_engine)  # Reflect db using sync engine
     session_manager._sync_engine.dispose()  # Close that engine, it won't be needed

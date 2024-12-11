@@ -10,9 +10,7 @@ from app.api.dependencies.core import DBSessionDep
 from app.api.dependencies.validation import validate_avtonet_vehicle_page_url
 from app.crud.vehicle_operations import get_vehicle
 from app.schemas.vehicle_schemas import ScrapeJobResponse, VehicleDataResponse
-# from app.scraper_interface import vehicle_scraper
-
-from Scraper.Scraper.runner import run_spider
+from app.scraper_interface import vehicle_page
 
 
 router = APIRouter(
@@ -35,31 +33,7 @@ async def scrape(
     Start scraping job
     """
 
-    # client = ScraperApiClient("amqp:://localhost/", "avtonet_api_queue")
-    # client.connect()
-    # return client.get(url)
-    start = time.perf_counter()
-    # job_id = vehicle_scraper.scrape_vehicle_page(url)
-    output = run_spider("vehicle")
-    print("Scraper took:", time.perf_counter() - start)
-    return output
+    # output = run_spider("vehicle")
+    # return output
+    pass
     # return ScrapeJobResponse(job_id=job_id, url=url)
-
-
-# @router.get("/job/{job_id}")
-# async def get(job_id):
-#     result = AsyncResult(job_id)
-
-#     match result.state:
-#         case "FAILURE":
-#             return VehicleDataResponse(job_status="error")
-#         case "SUCCESS":
-#             code = result.get()
-#             if code > 0:
-#                 job_status = "error"
-#             else:
-#                 job_status = "success"
-
-#             return VehicleDataResponse(job_status=job_status, job_output_code=code)
-#         case "PENDING":
-#             return VehicleDataResponse(job_status="processing")

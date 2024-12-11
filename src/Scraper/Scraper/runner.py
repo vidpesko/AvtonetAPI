@@ -32,7 +32,6 @@ def load_pipelines(pipelines_dict: list[dict]) -> list[ModuleType]:
 def get_spider_from_name(
     spider_name, spiders_module="Scraper.Scraper.spiders"
 ) -> typing.Type[scrapy.Spider]:
-    print(sys.path)
     module = importlib.import_module(spiders_module)
 
     for _, module_name, is_pkg in pkgutil.iter_modules(module.__path__):
@@ -40,19 +39,20 @@ def get_spider_from_name(
             spider_module = importlib.import_module(f"{spiders_module}.{module_name}")
             for cls in iter_spider_classes(spider_module):
                 if cls.name == spider_name:
-                    return cls()
+                    return cls
 
     raise ValueError(f"No spider with name '{spider_name}' exists")
 
 
-def run_spider(Spider: typing.Type[scrapy.Spider] | str) -> list[scrapy.Item]:
+def run_spider(Spider: typing.Type[scrapy.Spider] | str, parameters: dict) -> list[scrapy.Item]:
     imported_pipelines = load_pipelines(ITEM_PIPELINES)
 
     # If spider name is provided
     if isinstance(Spider, str):
-        spider = get_spider_from_name(Spider)
+        _spider = get_spider_from_name(Spider)
+        spider = _spider(**parameters)
     else:
-        spider = Spider()
+        spider = Spider(**parameters)
 
     output = []
 
