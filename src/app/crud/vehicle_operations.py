@@ -5,14 +5,14 @@ from sqlalchemy.ext.asyncio import AsyncSession
 from app.models import Vehicle as VehicleDBModel
 
 
-async def get_vehicle(db_session: AsyncSession, vehicle_id: int):
+async def get_vehicle_from_db(db_session: AsyncSession, vehicle_id: int):
     vehicle = (
         await db_session.scalars(
             select(VehicleDBModel).where(VehicleDBModel.id == vehicle_id)
         )
     ).first()
-    if not vehicle:
-        raise HTTPException(status_code=404, detail="User not found")
+    # if not vehicle:
+    #     raise HTTPException(status_code=404, detail="Vehicle not found")
     return vehicle
 
 

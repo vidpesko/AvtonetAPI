@@ -14,5 +14,3 @@ class Reflected(DeferredReflection):
 class Vehicle(Reflected, Base):
     __tablename__ = "vehicles"
 
-
-# class VehicleImages(Base):
