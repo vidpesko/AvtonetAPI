@@ -13,6 +13,16 @@ from .middlewares import ScraperAPIMiddleware
 from . import pipelines
 
 
+def generate_exception_response(description: str, exception: Exception):
+    return {
+        "exception": True,
+        "exception_type": "scraper_exception",
+        "description": description,
+        "str": str(exception),
+        "repr": repr(exception),
+    }
+
+
 def load_pipelines(pipelines_dict: list[dict]) -> list[ModuleType]:
     ordered_pipelines = list(pipelines_dict.items())
     ordered_pipelines.sort(key=lambda x: x[1])
@@ -59,7 +69,17 @@ def run_spider(Spider: typing.Type[scrapy.Spider] | str, parameters: dict) -> li
     for request in spider.start_requests():
         # For every request, use custom middleware to fetch requests via ScraperAPI
         middleware = ScraperAPIMiddleware()
-        response = middleware.process_request(request, spider)
+
+        try:
+            response = middleware.process_request(request, spider)
+        except TimeoutError as exc:
+            exception = generate_exception_response("Timeout reached", exc)
+            output.append(exception)
+            continue
+        except Exception as exc:
+            exception = generate_exception_response("Exception has occured", exc)
+            output.append(exception)
+            continue
 
         # Process items using pipelines
         for item in spider.parse(response):

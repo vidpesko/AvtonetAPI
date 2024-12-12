@@ -29,8 +29,13 @@ class CarInterface:
             "url": url
         }
 
-        response = run_spider(settings.car_listing_page_spider_name, parameters)
-        return response[0]
+        response = run_spider(settings.car_listing_page_spider_name, parameters)[0]
+
+        # Check for errors
+        if response.get("exception", False):
+            return response
+
+        return response
 
     def get_listings_page(self):
         pass
