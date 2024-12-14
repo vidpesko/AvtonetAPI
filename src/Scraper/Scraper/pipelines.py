@@ -15,13 +15,14 @@ from .utils.parsing_utils import get_id_from_url
 
 
 try:
-    from shared.models import Vehicle as VehicleDB
-    from shared.config import settings
+    import shared
 except ModuleNotFoundError:
     src_path = Path.cwd().parent.parent.absolute()
     sys.path.append(str(src_path))
+finally:
     from shared.models import Vehicle as VehicleDB
     from shared.models import Seller as SellerDB
+    from shared.models import VehicleImage as ImageDB
     from shared.config import settings
 
 
@@ -66,13 +67,13 @@ class VehiclePipeline:
             del item_dict["seller_type"]
 
             # Save thumbnails
-            item_images = adapter.get("images")
-            item_thumbnails = adapter.get("thumbnails")
-            images = session.get()
+            # item_images = adapter.get("images")
+            # item_thumbnails = adapter.get("thumbnails")
+            # images = session.get()
             
 
             # Save seller
-            seller = session.get(SellerDB, adapter.get(""))
+            # seller = session.get(SellerDB, adapter.get(""))
 
             vehicle = session.get(VehicleDB, adapter.get("avtonet_id"))
 

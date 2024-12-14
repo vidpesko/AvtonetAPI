@@ -44,7 +44,7 @@ class Vehicle(Base):
     created_at: Mapped[DateTime] = mapped_column(DateTime, server_default=func.now())
 
     seller: Mapped["Seller"] = relationship(back_populates="vehicles")
-    images: Mapped["VehicleImage"] = relationship(back_populates="vehicle")
+    images: Mapped[List["VehicleImage"]] = relationship(back_populates="vehicle")
 
     def __str__(self):
         return f"Vehicle(avtonet_id={self.avtonet_id}, vehicle_name={self.vehicle_name}, url={self.url})"
@@ -67,5 +67,10 @@ class VehicleImage(Base):
 
     image_id: Mapped[int] = mapped_column(primary_key=True)
     avtonet_url: Mapped[str]
+    removed: Mapped[bool] = mapped_column(default=False)
+    index: Mapped[int]
     vehicle_id: Mapped[int] = mapped_column(ForeignKey("vehicles.avtonet_id"))
     vehicle: Mapped["Vehicle"] = relationship(back_populates="images")
+
+    def __str__(self):
+        return f"{"X " if self.removed else ""}VehicleImage(image_id={self.image_id}, avtonet_url={self.avtonet_url}, vehicle_id={self.vehicle_id})"

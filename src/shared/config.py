@@ -3,11 +3,15 @@ from pathlib import Path
 from pydantic_settings import BaseSettings, SettingsConfigDict
 
 
-# dotenv_path = os.path.join(os.path.abspath(os.path.join(os.getcwd(), os.pardir)), ".env")
-dotenv_path = Path.cwd().parent.absolute() / ".env"
-if not list(dotenv_path.glob(".env")):
-    print(list(dotenv_path.glob(".env")))
-    dotenv_path = dotenv_path.parent.parent.absolute() / ".env"
+cwd = Path.cwd()
+dotenv_path = cwd / ".env"
+if not list(cwd.glob(".env")):
+    cwd = cwd.parent
+    dotenv_path = cwd / ".env"
+
+    if not list(cwd.glob(".env")):
+        cwd = cwd.parent
+        dotenv_path = cwd / ".env"
 
 
 class ProjectSettings(BaseSettings):
@@ -24,7 +28,6 @@ class PostgresSettings(BaseSettings):
 
     echo_sql: bool = False
 
-
     def create_engine_url(self, async_driver: bool = False) -> str:
         """Generate engine url using pydantic_settings class
 
@@ -38,10 +41,11 @@ class PostgresSettings(BaseSettings):
         return f"postgresql{"+asyncpg" if async_driver else ""}://{self.postgres_username}:{self.postgres_password}@{self.postgres_host}:{self.postgres_port}/{self.postgres_database}"
 
 
-
 class ScraperSettings(BaseSettings):
     scraper_allowed_domains: list[str] = ["www.avto.net", "avto.net"]
-    scraper_allowed_schemas: list[str] = ["https", ]
+    scraper_allowed_schemas: list[str] = [
+        "https",
+    ]
 
     # Maximum Vehicle entry age - maximum amount of time before Vehicle needs updating
     max_vehicle_age: int = 15  # In minutes
@@ -62,7 +66,9 @@ class CelerySettings(BaseSettings):
 
 
 class Settings(ProjectSettings, PostgresSettings, ScraperSettings, CelerySettings):
-    model_config = SettingsConfigDict(env_file=str(dotenv_path), env_file_encoding="utf-8", extra="ignore")
+    model_config = SettingsConfigDict(
+        env_file=str(dotenv_path), env_file_encoding="utf-8", extra="ignore"
+    )
 
 
 settings = Settings()
