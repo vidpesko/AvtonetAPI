@@ -1,3 +1,6 @@
+import sys
+from pathlib import Path
+
 import scrapy.item
 
 # useful for handling different item types with a single interface
@@ -9,6 +12,17 @@ from sqlalchemy.orm import Session
 from .items import Vehicle, Error
 from .utils.formatting_utils import cleanse_str
 from .utils.parsing_utils import get_id_from_url
+
+
+try:
+    from shared.models import Vehicle as VehicleDB
+    from shared.config import settings
+except ModuleNotFoundError:
+    src_path = Path.cwd().parent.parent.absolute()
+    sys.path.append(str(src_path))
+    from shared.models import Vehicle as VehicleDB
+    from shared.models import Seller as SellerDB
+    from shared.config import settings
 
 
 class ErrorPipeline:
@@ -44,7 +58,38 @@ class VehiclePipeline:
                 adapter["avtonet_id"] = avtonet_id
 
         # Save data
+        engine = create_engine(settings.create_engine_url())
+        with Session(engine) as session:
+            item_dict = item.to_dict()
+            del item_dict["images"]
+            del item_dict["thumbnails"]
+            del item_dict["seller_type"]
 
+            # Save thumbnails
+            item_images = adapter.get("images")
+            item_thumbnails = adapter.get("thumbnails")
+            images = session.get()
+            
+
+            # Save seller
+            seller = session.get(SellerDB, adapter.get(""))
+
+            vehicle = session.get(VehicleDB, adapter.get("avtonet_id"))
+
+            if vehicle:
+                for key, value in item_dict.items():
+                    vehicle.__setattr__(key, value)
+            else:
+                vehicle = VehicleDB(
+                    **item_dict
+                )
+
+                # Dummy seller
+                seller = SellerDB(seller_type="person")
+                seller.vehicles.append(vehicle)
+                session.add(vehicle)
+
+            session.commit()
 
         return item
 

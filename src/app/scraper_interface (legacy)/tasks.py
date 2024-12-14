@@ -3,9 +3,9 @@ import subprocess
 from celery import Celery
 
 try:
-    from app.config import settings
+    from shared.config import settings
 except ModuleNotFoundError:
-    from config import settings
+    from shared.config import settings
 
 
 app = Celery(

@@ -36,13 +36,15 @@ class Vehicle(Base):
     engine_power: Mapped[Optional[int]]
     comment: Mapped[Optional[str]]
     description: Mapped[Optional[str]]
-    metadata_: Mapped[Optional[dict]] = mapped_column("metadata", JSONB)
+    additional_data: Mapped[Optional[dict]] = mapped_column(JSONB)
     seller_id: Mapped[int] = mapped_column(ForeignKey("sellers.seller_id"))
-    seller: Mapped["Seller"] = relationship(back_populates="vehicles")
     updated_at: Mapped[DateTime] = mapped_column(
         DateTime, server_default=func.now(), onupdate=func.now()
     )
     created_at: Mapped[DateTime] = mapped_column(DateTime, server_default=func.now())
+
+    seller: Mapped["Seller"] = relationship(back_populates="vehicles")
+    images: Mapped["VehicleImage"] = relationship(back_populates="vehicle")
 
     def __str__(self):
         return f"Vehicle(avtonet_id={self.avtonet_id}, vehicle_name={self.vehicle_name}, url={self.url})"
@@ -58,3 +60,12 @@ class Seller(Base):
 
     def __str__(self):
         return f"Seller(seller_id={self.seller_id}, seller_type={self.seller_type})"
+
+
+class VehicleImage(Base):
+    __tablename__ = "vehicle_images"
+
+    image_id: Mapped[int] = mapped_column(primary_key=True)
+    avtonet_url: Mapped[str]
+    vehicle_id: Mapped[int] = mapped_column(ForeignKey("vehicles.avtonet_id"))
+    vehicle: Mapped["Vehicle"] = relationship(back_populates="images")

@@ -1,7 +1,6 @@
 import contextlib
 from typing import Any, AsyncIterator
 
-from app.config import settings
 from sqlalchemy import create_engine
 from sqlalchemy.ext.asyncio import (
     AsyncConnection,
@@ -11,7 +10,7 @@ from sqlalchemy.ext.asyncio import (
 )
 from sqlalchemy.orm import DeclarativeBase
 
-from app.utils import create_engine_url
+from shared.config import settings
 
 
 class Base(DeclarativeBase):
@@ -71,8 +70,7 @@ class DatabaseSessionManager:
 
 
 session_manager = DatabaseSessionManager(
-    create_engine_url(settings, async_driver=True),
-    # create_engine_url(settings, async_driver=False),
+    settings.create_engine_url(async_driver=True),
     {"echo": settings.echo_sql},
 )
 

@@ -1,8 +1,13 @@
-import os
+from pathlib import Path
+
 from pydantic_settings import BaseSettings, SettingsConfigDict
 
 
-dotenv_path = os.path.join(os.path.abspath(os.path.join(os.getcwd(), os.pardir)), ".env")
+# dotenv_path = os.path.join(os.path.abspath(os.path.join(os.getcwd(), os.pardir)), ".env")
+dotenv_path = Path.cwd().parent.absolute() / ".env"
+if not list(dotenv_path.glob(".env")):
+    print(list(dotenv_path.glob(".env")))
+    dotenv_path = dotenv_path.parent.parent.absolute() / ".env"
 
 
 class ProjectSettings(BaseSettings):
@@ -18,6 +23,20 @@ class PostgresSettings(BaseSettings):
     postgres_database: str
 
     echo_sql: bool = False
+
+
+    def create_engine_url(self, async_driver: bool = False) -> str:
+        """Generate engine url using pydantic_settings class
+
+        Args:
+            settings (Settings): Settings class
+
+        Returns:
+            str
+        """
+
+        return f"postgresql{"+asyncpg" if async_driver else ""}://{self.postgres_username}:{self.postgres_password}@{self.postgres_host}:{self.postgres_port}/{self.postgres_database}"
+
 
 
 class ScraperSettings(BaseSettings):
@@ -43,7 +62,7 @@ class CelerySettings(BaseSettings):
 
 
 class Settings(ProjectSettings, PostgresSettings, ScraperSettings, CelerySettings):
-    model_config = SettingsConfigDict(env_file=dotenv_path, env_file_encoding="utf-8", extra="ignore")
+    model_config = SettingsConfigDict(env_file=str(dotenv_path), env_file_encoding="utf-8", extra="ignore")
 
 
 settings = Settings()

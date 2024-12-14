@@ -2,20 +2,7 @@ import datetime
 from urllib.parse import urlparse
 from urllib.parse import parse_qs
 
-from app.config import Settings
-
-
-def create_engine_url(settings: Settings, async_driver: bool=False) -> str:
-    """Generate engine url using pydantic_settings class
-
-    Args:
-        settings (Settings): Settings class
-
-    Returns:
-        str
-    """
-
-    return f"postgresql{"+asyncpg" if async_driver else ""}://{settings.postgres_username}:{settings.postgres_password}@{settings.postgres_host}:{settings.postgres_port}/{settings.postgres_database}"
+from shared.config import Settings
 
 
 def extract_vehicle_id(url: str) -> int:

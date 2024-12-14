@@ -56,8 +56,8 @@ class VehicleSpider(scrapy.Spider):
 
         # Name
         raw_name_selector = response.css("h3")[0]
-        vehicle.add_value("name", raw_name_selector.css("::text").get())
-        vehicle.add_value("full_name", "".join(raw_name_selector.css("*::text").getall()))
+        vehicle.add_value("vehicle_name", raw_name_selector.css("::text").get())
+        vehicle.add_value("vehicle_full_name", "".join(raw_name_selector.css("*::text").getall()))
 
         # Price
         vehicle.add_css("price", ".h2 *::text")  # Regular price, without any modifiers (discounts,...)
@@ -90,7 +90,7 @@ class VehicleSpider(scrapy.Spider):
         vehicle.add_xpath("description", "//div[@id='StareOpombe']/node()")
 
         # Tables
-        metadata = {}
+        additional_data = {}
         tables_selector = response.xpath(
             "//div[contains(@class, 'col-12') and .//table[thead/tr/th[contains(text(), 'Osnovni podatki')]]]/table"
         )  # Select all tables
@@ -107,9 +107,9 @@ class VehicleSpider(scrapy.Spider):
             table_data = parsing_func(table, CAR_METADATA_VALUES_TABLE)
 
             new_table_title = table_handle_dict["new_table_title"]
-            metadata[new_table_title] = table_data
+            additional_data[new_table_title] = table_data
 
-        vehicle.add_value("metadata", metadata)
+        vehicle.add_value("additional_data", additional_data)
 
         # Seller type
         vehicle.add_css("seller_type", "#DealerAddress::text")

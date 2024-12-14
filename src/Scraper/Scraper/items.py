@@ -20,8 +20,8 @@ class Vehicle:
     Defines all shared attributes
     """
     url: str | None = field(default=None)
-    name: str | None = field(default=None)
-    full_name: str | None = field(default=None)
+    vehicle_name: str | None = field(default=None)
+    vehicle_full_name: str | None = field(default=None)
     avtonet_id: int | None = field(default=None)
     # Price
     price: int | None = field(default=None)
@@ -38,8 +38,8 @@ class Vehicle:
     comment: str | None = field(default=None)
     # Description
     description: str | None = field(default=None)
-    # Inconsistent data / metadata
-    metadata: dict = field(default_factory=dict)
+    # Inconsistent data
+    additional_data: dict = field(default_factory=dict)
     # Seller
     seller_type: str | None = field(default=None)
     # Images
@@ -83,8 +83,8 @@ class VehicleLoader(ItemLoader):
     )
 
     # Metadata
-    metadata_in = Identity()
-    metadata_out = take_last
+    additional_data_in = Identity()
+    additional_data_out = take_last
 
     # Seller type
     seller_type_in = process_seller_type

@@ -1,7 +1,7 @@
 import subprocess, time
 from urllib.parse import quote, urlparse, parse_qsl, urlencode, urlunparse
 
-from app.config import settings
+from shared.config import settings
 
 
 def generate_spider_params_string(params: dict) -> str:

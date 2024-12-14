@@ -9,7 +9,7 @@ from app.api.dependencies.core import DBSessionDep
 from app.api.dependencies.validation import validate_avtonet_vehicle_page_url
 from app.crud.vehicle_operations import get_vehicle_from_db
 from app.utils import get_time_difference
-from app.config import settings
+from shared.config import settings
 # from app.schemas.vehicle_schemas import ScrapeJobResponse, VehicleDataResponse
 from app.scraper_interface import CarInterface
 

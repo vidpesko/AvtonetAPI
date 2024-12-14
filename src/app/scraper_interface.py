@@ -11,7 +11,8 @@ except ModuleNotFoundError:
     sys.path.append(src_path)
 
     from Scraper.Scraper.runner import run_spider
-from app.config import settings
+
+from shared.config import settings
 
 
 class CarInterface:

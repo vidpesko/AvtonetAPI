@@ -2,9 +2,9 @@ from contextlib import asynccontextmanager
 
 from fastapi import FastAPI, Query, Depends, HTTPException
 
-from app.config import settings
+from shared.config import settings
 from app.database import session_manager
-from src.app.api.routers import car
+from app.api.routers import car
 
 
 @asynccontextmanager

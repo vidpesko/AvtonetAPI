@@ -3,7 +3,7 @@ from typing import Annotated
 
 from fastapi import Query, HTTPException, Depends
 
-from app.config import settings
+from shared.config import settings
 from app.utils import extract_vehicle_id
 
 
