@@ -3,6 +3,9 @@ import scrapy.item
 # useful for handling different item types with a single interface
 from itemadapter import ItemAdapter
 
+from sqlalchemy import create_engine
+from sqlalchemy.orm import Session
+
 from .items import Vehicle, Error
 from .utils.formatting_utils import cleanse_str
 from .utils.parsing_utils import get_id_from_url
@@ -41,6 +44,7 @@ class VehiclePipeline:
                 adapter["avtonet_id"] = avtonet_id
 
         # Save data
+
 
         return item
 

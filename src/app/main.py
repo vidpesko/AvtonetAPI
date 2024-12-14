@@ -4,15 +4,15 @@ from fastapi import FastAPI, Query, Depends, HTTPException
 
 from app.config import settings
 from app.database import session_manager
-from app.models.vehicle import Reflected
 from src.app.api.routers import car
 
 
 @asynccontextmanager
 async def lifespan(app: FastAPI):
     # Execute on startup
-    Reflected.prepare(session_manager._sync_engine)  # Reflect db using sync engine
-    session_manager._sync_engine.dispose()  # Close that engine, it won't be needed
+    # Reflected.prepare(session_manager._sync_engine)  # Reflect db using sync engine
+    # session_manager._sync_engine.dispose()  # Close that engine, it won't be needed
+    await session_manager.create_tables()
 
     yield
 

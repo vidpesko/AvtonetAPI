@@ -22,10 +22,10 @@ class Base(DeclarativeBase):
 # Heavily inspired by https://praciano.com.br/fastapi-and-async-sqlalchemy-20-with-pytest-done-right.html
 class DatabaseSessionManager:
     def __init__(
-        self, async_host: str, sync_host: str, engine_kwargs: dict[str, Any] = {}
+        self, async_host: str, engine_kwargs: dict[str, Any] = {}
     ):
         self._async_engine = create_async_engine(async_host, **engine_kwargs)
-        self._sync_engine = create_engine(sync_host, **engine_kwargs)  # sync engine is used only for db migration
+        # self._sync_engine = create_engine(sync_host, **engine_kwargs)  # sync engine is used only for db migration
 
         self._sessionmaker = async_sessionmaker(
             autocommit=False, bind=self._async_engine, expire_on_commit=False
@@ -65,10 +65,14 @@ class DatabaseSessionManager:
         finally:
             await session.close()
 
+    async def create_tables(self):
+        async with self._async_engine.begin() as conn:
+            await conn.run_sync(Base.metadata.create_all)
+
 
 session_manager = DatabaseSessionManager(
     create_engine_url(settings, async_driver=True),
-    create_engine_url(settings, async_driver=False),
+    # create_engine_url(settings, async_driver=False),
     {"echo": settings.echo_sql},
 )
 

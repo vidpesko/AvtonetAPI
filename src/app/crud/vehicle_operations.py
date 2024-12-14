@@ -2,13 +2,13 @@ from fastapi import HTTPException
 from sqlalchemy import select
 from sqlalchemy.ext.asyncio import AsyncSession
 
-from app.models import Vehicle as VehicleDBModel
+from shared.models import Vehicle as VehicleDBModel
 
 
-async def get_vehicle_from_db(db_session: AsyncSession, vehicle_id: int):
+async def get_vehicle_from_db(db_session: AsyncSession, avtonet_id: int):
     vehicle = (
         await db_session.scalars(
-            select(VehicleDBModel).where(VehicleDBModel.id == vehicle_id)
+            select(VehicleDBModel).where(VehicleDBModel.avtonet_id == avtonet_id)
         )
     ).first()
     # if not vehicle:
