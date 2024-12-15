@@ -38,6 +38,8 @@ class Vehicle(Base):
     description: Mapped[Optional[str]]
     additional_data: Mapped[Optional[dict]] = mapped_column(JSONB)
     seller_id: Mapped[int] = mapped_column(ForeignKey("sellers.seller_id"))
+    archive_technical_data_url: Mapped[Optional[str]]
+    published_on_avtonet: Mapped[DateTime] = mapped_column(DateTime)
     updated_at: Mapped[DateTime] = mapped_column(
         DateTime, server_default=func.now(), onupdate=func.now()
     )
@@ -55,11 +57,30 @@ class Seller(Base):
 
     seller_id: Mapped[int] = mapped_column(primary_key=True, nullable=False)
     seller_type: Mapped[str]
-    # name: Mapped[Optional[str]]
+    name: Mapped[Optional[str]]
+    email: Mapped[Optional[str]]
+    registered_from: Mapped[Optional[DateTime]] = mapped_column(DateTime)
+    address: Mapped[Optional[str]]
+    opening_hours: Mapped[Optional[dict]] = mapped_column(JSONB)
+    presentation: Mapped[Optional[str]]
+    logo: Mapped[Optional[str]]
+    tax_number: Mapped[Optional[str]]
+
+    phone_numbers: Mapped[List["SellerPhoneNumber"]] = relationship(back_populates="seller")
     vehicles: Mapped[List["Vehicle"]] = relationship(back_populates="seller")
 
     def __str__(self):
         return f"Seller(seller_id={self.seller_id}, seller_type={self.seller_type})"
+
+
+class SellerPhoneNumber(Base):
+    __tablename__ = "sellers_phone_numbers"
+
+    seller_id: Mapped[int] = mapped_column(ForeignKey("sellers.seller_id"))
+    phone_number: Mapped[str]
+    description: Mapped[Optional[str]]
+
+    seller: Mapped["Seller"] = relationship(back_populates="phone_numbers")
 
 
 class VehicleImage(Base):

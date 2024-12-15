@@ -34,16 +34,26 @@ if __name__ == "__main__":
             # "https://images.avto.net/photo/20178302/8044531.jpg",
         ]
 
+        seller = {
+            "name": "AvtoPlanet",
+            "seller_type": "company",
+            "email": "mail@someone.si",
+            "phone_numbers": [],
+            "link": "link-to-something.com",
+            "address": "Celjanova ulica 15, Celje",
+            "seller_description": "lorem ipsum,.....",
+            "avtonet_broker_id": 100230,
+        }
+
         vehicle = session.get(VehicleDB, vehicle_id)
 
+        # Process images
         if vehicle.images:
             vehicle.images.sort(key=lambda x: x.index)
             old_images_urls = [image.avtonet_url for image in vehicle.images]
 
             # Check if any changes were made to images
-            if old_images_urls == images:
-                print("true")
-            else:
+            if old_images_urls != images:
                 # Check if any image were removed
                 already_removed_images = [
                     image for image in vehicle.images if image.removed
@@ -74,10 +84,11 @@ if __name__ == "__main__":
                         image.removed = False
 
                 session.commit()
-
         else:
             for index, url in enumerate(images):
                 image = ImageDB(avtonet_url=url, vehicle=vehicle, index=index)
                 session.add(image)
 
             session.commit()
+
+        # Process seller
