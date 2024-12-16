@@ -22,6 +22,7 @@ class VehicleSpider(scrapy.Spider):
         # "https://www.avto.net/Ads/details.asp?ID=20178302",
         "file:///Users/vidpesko/Documents/Learning/Projects/AvtonetAPI/src/Scraper/Scraper/spiders/site2.html",
         "file:///Users/vidpesko/Documents/Learning/Projects/AvtonetAPI/src/Scraper/Scraper/spiders/person.html",
+        "file:///Users/vidpesko/Documents/Learning/Projects/AvtonetAPI/src/Scraper/Scraper/spiders/company2.html",
     ]
 
     def __init__(self, start_urls=None, name=None, **kwargs):
@@ -120,6 +121,8 @@ class VehicleSpider(scrapy.Spider):
             "//div[contains(@class, 'col-12') and .//table[thead/tr/th[contains(text(), 'Osnovni podatki')]]]/table"
         )  # Select all tables
         # Enumerate all tables and add values to metadata dict
+        location = None  # This will be populated later
+
         for table in tables_selector:
             # Get table title
             table_title = get_table_title(table)
@@ -132,6 +135,11 @@ class VehicleSpider(scrapy.Spider):
             table_data = parsing_func(table, CAR_METADATA_VALUES_TABLE)
 
             new_table_title = table_handle_dict["new_table_title"]
+
+            # Get location
+            if new_table_title == "basic_data":
+                location = table_data.get("location")
+
             additional_data[new_table_title] = table_data
 
         vehicle.add_value("additional_data", additional_data)
@@ -159,13 +167,13 @@ class VehicleSpider(scrapy.Spider):
             name = seller_info_container.css("strong::text").get()
             # Location
             try:
-                location = (
+                seller_location = (
                     seller_info_container.xpath("//a[@data-target='#MapModal']")[0]
                     .css("*::text")
                     .getall()
                 )
             except IndexError:
-                location = None
+                seller_location = None
             # Phone numbers
             phone_container = seller_info_container.css(".list-unstyled li")
             seller.add_value(
@@ -199,7 +207,7 @@ class VehicleSpider(scrapy.Spider):
                     .css("::text")
                     .getall()
                 )
-                # print(email)  # TODO: I get EMAIL PROTECTED???
+                email = None  # TODO: I get EMAIL PROTECTED???
             except IndexError:
                 email = None
             # Opening hours
@@ -238,18 +246,24 @@ class VehicleSpider(scrapy.Spider):
                 seller.add_value("tax_number", tax_number)
             except IndexError:
                 tax_number = None
+        # Seller info - person
         except IndexError:
-            # Seller info - person
-            location = "few"
-            name = "fex"
-            email = "fex"
-            registered_from = "some"
+            seller_location = location
+            name = seller_container.css(".h5 *::text").get()
+            phone_number = seller_container.css(".h3 *::text").get()
+            seller.add_value("phone_number", phone_number)
+            registered_from = seller_container.css("li *::text")[-1].get()
 
-        seller.add_value("name", name)  # Name
-        seller.add_value("address", location)
-        seller.add_value("email", email)
+            email = None  # TODO: Email protected??
+
+        seller.add_value("name", name)
+        seller.add_value("address", seller_location)
+        # seller.add_value("email", email)
         seller.add_value("registered_from", registered_from)
         vehicle.add_value("seller", seller.load_item())
+
+        # Add location
+        vehicle.add_value("location", seller_location)
 
         # Images
         vehicle.add_value(

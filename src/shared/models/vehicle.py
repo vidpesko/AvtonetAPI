@@ -29,6 +29,7 @@ class Vehicle(Base):
     discount_price: Mapped[Optional[int]]
     price_verbose: Mapped[Optional[str]]
     first_registration: Mapped[Optional[str]]
+    location: Mapped[Optional[str]]
     new_vehicle: Mapped[Optional[bool]]
     available: Mapped[bool] = mapped_column(default=True)
     mileage: Mapped[Optional[int]]
@@ -40,7 +41,8 @@ class Vehicle(Base):
     additional_data: Mapped[Optional[dict]] = mapped_column(JSONB)
     seller_id: Mapped[int] = mapped_column(ForeignKey("sellers.seller_id"))
     archive_technical_data_url: Mapped[Optional[str]]
-    published_on_avtonet: Mapped[DateTime] = mapped_column(DateTime)
+    published_on_avtonet_at: Mapped[DateTime] = mapped_column(DateTime)
+
     updated_at: Mapped[DateTime] = mapped_column(
         DateTime, server_default=func.now(), onupdate=func.now()
     )
@@ -58,19 +60,24 @@ class Seller(Base):
 
     seller_id: Mapped[int] = mapped_column(primary_key=True, nullable=False)
     seller_type: Mapped[str]
+
     # Seller -person
     name: Mapped[Optional[str]]
     email: Mapped[Optional[str]]
     registered_from: Mapped[Optional[DateTime]] = mapped_column(DateTime)
     address: Mapped[Optional[str]]
+    phone_number: Mapped[Optional[str]]  # This is needed, because individual sellers can have only one phone number, so additional table is not needed. If seller is company, than this will be null
+
     # Seller - company
-    opening_hours: Mapped[Optional[dict]] = mapped_column(JSONB)
     presentation: Mapped[Optional[str]]
     logo: Mapped[Optional[str]]
     website: Mapped[Optional[str]]
     tax_number: Mapped[Optional[str]]
 
     phone_numbers: Mapped[List["SellerPhoneNumber"]] = relationship(back_populates="seller")
+    opening_hours: Mapped[List["SellerOpeningHours"]] = relationship(
+        back_populates="seller"
+    )
     vehicles: Mapped[List["Vehicle"]] = relationship(back_populates="seller")
 
     def __str__(self):
@@ -86,6 +93,18 @@ class SellerPhoneNumber(Base):
     description: Mapped[Optional[str]]
 
     seller: Mapped["Seller"] = relationship(back_populates="phone_numbers")
+
+
+class SellerOpeningHours(Base):
+    __tablename__ = "sellers_opening_hours"
+
+    opening_hour_id: Mapped[int] = mapped_column(primary_key=True)
+    seller_id: Mapped[int] = mapped_column(ForeignKey("sellers.seller_id"))
+    day: Mapped[str]
+    open_from: Mapped[int]  # Minutes past midnight. If closed, set both to 0
+    open_to: Mapped[int]
+
+    seller: Mapped["Seller"] = relationship(back_populates="opening_hours")
 
 
 class VehicleImage(Base):

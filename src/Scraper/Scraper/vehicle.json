@@ -10,9 +10,10 @@
         "first_registration": "2021 / 6",
         "new_vehicle": false,
         "mileage": 87302,
-        "num_of_owners": "1",
+        "num_of_owners": 1,
         "fuel_type": "hibridni pogon",
         "engine_power": 165,
+        "location": "Ptujska cesta 68, 2204 Miklavž na Dravskem polju",
         "comment": null,
         "description": null,
         "additional_data": {
@@ -29,7 +30,7 @@
                 "Št.vrat": "5 vr.",
                 "Barva": "svetlo siva metalik",
                 "Notranjost": "temno siva / delno usnje",
-                "Kraj ogleda": ","
+                "location": ","
             },
             "other_data": {
                 "Podvozje": [
@@ -106,10 +107,11 @@
         },
         "seller": {
             "seller_type": "company",
-            "name": "AVTO MIKLAVŽ d.o.o.",
-            "email": "[email protected]",
+            "name": "AVTO MIKLAVŽ d.o.o.",
+            "email": null,
             "address": "Ptujska cesta 68, 2204 Miklavž na Dravskem polju",
             "registered_from": "Registriran kot trgovec na www.avto.net od 1.10.2002",
+            "phone_number": null,
             "opening_hours": [
                 [
                     "Ponedeljek",
@@ -208,9 +210,10 @@
         "first_registration": "2007 / 9",
         "new_vehicle": false,
         "mileage": null,
-        "num_of_owners": "?",
+        "num_of_owners": null,
         "fuel_type": "bencin",
         "engine_power": 147,
+        "location": "3320 Velenje, Slovenija",
         "comment": null,
         "description": "Prodam omenjeno vozilo Golf 5 GTI 2.0 TFSI 2007 Letnik 302k prevoženih Avto je v odličnem stanju mehansko je tiptop dobil sem ga v račun ima vse račune narejen mali ter glavni servis generalka motorja narejena vozilo kar se tiče mehanike ni potrebno niti centa vložiti olje nepije vodo tudi ne kar se tiče notranjosti tudi v odličnem stanju ima zimske gume na 18col felgnah zadaj je R32 izgled ima tudi športni zvok za več info lahko pišeš v zs menjave so tudi možne z mojim ali vašim doplačilom za resnega kupca cena ni zadnja",
         "additional_data": {
@@ -222,7 +225,7 @@
                 "Menjalnik": "ročni menjalnik (6 pr.)",
                 "Oblika": "kombilimuzina / hatchback",
                 "Št.vrat": "5 vr.",
-                "Kraj ogleda": "3320 Velenje, Slovenija"
+                "location": "3320 Velenje, Slovenija"
             },
             "emission_data": {
                 "Kombinirana vožnja": "od 8 lit. / 100 km",
@@ -273,10 +276,11 @@
         },
         "seller": {
             "seller_type": "person",
-            "name": "fex",
-            "email": "fex",
-            "address": "few",
-            "registered_from": "some",
+            "name": "Alen",
+            "email": null,
+            "address": "3320 Velenje, Slovenija",
+            "registered_from": "Registrirani uporabnik avto.net od 27.10.2021",
+            "phone_number": "070657364",
             "opening_hours": [],
             "phone_numbers": [],
             "presentation": null,
@@ -299,6 +303,180 @@
             "https://images.avto.net/photo/20395908/3048236_small.jpg",
             "https://images.avto.net/photo/20395908/4048252_small.jpg",
             "https://images.avto.net/photo/20395908/5048263_small.jpg"
+        ],
+        "archive_technical_data_url": null,
+        "published_on_avtonet": null
+    },
+    {
+        "url": "file:///Users/vidpesko/Documents/Learning/Projects/AvtonetAPI/src/Scraper/Scraper/spiders/company2.html",
+        "vehicle_name": "Toyota Yaris",
+        "vehicle_full_name": "Toyota Yaris 1.5 VVT-iE Sol 92kW M T 6-ZALOGA",
+        "avtonet_id": null,
+        "price": 21050,
+        "discount_price": 18790,
+        "price_verbose": null,
+        "first_registration": null,
+        "new_vehicle": true,
+        "mileage": null,
+        "num_of_owners": null,
+        "fuel_type": "bencin",
+        "engine_power": 92,
+        "location": "Dečkova cesta 43, 3000 Celje",
+        "comment": "NA VOLJO ZADNJA VOZILA Z ROČNIM MENJALNIKOM.NA VOLJO TUDI V TEMNOSIVI BARVI.",
+        "description": "<span style=\"color:rgb(0, 0, 0); font-size:14px\">KUPITE TOYOTO YARIS  PRI AC FRI-MOBIL V CELJU.</span><br>\r\nVOZILO JE NA ZALOGI.<br>\r\nVKLJUČUJE REDNI POPUST, POPUST TSUSHO FINANCIRANJE, BON STARO ZA NOVO.<br>\r\nŽE VKLJUČUJE KOVINSKO BARVO IN STROŠKE PRIPRAVE VOZILA.<br>\r\n<br>\r\n<br>\r\n<br>\r\n<br>\r\n<br>\r\n<span style=\"color:rgb(255, 0, 0); font-size:14px\">ZA VEČ INFORMACIJ POKLIČITE:</span><br>\r\n<span style=\"font-size:22px\"><strong>051 332 559  ANJA<br>\r\n041 311 082 BRANE<br>\r\n041 311 081 ANDREJ</strong></span><br>\r\n<br>\r\n<span style=\"color:rgb(0, 0, 0); font-size:14px\">POVEZLJIVOST ANDROID AUTO ALI APLLE CARPLAY AUTO serijsko.</span><br>\r\n<br>\r\n<span style=\"color:rgb(255, 0, 0); font-size:14px\">TOYOTA RELAX, 10 LET JAMSTVA NA VOZILO.</span><br>\r\n<br>\r\n<span style=\"color:rgb(0, 0, 0); font-size:14px\">UGODNO FINANCIRANJE IN TOYOTA AVTOMOBILSKO ZAVAROVANJE.</span><br>\r\n<br>\r\n<span style=\"color:rgb(0, 0, 0); font-size:14px\">- FINANČNI LEASING </span><br>\r\n<br>\r\n<span style=\"color:rgb(0, 0, 0); font-size:14px\">ZA UREDITEV FINANČNEGA LEASINGA potrebujete zadnje 3 plačilne liste, osebni dokument, bančno kartico in davčno številko</span><br>\r\n<span style=\"color:rgb(0, 0, 0); font-size:14px\">V našem salonu vam prodajalci pripravijo vlogo za odobritev FINANCIRANJA in odpošljejo potrebno dokumentacijo.</span><br>\r\n<span style=\"color:rgb(0, 0, 0); font-size:14px\">Vse informacije  v zvezi z načinom in  potekom odobritve dobite na 03 425 60 80 oz. pri prodajalcih</span><br>\r\n<span style=\"color:rgb(0, 0, 0); font-size:14px\">Možnost napak pri vnosu podatkov, za točnost podatkov preverite pri prodajalcu, za pisne napake ne odgovarjamo.</span>",
+        "additional_data": {
+            "basic_data": {
+                "Starost": "novo",
+                "engine": "92 kW (125 KM), 1490 ccm",
+                "Gorivo": "bencinski motor",
+                "Menjalnik": "ročni menjalnik (6 pr.)",
+                "Oblika": "kombilimuzina / hatchback",
+                "Št.vrat": "5 vr.",
+                "Barva": "srebrna",
+                "Notranjost": "temno siva / blago",
+                "location": ","
+            },
+            "emission_data": {
+                "Kombinirana vožnja": "od 5,2 lit. / 100 km",
+                "Emisijski razred": "Euro 6d",
+                "Emisija CO2": "124.0 g / km"
+            },
+            "other_data": {
+                "Podvozje": [
+                    "lahka - ALU platišča:16",
+                    "ABS zavorni sistem",
+                    "BAS pomoč pri zaviranju",
+                    "ESP elektronski program stabilnosti",
+                    "ASR regulacija zdrsa pogonskih koles"
+                ],
+                "Varnost": [
+                    "8 x zračna vreča / Airbag",
+                    "senzor za dež",
+                    "LED žarometi",
+                    "prednje (dnevne) LED luči",
+                    "zadnje LED luči",
+                    "samodejno upravljanje dolgih luči",
+                    "meglenke",
+                    "sistem za ohranjanje voznega pasu",
+                    "sistem za samodejno zaviranje v sili",
+                    "sistem za opozarjanje na mrtvi kot",
+                    "opozorilnik spremembe voznega pasu",
+                    "sistem za prepoznavo prometnih znakov",
+                    "nadzor zračnega tlaka v pnevmatikah"
+                ],
+                "Notranjost": [
+                    "štev. sedežev: 5",
+                    "komfortni sedeži",
+                    "12V vtičnica"
+                ],
+                "Udobje": [
+                    "klimatska naprava",
+                    "zatemnjena / tonirana stekla",
+                    "električni pomik prednjih stekel",
+                    "električni pomik prednjih in zadnjih stekel",
+                    "zunanja ogledala: el. nastavljiva",
+                    "zunanja ogledala: ogrevanje",
+                    "centralno zaklepanje",
+                    "centralno zaklepanje + daljinsko upravljanje",
+                    "volan: nastavljiv po višini",
+                    "volan: nastavljiv po globini",
+                    "servo volan",
+                    "volan: multifunkcijski",
+                    "volanski obroč oblečen v usnje",
+                    "tempomat",
+                    "aktivni tempomat",
+                    "sistem Start-Stop"
+                ],
+                "Multimedia": [
+                    "avtoradio",
+                    "USB priključek (iPod, HD, ...)",
+                    "potovalni računalnik",
+                    "Bluetooth vmesnik",
+                    "Touch screen",
+                    "digitalni radio DAB",
+                    "Apple CarPlay",
+                    "Android Auto"
+                ],
+                "Uporabnost": [
+                    "zadnja klop - deljiva 1/3 - 2/3",
+                    "Isofix sistem za pritrditev otr.sedeža",
+                    "pomoč pri parkiranju: parkirna kamera",
+                    "pomoč pri speljevanju v klanec"
+                ],
+                "Stanje": [
+                    "navodila za uporabo v SLO jeziku",
+                    "vozilo je novo"
+                ]
+            }
+        },
+        "seller": {
+            "seller_type": "company",
+            "name": "AC FRI-MOBIL d.o.o.",
+            "email": null,
+            "address": "Dečkova cesta 43, 3000 Celje",
+            "registered_from": "Registriran kot trgovec na www.avto.net od 1.9.2011",
+            "phone_number": null,
+            "opening_hours": [],
+            "phone_numbers": [
+                [
+                    "03 / 425 60 80",
+                    "PRODAJA NOVIH VOZIL TOYOTA"
+                ],
+                [
+                    "031/ 744 048",
+                    "PRODAJA NOVIH VOZIL SUZUKI"
+                ],
+                [
+                    "03 / 425 60 82",
+                    "SERVIS VOZIL"
+                ],
+                [
+                    "051 332559",
+                    "PRODAJA NOVIH VOZIL TOYOTA"
+                ],
+                [
+                    "041 311081",
+                    "PRODAJA NOVIH VOZIL TOYOTA"
+                ],
+                [
+                    "051 / 601 - 625",
+                    "PRODAJA VOZIL ISUZU"
+                ],
+                [
+                    "041 / 446 618",
+                    "RABLJENA VOZILA"
+                ],
+                [
+                    "051/661-488",
+                    "RABLJENA VOZILA"
+                ],
+                [
+                    "031/312-444",
+                    "RABLJENA VOZILA"
+                ],
+                [
+                    "041 311 082",
+                    "PRODAJA NOVIH VOZIL TOYOTA"
+                ]
+            ],
+            "presentation": "<strong>AC FRI-MOBIL D.O.O. JE POOBLAŠČENI PRODAJALEC IN SERVISER VOZIL <span style=\"color:#FF0000\">TOYOTA,</span> <span style=\"color:#FF0000\">SUZUKI IN TOVORNIH VOZIL ISUZU, </span>V SVOJI ZALOGI PA IMAMO VES ČAS TUDI PESTRO IZBIRO RABLJENIH VOZIL RAZLIČNIH BLAGOVNIH ZNAMK.</strong><br>STRANKAM OB NAKUPU VOZILA CELOSTNO SVETUJEMO , UREDIMO FINANCIRANJE PO MERI KUPCA, POSKRBIMO ZA ZAVAROVANJE TER REGISTRACIJO VOZILA.<br>PRI NAS LAHKO V ZVEZI Z NAKUPOM UREDITE VSE NA ENEM MESTU! PRI NAS LAHKO SVOJE NOVO VOZILO KUPITE PO SISTEMU STARO ZA NOVO. <br><br><strong><u>V OKVIRU POOBLAŠČENEGA SERVISA</u></strong> SKRBIMO ZA VOZILA <strong>TOYOTA, SUZUKI, ISUZU</strong>, PRAV TAKO PA OPRAVLJAMO SERVISNE STORITVE ZA VOZILA DRUGIH BLAGOVNIH ZNAMK, PO VNAPREJŠNJEM NAROČILU. ZA REDNI SERVIS IN POPRAVILA VOZIL POKLIČITE <u><span style=\"font-size:14px\"><strong>TEL: <a class=\"GO-empty\" href=\"tel:03%20425%2060%2082\">03 425 60 82</a></strong></span></u><br><br><strong>NAŠE DEJAVNOSTI SO POLEG NAŠTETIH ŠE: </strong><br>- PRODAJA NADOMESTNIH DELOV IN OPREME - <strong>TEL. <a class=\"GO-empty\" href=\"tel:03%20425%2060%2085\">03 425 60 85</a></strong><br>- PRODAJA DODATNE OPREME ZA VOZILA - <strong>TEL <a class=\"GO-empty\" href=\"tel:03%20425%2060%2085\">03 425 60 85</a></strong><br>- PRODAJA PNEVMATIK - <strong>TEL: <a class=\"GO-empty\" href=\"tel:03%20425%2060%2085\">03 425 60 85</a></strong><br>- VULKANIZERSKE STORITVE - <strong><a class=\"GO-empty\" href=\"tel:03%20425%2060%2082\">03 425 60 82</a></strong><br>- OPTIČNA NASTAVITEV PODVOZJA - TEL: <strong><a class=\"GO-empty\" href=\"tel:03%20425%2060%2082\">03 425 60 82</a></strong><br>- AVTOKLEPARSKE IN AVTOLIČARSKE STORITVE - TEL:<strong><a class=\"GO-empty\" href=\"tel:051%20369%20900\">051 369 900</a></strong><br>- PREMOŽENJSKA IN OSEBNA ZAVAROVANJA - TEL: <strong><a class=\"GO-empty\" href=\"tel:041%20612%20605\">041 612 605</a></strong><br>- CENITVE POŠKODOVANIH VOZIL - TEL: <strong><a class=\"GO-empty\" href=\"tel:051%20369%20900\">051 369 900</a></strong><br>- VLEKA VOZIL <br><br><span style=\"font-size:16px\"><strong><span style=\"color:#FF0000\">VLJUDNO VABLJENI V AC FRI-MOBIL NA DEČKOVI CESTI 43 V CELJU!</span></strong></span><br><br><br>",
+            "logo": "https://avto.net/2004/logotipi/12181.gif?koda=15122024%20132243",
+            "tax_number": "DŠ:SI95745521",
+            "website": "https://www.fri-mobil.si"
+        },
+        "images": [
+            "https://images.avto.net/photo/20362058/1037383_HD.jpg",
+            "https://images.avto.net/photo/20362058/2037392_HD.jpg",
+            "https://images.avto.net/photo/20362058/3037400_HD.jpg",
+            "https://images.avto.net/photo/20362058/5037409_HD.jpg",
+            "https://images.avto.net/photo/20362058/6037415_HD.jpg"
+        ],
+        "thumbnails": [
+            "https://images.avto.net/photo/20362058/1037383_small.jpg",
+            "https://images.avto.net/photo/20362058/2037392_small.jpg",
+            "https://images.avto.net/photo/20362058/3037400_small.jpg",
+            "https://images.avto.net/photo/20362058/5037409_small.jpg",
+            "https://images.avto.net/photo/20362058/6037415_small.jpg"
         ],
         "archive_technical_data_url": null,
         "published_on_avtonet": null

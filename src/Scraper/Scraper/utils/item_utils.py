@@ -22,7 +22,7 @@ def process_str(*extra_functions):
     :param extra_functions: if you wish to apply any additional function to list
     """
 
-    return MapCompose(cleanse_str, set_empty_val_to_none, *extra_functions)
+    return  MapCompose(cleanse_str, set_empty_val_to_none, *extra_functions)
 
 
 def process_seller_type(values):

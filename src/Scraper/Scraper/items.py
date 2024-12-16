@@ -25,6 +25,7 @@ class Seller:
     email: str | None = field(default=None)
     address: str | None = field(default=None)
     registered_from: datetime | None = field(default=None)
+    phone_number: str | None = field(default=None)
 
     opening_hours: list[str] | None = field(default_factory=list)
     phone_numbers: list[tuple[str, str]] | None = field(default_factory=list)
@@ -54,11 +55,12 @@ class Vehicle:
     price_verbose: str | None = field(default=None)
     # Basic propery table - the first one
     first_registration: str | None = field(default=None)
-    new_vehicle: bool | None = field(default=False)
+    new_vehicle: bool = field(default=False)
     mileage: int | None = field(default=None)
     num_of_owners: int | None = field(default=None)
     fuel_type: str | None = field(default=None)
     engine_power: int | None = field(default=None)
+    location: str | None = field(default=None)
     # Comment below property table
     comment: str | None = field(default=None)
     # Description
@@ -72,7 +74,7 @@ class Vehicle:
     thumbnails: list[str] = field(default_factory=list)
     # Other
     archive_technical_data_url: str | None = field(default=None)
-    published_on_avtonet: datetime | None = field(default=None)
+    published_on_avtonet_at: datetime | None = field(default=None)
 
     # Converting methods
     to_json = dataclass_to_json
@@ -95,14 +97,15 @@ class VehicleLoader(ItemLoader):
     # Basic property table
     # Vehicle age
     new_vehicle_in = process_str(
-        lambda x: True if x == "NOVO VOZILO" else False
+        lambda x: x == "NOVO VOZILO"
     )
+    new_vehicle_out = take_last
     # Engine power
     engine_power_in = process_int()
     # Mileage
     mileage_in = process_int()
     # Owners
-    num_of_owners = process_int()
+    num_of_owners_in = process_int()
 
     # Description
     description_in = Compose(
@@ -130,8 +133,6 @@ class SellerLoader(ItemLoader):
 
     # Seller type
     seller_type_in = process_seller_type
-    # Seller name
-    name_in = Identity()
     # Logo
     logo_in = replace_relative_url
     # Phone numbers

@@ -17,7 +17,8 @@ CAR_BASIC_PROPERTY_DATA = {
 
 # Car page tables
 CAR_METADATA_VALUES_TABLE = {
-    "Motor": "engine"
+    "Motor": "engine",
+    "Kraj ogleda": "location",
 }
 
 # Translation table, that tells how to parse table
