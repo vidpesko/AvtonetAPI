@@ -1,6 +1,347 @@
 [
     {
-        "url": "file:///Users/vidpesko/Documents/Learning/Projects/AvtonetAPI/src/Scraper/Scraper/spiders/site2.html",
+        "url": "file:///Users/vidpesko/Documents/Learning/Projects/AvtonetAPI/src/Scraper/Scraper/test_pages/page.html",
+        "vehicle_name": "Peugeot 308",
+        "vehicle_full_name": "Peugeot 308 1.6 BlueHDi 120 LED-NAVI-PDC-TEMPOMAT-ALU-ODLIČEN",
+        "avtonet_id": null,
+        "price": 6290,
+        "discount_price": null,
+        "price_verbose": null,
+        "first_registration": "2016-03-01 00:00:00",
+        "new_vehicle": false,
+        "mileage": 214000,
+        "num_of_owners": 2,
+        "fuel_type": "diesel",
+        "engine_power": 88,
+        "location": "Mali kamen 28, 8281 Senovo",
+        "comment": null,
+        "description": "-MOZNOST MENJAVE<br><br>-AVTO REDNO SERVISIRAN,LEPO OHRANJEN,BREZHIBEN,ODLIČEN.<br>-NA 200.000KM NOVA SKLOPKA<br>-GL.SERVIS OPRAVLJEN NA 210.000KM<br><br>-OD 2.LASTNIKA<br><br>-NAVI<br>-LED<br>-TEMPOMAT<br>-PDC ZADAJ<br>-ALU.PL 16-COL<br>-ZATEMNJENA STEKLA<br>-2-CONSKA-AVT-KLIMA<br>-EL.ZAPIRANJE OGLEDAL<br>-HOMOLOGACIJSKI DOKUMENT<br>-DVA KLJUČA<br><br>-MOZNOST MENJAVE<br><br>-MOZNOST FINANCIRANJA:<br>-LEASING<br>-HITRI KREDIT<br>-DO 15000€ (SLO DRZAVLJANI)<br>-TUJCI Z STALNO VIZO DO 8000€<br><br><br>-LEASING ZA SLOVENSKE DRZAVLJANE IN TUJCE S STALNIM ALI ZACASNIM BIVANJEM,<br>-POLOG ZE OD 10% ODVISNO OD VASEGA STATUSA<br><br>-POTREBNA DOKUMENTACIJA<br><br>-ZADNJE TRI PLAČILNE LISTE<br>-ZADNJE TRI BANCNE IZPISKE<br>-POGODBA O ZAPOSLITVI ZA NEDOLOCEN ČAS<br>-KOPIJA OSEBNEGA DOKUMENTA<br>-KOPIJA VELJAVNEGA VOZNISKEGA DOVOLJENJA<br>-KOPIJA KARTICE TRANSAKCIJSKEGA RAČUNA<br>-KOPIJA DAVCNE ŠTEVILKE<br>-VIZA ZA BIVANJE V SLO (TUJCI)<br>-DOKUMENT O PRIJAVI NASLOVA BIVANJE V SLO (TUJCI)<br><br>-------------------------------------------------------------------------<br><br>-MOŽNOST NAPAK PRI VNOSU PODATKOV, TOČNOST LE TEH PREVERITE PRI PRODAJALCU,ZA PISNE NAPAKE NE ODGOVARJAMO<br><br>ZA OGLED VOZIL JE OBVEZNA PREDHODNA NAJAVA. L.P..............<br>.<br>.<br>",
+        "additional_data": {
+            "basic_data": {
+                "Starost": "rabljeno",
+                "Prva registracija": "2016 / 3",
+                "Leto proizvodnje": "2016",
+                "Prevoženi km": "214000",
+                "Tehnični pregled velja do": "2025 / 1",
+                "engine": "88 kW (120 KM), 1560 ccm",
+                "Gorivo": "diesel motor",
+                "Menjalnik": "ročni menjalnik (6 pr.)",
+                "Oblika": "karavan",
+                "Št.vrat": "5 vr.",
+                "Barva": "temno modra metalik",
+                "Notranjost": "črna / blago",
+                "location": ","
+            },
+            "emission_data": {
+                "Kombinirana vožnja": "od 3,3 lit. / 100 km",
+                "Emisijski razred": "Euro 6",
+                "Emisija CO2": "99 g / km"
+            },
+            "other_data": {
+                "Podvozje": [
+                    "lahka - ALU platišča:ALU-16",
+                    "ABS zavorni sistem",
+                    "BAS pomoč pri zaviranju",
+                    "ESP elektronski program stabilnosti",
+                    "ASR regulacija zdrsa pogonskih koles"
+                ],
+                "Varnost": [
+                    "6 x zračna vreča / Airbag",
+                    "senzor za dež",
+                    "prednje (dnevne) LED luči",
+                    "zadnje LED luči",
+                    "meglenke",
+                    "tretja zavorna luč",
+                    "nadzor zračnega tlaka v pnevmatikah"
+                ],
+                "Notranjost": [
+                    "štev. sedežev: 5",
+                    "športni sedeži",
+                    "sedeži: nastavitev po višini",
+                    "sredinski naslon za roko",
+                    "12V vtičnica"
+                ],
+                "Udobje": [
+                    "klimatska naprava: avtomatska",
+                    "klimatska naprava: 2 conska",
+                    "električni pomik prednjih stekel",
+                    "električni pomik prednjih in zadnjih stekel",
+                    "zunanja ogledala: el. nastavljiva",
+                    "zunanja ogledala: ogrevanje",
+                    "centralno zaklepanje",
+                    "centralno zaklepanje + daljinsko upravljanje",
+                    "volan: nastavljiv po višini",
+                    "volan: nastavljiv po globini",
+                    "servo volan",
+                    "volan: multifunkcijski",
+                    "volanski obroč oblečen v usnje",
+                    "tempomat",
+                    "sistem Start-Stop"
+                ],
+                "Multimedia": [
+                    "avtoradio",
+                    "USB priključek (iPod, HD, ...)",
+                    "potovalni računalnik",
+                    "navigacijski sistem",
+                    "Bluetooth vmesnik",
+                    "Touch screen"
+                ],
+                "Uporabnost": [
+                    "zadnja klop - deljiva 1/3 - 2/3",
+                    "Isofix sistem za pritrditev otr.sedeža",
+                    "rolo prtljažnega prostora",
+                    "pripomoček za parkiranje PDC/Parktronic",
+                    "pomoč pri parkiranju: zadnji senzorji",
+                    "pomoč pri speljevanju v klanec"
+                ],
+                "Stanje": [
+                    "servisna knjiga",
+                    "vozilo ni bilo karambolirano",
+                    "vozilo je bilo garažirano",
+                    "2. lastnik"
+                ]
+            }
+        },
+        "seller": {
+            "seller_type": "company",
+            "name": "RS5 AVTO Primož Šalamon s.p.",
+            "email": null,
+            "address": "Mali kamen 28, 8281 Senovo",
+            "registered_from": "2024-05-01 00:00:00",
+            "phone_number": null,
+            "opening_hours": [],
+            "phone_numbers": [
+                {
+                    "phone_number": "041 / 985 - 625",
+                    "description": "OBVEZNA PREDHODNA NAJAVA"
+                },
+                {
+                    "phone_number": "051 / 783 - 801",
+                    "description": "OBVEZNA PREDHODNA NAJAVA"
+                }
+            ],
+            "presentation": null,
+            "logo": "https://avto.net/2004/logotipi/20155.gif?koda=16122024%20192022",
+            "tax_number": null,
+            "website": "https://www.avto.net/RS5AVTO"
+        },
+        "images": [
+            "https://images.avto.net/photo/20384291/1083036.jpg",
+            "https://images.avto.net/photo/20384291/2083116.jpg",
+            "https://images.avto.net/photo/20384291/3083202.jpg",
+            "https://images.avto.net/photo/20384291/4083287.jpg",
+            "https://images.avto.net/photo/20384291/5083371.jpg",
+            "https://images.avto.net/photo/20384291/6083454.jpg",
+            "https://images.avto.net/photo/20384291/7083562.jpg",
+            "https://images.avto.net/photo/20384291/8083637.jpg",
+            "https://images.avto.net/photo/20384291/9083713.jpg"
+        ],
+        "thumbnails": [
+            "https://images.avto.net/photo/20384291/1083036_small.jpg",
+            "https://images.avto.net/photo/20384291/2083116_small.jpg",
+            "https://images.avto.net/photo/20384291/3083202_small.jpg",
+            "https://images.avto.net/photo/20384291/4083287_small.jpg",
+            "https://images.avto.net/photo/20384291/5083371_small.jpg",
+            "https://images.avto.net/photo/20384291/6083454_small.jpg",
+            "https://images.avto.net/photo/20384291/7083562_small.jpg",
+            "https://images.avto.net/photo/20384291/8083637_small.jpg",
+            "https://images.avto.net/photo/20384291/9083713_small.jpg"
+        ],
+        "archive_technical_data_url": "https://www.avto.net/Avtokatalog/detailshistory.asp?vehicle=763857020170103",
+        "published_on_avtonet_at": "2024-12-11 23:16:00"
+    },
+    {
+        "url": "file:///Users/vidpesko/Documents/Learning/Projects/AvtonetAPI/src/Scraper/Scraper/test_pages/not_available.html",
+        "error_code": 404,
+        "description": "Listing not found. Has it expired?",
+        "error_message": "Napaka Ponudba, ki je bila objavljena na iskani strani,ni več aktualna. Oglas je že odstranjen iz ponudbe. Prosimo za razumevanje, ekipa www.Avto.net"
+    },
+    {
+        "url": "file:///Users/vidpesko/Documents/Learning/Projects/AvtonetAPI/src/Scraper/Scraper/test_pages/page6.html",
+        "vehicle_name": "Volkswagen Tiguan",
+        "vehicle_full_name": "Volkswagen Tiguan 2.0 TDI-150 KS-DSG-BUSSINES-ACC-NAVI-ALU 17-PDC-",
+        "avtonet_id": null,
+        "price": 20499,
+        "discount_price": 19499,
+        "price_verbose": null,
+        "first_registration": "2019-04-01 00:00:00",
+        "new_vehicle": false,
+        "mileage": 139756,
+        "num_of_owners": 1,
+        "fuel_type": "diesel",
+        "engine_power": 110,
+        "location": "PIRANSKA CESTA 2, 6000 KOPER",
+        "comment": null,
+        "description": "PRODAMO ODLIČNO OHRANJEN VW TIGUAN 2.O TDI 150 KS DSG BUSSINES Z DODATNO OPREMO, REDNO SEVISIRAN NA POOBLAŠČENEM VW SERVISU OD PRVEGA DO ZADNJEGA SERVISA, ZADNJI SERVIS OPRAVLJNE PRI 139.421 KM DNE 10.05.2024<br><br>V CENI VOZILO JE VKLJUČENO ENO LETNO JAMSTVO SUPREMA MOTIVE SERVICE.<br><br>ZA OGLED VOZILA SE JE POTREBNO OBVEZNO PREDHODNO NAJAVITI.<br><br>ZARADI MOŽNOSTI NAPAK PRI VNOSU PODATKOV SE OPRAVIČUJEMO, TOČNOST PODATKOV PREVERITE PRI PRODAJALCU.<br><br>------------------------------------------------------------------------<br><br>HITRI KREDIT TUDI ZA TUJCE:<br><br>POGOJI ZA HITRI KREDIT:<br><br>VIŠINA KREDITA OD 400 EUR - DO 7000 EUR<br><br>ODPLAČILNA DOBA 48 OBROKOV<br><br>- DOVOLJENJE ZA STALNO PREBIVANJE V R SLOVENIJI<br>- OBVEZNA STALNA ZAPOSLITEV<br>- ZADNJI BANČNI IZPISEK<br>- PLAČILNA LISTA (UJEMAJOČA SE Z BANČNIM IZPISKOM)<br>- OSEBNI DOKUMENT<br>- DAVČNA ŠTEVILKA<br><br>PRI HITREM KREDITU JE LAHKO RAZLIKA V ZNESKU VAŠE VOZILU PO SISTEMU RABLJENO ZA RABLJENO.<br><br>------------------------------------------------------------------------<br><br>POGOJI ZA HITRI KREDIT ZA DRŽAVLJANE R SLOVENIJE:<br><br>HITRI KREDIT BREZ POLOGA V 30. MINUTAH - REDNA ZAPOSLITEV NI POGOJ<br><br>VSE NA ENEM MESTU HITRO IN ENOSTAVNO V NAŠI PISARNI<br><br>ZA ZAPOSLENE FIZIČNE OSEBE V SLOVENIJI IN UPOKOJENCE<br><br>ZNESEK KREDITA DO 5.000,00 EUR - MAX. DOBA ODPLAČEVANJA 84 MESECEV<br><br>ZNESEK KREDITA DO 14.000,00 EUR - MAX. DOBA ODPLAČEVANJA 84 MESECEV<br><br>VAŠI ŽE OBSTOJEČI KREDITI NE VPLIVAJO NA NAŠ HITRI KREDIT<br><br>ZA ODOBRITEV JE POTREBNO:<br><br>-ZADNJI BANČNI IZPISEK<br>-ZADNJA PLAČILNA LISTA<br>-OSEBNI DOKUMENT<br>-DAVČNA ŠTEVILKA<br><br>PRI HITREM KREDITU JE LAHKO RAZLIKA V ZNESKU VAŠE VOZILU PO SISTEMU RABLJENO ZA RABLJENO.<br><br>------------------------------------------------------------------------<br>POGOJI ZA FINANCIRANJE LEASING:<br><br>- MIN 20 % POLOG<br>- 3 ZADNJE PLAČILNE LISTE<br>- POGODBA O DELU<br>- OSEBNA IZKAZNICA<br>- DAVČNA ŠTEVILKA<br>- BANČNA KARTICA<br><br>OB SKLENITVI LEASINGA NLB DO 60 % POPUST NA OBVEZNO IN KASKO ZAVAROVANJE NE GLEDE NA VAŠ PREDHODNI BONUS. KI JE LAHKO TUDI 0 %. UGODNO ZA MLADE VOZNIKE IN PODJETJA KI NABAVLJAJO NOVO VOZILO.<br>ZAVARUJE SE CELO OBDOBJE TRAJANJA LEASINGA GENERALNA POLICA ZAVAROVANJA . VSAKO LETO SE PRIŠTEVA REDNI BONUS. KI VAM OSTANE OB ZAKLJUČKU LEASING FINANCIRANJA 5 % LETNO NA OBVEZNO ZAVAROVANJE IN 5 % LETNO NA KASKO ZAVAROVANJE .<br><br>NAŠIM STRANKAM PRI NAKUPU IN SKLENITVI LEASINGA NLB TER SKLENITVI MAKSI PAKETA ZAVAROVANJA. NUDIMO NADOMESTNA VOZILA OB PROMETNI NESREČI ALI OKVARI VOZILA.............................................................................................<br>.<br>",
+        "additional_data": {
+            "basic_data": {
+                "Starost": "rabljeno / ima jamstvo",
+                "Prva registracija": "2019 / 4",
+                "Leto proizvodnje": "2019",
+                "Prevoženi km": "139756",
+                "engine": "110 kW (150 KM), 1968 ccm",
+                "Gorivo": "diesel motor",
+                "Menjalnik": "avtomatski menjalnik",
+                "Oblika": "terensko vozilo / SUV",
+                "Št.vrat": "5 vr.",
+                "Barva": "temno siva",
+                "Notranjost": "črna / blago",
+                "VIN / številka šasije": "WVGZZZ5NZKW344882",
+                "location": ","
+            },
+            "emission_data": {
+                "Kombinirana vožnja": "od 4,9 lit. / 100 km",
+                "Emisijski razred": "EU6.2 (C and D-Temp)",
+                "Emisija CO2": "128 g / km"
+            },
+            "other_data": {
+                "Podvozje": [
+                    "lahka - ALU platišča:17 COL ORIGINAL VW",
+                    "ABS zavorni sistem",
+                    "BAS pomoč pri zaviranju",
+                    "ESP elektronski program stabilnosti",
+                    "ASR regulacija zdrsa pogonskih koles"
+                ],
+                "Varnost": [
+                    "7 x zračna vreča / Airbag",
+                    "senzor za dež",
+                    "meglenke",
+                    "tretja zavorna luč",
+                    "alarmna naprava",
+                    "blokada motorja",
+                    "sistem za ohranjanje voznega pasu",
+                    "sistem za samodejno zaviranje v sili",
+                    "nadzor zračnega tlaka v pnevmatikah",
+                    "rezervno kolo normalnih dimenzij"
+                ],
+                "Notranjost": [
+                    "štev. sedežev: 5",
+                    "krom dodatki v notranjosti",
+                    "komfortni sedeži",
+                    "sedeži: nastavitev po višini",
+                    "sredinski naslon za roko",
+                    "12V vtičnica"
+                ],
+                "Udobje": [
+                    "klimatska naprava",
+                    "klimatska naprava: avtomatska",
+                    "klimatska naprava: 2 conska",
+                    "klimatska naprava: 3 conska",
+                    "zatemnjena / tonirana stekla",
+                    "električni pomik prednjih stekel",
+                    "električni pomik prednjih in zadnjih stekel",
+                    "zunanja ogledala: el. nastavljiva",
+                    "zunanja ogledala: ogrevanje",
+                    "zunanja ogledala: el. zložljiva",
+                    "centralno zaklepanje",
+                    "centralno zaklepanje + daljinsko upravljanje",
+                    "električni paket",
+                    "volan: nastavljiv po višini",
+                    "volan: nastavljiv po globini",
+                    "servo volan",
+                    "volan: multifunkcijski",
+                    "volan: športni",
+                    "volanski obroč oblečen v usnje",
+                    "obvolanski prestavni ročici / F1 prestave",
+                    "tempomat",
+                    "aktivni tempomat",
+                    "sistem Start-Stop",
+                    "el. parkirna zavora"
+                ],
+                "Multimedia": [
+                    "avtoradio / CD:VW ORIGINAL + NAVI + CAR PLAY",
+                    "CD izmenjevalnik / strežnik",
+                    "MP3 predvajalnik",
+                    "DVD predvajalnik",
+                    "USB priključek (iPod, HD, ...)",
+                    "potovalni računalnik",
+                    "navigacijski sistem",
+                    "Bluetooth vmesnik",
+                    "Touch screen",
+                    "Apple CarPlay",
+                    "Android Auto"
+                ],
+                "Uporabnost": [
+                    "zadnja klop - deljiva 1/3 - 2/3",
+                    "Isofix sistem za pritrditev otr.sedeža",
+                    "rolo prtljažnega prostora",
+                    "strešne sani",
+                    "pripomoček za parkiranje PDC/Parktronic",
+                    "pomoč pri parkiranju: prednji senzorji",
+                    "pomoč pri parkiranju: zadnji senzorji",
+                    "pomoč pri speljevanju v klanec"
+                ],
+                "Stanje": [
+                    "servisna knjiga / potrjena",
+                    "vozilo ni bilo karambolirano",
+                    "vozilo je bilo garažirano",
+                    "1. lastnik"
+                ]
+            }
+        },
+        "seller": {
+            "seller_type": "company",
+            "name": "KRIK TRGOVINA Z MOTORNIMI VOZILI SABINA KALAUZ S.P.",
+            "email": null,
+            "address": "PIRANSKA CESTA 2, 6000 KOPER",
+            "registered_from": "2008-06-01 00:00:00",
+            "phone_number": null,
+            "opening_hours": [],
+            "phone_numbers": [
+                {
+                    "phone_number": "05 / 6392009",
+                    "description": "PISARNA-INFO. LEASING GA. SABINA"
+                },
+                {
+                    "phone_number": "041 / 776 - 857",
+                    "description": "PRODAJA IN ODKUP VOZIL VOZIL-G. MILAN"
+                },
+                {
+                    "phone_number": "040 / 826 - 269",
+                    "description": "PRODAJA IN ODKUP VOZIL VOZIL-G ERIK"
+                },
+                {
+                    "phone_number": "031 / 390 - 462",
+                    "description": "INFO. FINCIRANJE IN ZAVAROVANJA GA.SABINA"
+                }
+            ],
+            "presentation": null,
+            "logo": "https://avto.net/2004/logotipi/10740.gif?koda=16122024%20192939",
+            "tax_number": null,
+            "website": "https://www.krik-avto.si"
+        },
+        "images": [
+            "https://images.avto.net/photo/20315148/1072301.jpg",
+            "https://images.avto.net/photo/20315148/2072306.jpg",
+            "https://images.avto.net/photo/20315148/3072311.jpg",
+            "https://images.avto.net/photo/20315148/4072315.jpg",
+            "https://images.avto.net/photo/20315148/5072320.jpg",
+            "https://images.avto.net/photo/20315148/6072326.jpg",
+            "https://images.avto.net/photo/20315148/7072330.jpg",
+            "https://images.avto.net/photo/20315148/8072335.jpg",
+            "https://images.avto.net/photo/20315148/9072340.jpg",
+            "https://images.avto.net/photo/20315148/10072348.jpg",
+            "https://images.avto.net/photo/20315148/11072353.jpg",
+            "https://images.avto.net/photo/20315148/12072360.jpg"
+        ],
+        "thumbnails": [
+            "https://images.avto.net/photo/20315148/1072301_small.jpg",
+            "https://images.avto.net/photo/20315148/2072306_small.jpg",
+            "https://images.avto.net/photo/20315148/3072311_small.jpg",
+            "https://images.avto.net/photo/20315148/4072315_small.jpg",
+            "https://images.avto.net/photo/20315148/5072320_small.jpg",
+            "https://images.avto.net/photo/20315148/6072326_small.jpg",
+            "https://images.avto.net/photo/20315148/7072330_small.jpg",
+            "https://images.avto.net/photo/20315148/8072335_small.jpg",
+            "https://images.avto.net/photo/20315148/9072340_small.jpg",
+            "https://images.avto.net/photo/20315148/10072348_small.jpg",
+            "https://images.avto.net/photo/20315148/11072353_small.jpg"
+        ],
+        "archive_technical_data_url": "https://www.avto.net/Avtokatalog/detailshistory.asp?vehicle=766019320190205",
+        "published_on_avtonet_at": "2024-11-24 20:06:00"
+    },
+    {
+        "url": "file:///Users/vidpesko/Documents/Learning/Projects/AvtonetAPI/src/Scraper/Scraper/test_pages/page5.html",
         "vehicle_name": "Peugeot 508",
         "vehicle_full_name": "Peugeot 508 HYBRID 225 ALLURE e-EAT8 LED.ACC.KAM",
         "avtonet_id": null,
@@ -207,7 +548,7 @@
         "published_on_avtonet_at": "2024-12-14 09:52:00"
     },
     {
-        "url": "file:///Users/vidpesko/Documents/Learning/Projects/AvtonetAPI/src/Scraper/Scraper/spiders/person.html",
+        "url": "file:///Users/vidpesko/Documents/Learning/Projects/AvtonetAPI/src/Scraper/Scraper/test_pages/page4.html",
         "vehicle_name": "Volkswagen Golf",
         "vehicle_full_name": "Volkswagen Golf 2.0 FSI turbo GTI 147 200",
         "avtonet_id": null,
@@ -315,7 +656,7 @@
         "published_on_avtonet_at": "2024-12-15 13:25:00"
     },
     {
-        "url": "file:///Users/vidpesko/Documents/Learning/Projects/AvtonetAPI/src/Scraper/Scraper/spiders/company2.html",
+        "url": "file:///Users/vidpesko/Documents/Learning/Projects/AvtonetAPI/src/Scraper/Scraper/test_pages/page3.html",
         "vehicle_name": "Toyota Yaris",
         "vehicle_full_name": "Toyota Yaris 1.5 VVT-iE Sol 92kW M T 6-ZALOGA",
         "avtonet_id": null,
@@ -487,5 +828,154 @@
         ],
         "archive_technical_data_url": "https://www.avto.net/Avtokatalog/detailshistory.asp?vehicle=58987920240805",
         "published_on_avtonet_at": "2024-12-13 08:51:00"
+    },
+    {
+        "url": "file:///Users/vidpesko/Documents/Learning/Projects/AvtonetAPI/src/Scraper/Scraper/test_pages/page2.html",
+        "vehicle_name": "BMW serija 1:",
+        "vehicle_full_name": "BMW serija 1: 118d NAVI-TEMPOMAT-PDC-ALU-ODLICEN-MENJAVA",
+        "avtonet_id": null,
+        "price": 8990,
+        "discount_price": null,
+        "price_verbose": null,
+        "first_registration": "2016-10-01 00:00:00",
+        "new_vehicle": false,
+        "mileage": 241000,
+        "num_of_owners": null,
+        "fuel_type": "diesel",
+        "engine_power": 110,
+        "location": "Mali kamen 28, 8281 Senovo",
+        "comment": null,
+        "description": "-AVTO ZELO LEPO OHRANJEN NOTRANJOST IN ZUNANJOST,ODLIČEN<br><br>-PRAVKAR MENJANI ZADNJI DISKI+PLOŠČICE<br><br>-B47 TIP MOTORJA<br><br>-TEMPOMAT<br>-NAVI<br>-PDC<br>-DVO CONSKA DIGITALNA KLIMA<br>-ALU.PL 16<br>-ZATEMNJENA STEKLA<br>-DVA KLJUČA<br><br>-MOZNOST MENJAVE<br>-MOZNOST MENJAVE<br><br>-MOZNOST FINANCIRANJA<br>-LEASING<br>-HITRI KREDIT<br><br><br>-LEASING ZA SLOVENSKE DRZAVLJANE IN TUJCE S STALNIM ALI ZACASNIM BIVANJEM,<br>-POLOG ZE OD 10% ODVISNO OD VASEGA STATUSA<br><br>-POTREBNA DOKUMENTACIJA<br><br>-ZADNJE TRI PLAČILNE LISTE<br>-ZADNJE TRI BANCNE IZPISKE<br>-POGODBA O ZAPOSLITVI ZA NEDOLOCEN ČAS ALI POGODBA O ZAPOSLITVI ZA DOLOCEN ČAS(LEASING) TUDI TUJCI Z STALNO VIZO.<br>-KOPIJA OSEBNEGA DOKUMENTA<br>-KOPIJA VELJAVNEGA VOZNISKEGA DOVOLJENJA<br>-KOPIJA KARTICE TRANSAKCIJSKEGA RAČUNA<br>-KOPIJA DAVCNE ŠTEVILKE<br>-VIZA ZA BIVANJE V SLO (TUJCI)<br>-DOKUMENT O PRIJAVI NASLOVA BIVANJE V SLO (TUJCI)<br><br>-------------------------------------------------------------------------<br><br>-MOŽNOST NAPAK PRI VNOSU PODATKOV, TOČNOST LE TEH PREVERITE PRI PRODAJALCU,ZA PISNE NAPAKE NE ODGOVARJAMO<br><br>ZA OGLED VOZIL JE OBVEZNA PREDHODNA NAJAVA. L.P....<br>..............<br>",
+        "additional_data": {
+            "basic_data": {
+                "Starost": "rabljeno",
+                "Prva registracija": "2016 / 10",
+                "Leto proizvodnje": "2016",
+                "Prevoženi km": "241000",
+                "Tehnični pregled velja do": "2025 / 10",
+                "engine": "110 kW (150 KM), 1995 ccm",
+                "Gorivo": "diesel motor",
+                "Menjalnik": "ročni menjalnik (6 pr.)",
+                "Oblika": "kombilimuzina / hatchback",
+                "Št.vrat": "5 vr.",
+                "Barva": "bela",
+                "Notranjost": "črna / blago",
+                "location": ","
+            },
+            "emission_data": {
+                "Kombinirana vožnja": "od 4,4 lit. / 100 km",
+                "Emisijski razred": "EU6.2 (C and D-Temp)",
+                "Emisija CO2": "115 g / km"
+            },
+            "other_data": {
+                "Podvozje": [
+                    "lahka - ALU platišča:ALU-16",
+                    "ABS zavorni sistem",
+                    "BAS pomoč pri zaviranju",
+                    "samodejna zapora diferenciala (ASD / EDS ...)",
+                    "ESP elektronski program stabilnosti",
+                    "ASR regulacija zdrsa pogonskih koles"
+                ],
+                "Varnost": [
+                    "8 x zračna vreča / Airbag",
+                    "senzor za dež",
+                    "zadnje LED luči",
+                    "meglenke",
+                    "tretja zavorna luč",
+                    "nadzor zračnega tlaka v pnevmatikah"
+                ],
+                "Notranjost": [
+                    "štev. sedežev: 5",
+                    "sedeži: nastavitev po višini",
+                    "sredinski naslon za roko",
+                    "12V vtičnica"
+                ],
+                "Udobje": [
+                    "klimatska naprava: avtomatska",
+                    "klimatska naprava: 2 conska",
+                    "zatemnjena / tonirana stekla",
+                    "električni pomik prednjih stekel",
+                    "električni pomik prednjih in zadnjih stekel",
+                    "zunanja ogledala: el. nastavljiva",
+                    "zunanja ogledala: ogrevanje",
+                    "centralno zaklepanje",
+                    "volan: nastavljiv po višini",
+                    "volan: nastavljiv po globini",
+                    "servo volan",
+                    "volan: multifunkcijski",
+                    "volanski obroč oblečen v usnje",
+                    "tempomat",
+                    "sistem Start-Stop"
+                ],
+                "Multimedia": [
+                    "avtoradio",
+                    "USB priključek (iPod, HD, ...)",
+                    "potovalni računalnik",
+                    "navigacijski sistem",
+                    "Bluetooth vmesnik"
+                ],
+                "Uporabnost": [
+                    "zadnja klop - deljiva 1/3 - 2/3",
+                    "Isofix sistem za pritrditev otr.sedeža",
+                    "pripomoček za parkiranje PDC/Parktronic",
+                    "pomoč pri parkiranju: zadnji senzorji",
+                    "pomoč pri speljevanju v klanec"
+                ],
+                "Stanje": [
+                    "servisna knjiga",
+                    "vozilo ni bilo karambolirano",
+                    "vozilo je bilo garažirano"
+                ]
+            }
+        },
+        "seller": {
+            "seller_type": "company",
+            "name": "RS5 AVTO Primož Šalamon s.p.",
+            "email": null,
+            "address": "Mali kamen 28, 8281 Senovo",
+            "registered_from": "2024-05-01 00:00:00",
+            "phone_number": null,
+            "opening_hours": [],
+            "phone_numbers": [
+                {
+                    "phone_number": "041 / 985 - 625",
+                    "description": "OBVEZNA PREDHODNA NAJAVA"
+                },
+                {
+                    "phone_number": "051 / 783 - 801",
+                    "description": "OBVEZNA PREDHODNA NAJAVA"
+                }
+            ],
+            "presentation": null,
+            "logo": "https://avto.net/2004/logotipi/20155.gif?koda=16122024%20192848",
+            "tax_number": null,
+            "website": "https://www.avto.net/RS5AVTO"
+        },
+        "images": [
+            "https://images.avto.net/photo/20401124/1068034.jpg",
+            "https://images.avto.net/photo/20401124/2068141.jpg",
+            "https://images.avto.net/photo/20401124/3068230.jpg",
+            "https://images.avto.net/photo/20401124/4068324.jpg",
+            "https://images.avto.net/photo/20401124/5068413.jpg",
+            "https://images.avto.net/photo/20401124/6068497.jpg",
+            "https://images.avto.net/photo/20401124/7068578.jpg",
+            "https://images.avto.net/photo/20401124/8068654.jpg",
+            "https://images.avto.net/photo/20401124/9068709.jpg",
+            "https://images.avto.net/photo/20401124/10068768.jpg"
+        ],
+        "thumbnails": [
+            "https://images.avto.net/photo/20401124/1068034_small.jpg",
+            "https://images.avto.net/photo/20401124/2068141_small.jpg",
+            "https://images.avto.net/photo/20401124/3068230_small.jpg",
+            "https://images.avto.net/photo/20401124/4068324_small.jpg",
+            "https://images.avto.net/photo/20401124/5068413_small.jpg",
+            "https://images.avto.net/photo/20401124/6068497_small.jpg",
+            "https://images.avto.net/photo/20401124/7068578_small.jpg",
+            "https://images.avto.net/photo/20401124/8068654_small.jpg",
+            "https://images.avto.net/photo/20401124/9068709_small.jpg",
+            "https://images.avto.net/photo/20401124/10068768_small.jpg"
+        ],
+        "archive_technical_data_url": "https://www.avto.net/Avtokatalog/detailshistory.asp?vehicle=748877420190301",
+        "published_on_avtonet_at": "2024-12-16 19:06:00"
     }
 ]

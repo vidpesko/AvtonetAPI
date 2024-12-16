@@ -1,4 +1,5 @@
 import re
+from pathlib import Path
 from ast import literal_eval
 
 import scrapy, time
@@ -11,6 +12,10 @@ from .translation_tables import (
 )
 from ..utils.parsing_utils import get_table_title
 
+# Get all local test html pages
+path = Path.cwd() / "test_pages"
+local_pages = [f"file://{str(page.absolute())}" for page in path.glob("*.html")]
+
 
 class VehicleSpider(scrapy.Spider):
     name = "vehicle"
@@ -19,10 +24,7 @@ class VehicleSpider(scrapy.Spider):
     start_urls = [
         # "https://www.avto.net/Ads/details.asp?id=20315148&display=Volkswagen%20Tiguan",
         # "https://www.avto.net/Ads/details.asp?id=20231532&display=Volkswagen%20Jetta",
-        # "https://www.avto.net/Ads/details.asp?ID=20178302",
-        "file:///Users/vidpesko/Documents/Learning/Projects/AvtonetAPI/src/Scraper/Scraper/spiders/site2.html",
-        "file:///Users/vidpesko/Documents/Learning/Projects/AvtonetAPI/src/Scraper/Scraper/spiders/person.html",
-        "file:///Users/vidpesko/Documents/Learning/Projects/AvtonetAPI/src/Scraper/Scraper/spiders/company2.html",
+        "https://www.avto.net/Ads/details.asp?ID=20178302",
     ]
 
     def __init__(self, start_urls=None, name=None, **kwargs):
@@ -39,6 +41,9 @@ class VehicleSpider(scrapy.Spider):
             self.start_urls = [
                 kwargs["url"],
             ]
+
+        if kwargs.get("local", False):
+            self.start_urls = local_pages
 
     # def start_requests(self):
     #     # GET request

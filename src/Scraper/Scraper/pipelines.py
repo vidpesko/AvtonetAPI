@@ -8,7 +8,7 @@ import scrapy.item
 # useful for handling different item types with a single interface
 from itemadapter import ItemAdapter
 
-from sqlalchemy import create_engine
+from sqlalchemy import create_engine, select, insert, update
 from sqlalchemy.orm import Session
 
 from .items import Vehicle, Error, Seller
@@ -43,7 +43,11 @@ class ErrorPipeline:
 
 
 class SellerPipeline:
-    def process_item(self, item: Vehicle, spider):
+    def process_item(self, item: Vehicle | Error, spider):
+        # If error, stop processing 
+        if isinstance(item, Error):
+            return item
+
         seller_item = item.seller
         adapter = ItemAdapter(seller_item)
 
@@ -95,14 +99,27 @@ class VehiclePipeline:
         - store data to database
     """
 
-    def process_item(self, item: Vehicle, spider):
+    def process_item(self, item: Vehicle | Error, spider):
         adapter = ItemAdapter(item)
+        engine = create_engine(settings.create_engine_url())
 
         # Extract id
-        # if adapter.get("url") and not adapter.get("error_code"):
+        avtonet_id = 0
+        # if adapter.get("url"):
         #     avtonet_id = get_id_from_url(adapter.get("url"))
         #     if avtonet_id:
         #         adapter["avtonet_id"] = avtonet_id
+
+        # If error has occured (e.g. vehicle is no longer available), set available to false in db
+        if isinstance(item, Error):
+            with Session(engine) as session:
+                vehicle = session.get(VehicleDB, avtonet_id)
+
+                # If vehicle does not exist
+                if not vehicle:
+                    session.add(VehicleDB(avtonet_id=avtonet_id, url=adapter.get("url"), available=False))
+                else:
+                    vehicle.available = False
 
         # Normalize data
         # Parse first_registration. 2007 / 9 -> datetime
@@ -121,7 +138,6 @@ class VehiclePipeline:
             adapter["published_on_avtonet_at"] = str_to_date(published_on_avtonet_at, from_text=True, include_time=True)
 
         # Save data
-        # engine = create_engine(settings.create_engine_url())
         # with Session(engine) as session:
         #     item_dict = item.to_dict()
         #     del item_dict["images"]
