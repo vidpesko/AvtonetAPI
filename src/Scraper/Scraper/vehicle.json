@@ -7,7 +7,7 @@
         "price": 18980,
         "discount_price": null,
         "price_verbose": null,
-        "first_registration": "2021 / 6",
+        "first_registration": "2021-06-01 00:00:00",
         "new_vehicle": false,
         "mileage": 87302,
         "num_of_owners": 1,
@@ -110,63 +110,70 @@
             "name": "AVTO MIKLAVŽ d.o.o.",
             "email": null,
             "address": "Ptujska cesta 68, 2204 Miklavž na Dravskem polju",
-            "registered_from": "Registriran kot trgovec na www.avto.net od 1.10.2002",
+            "registered_from": "2002-10-01 00:00:00",
             "phone_number": null,
             "opening_hours": [
-                [
-                    "Ponedeljek",
-                    "od 9:00 do 17:00"
-                ],
-                [
-                    "Torek",
-                    "od 9:00 do 17:00"
-                ],
-                [
-                    "Sreda",
-                    "od 9:00 do 17:00"
-                ],
-                [
-                    "Četrtek",
-                    "od 9:00 do 17:00"
-                ],
-                [
-                    "Petek",
-                    "od 9:00 do 17:00"
-                ],
-                [
-                    "Sobota",
-                    "od 8:00 do 12:00"
-                ],
-                [
-                    "Nedelja",
-                    "ZAPRTO"
-                ]
+                {
+                    "day": "Ponedeljek",
+                    "open_from": 540,
+                    "open_to": 1020
+                },
+                {
+                    "day": "Torek",
+                    "open_from": 540,
+                    "open_to": 1020
+                },
+                {
+                    "day": "Sreda",
+                    "open_from": 540,
+                    "open_to": 1020
+                },
+                {
+                    "day": "Četrtek",
+                    "open_from": 540,
+                    "open_to": 1020
+                },
+                {
+                    "day": "Petek",
+                    "open_from": 540,
+                    "open_to": 1020
+                },
+                {
+                    "day": "Sobota",
+                    "open_from": 480,
+                    "open_to": 720
+                },
+                {
+                    "day": "Nedelja",
+                    "open_from": 0,
+                    "open_to": 0
+                }
             ],
             "phone_numbers": [
-                [
-                    "02 629 1662",
-                    "PRODAJA RABLJENIH VOZIL"
-                ],
-                [
-                    "041 274 604",
-                    "TADEJ"
-                ],
-                [
-                    "031 795 500",
-                    "NEJC"
-                ],
-                [
-                    "041 641 384",
-                    "RADO"
-                ],
-                [
-                    "041 854 620",
-                    "DARIJA"
-                ]
+                {
+                    "phone_number": "02 629 1662",
+                    "description": "PRODAJA RABLJENIH VOZIL"
+                },
+                {
+                    "phone_number": "041 274 604",
+                    "description": "TADEJ"
+                },
+                {
+                    "phone_number": "031 795 500",
+                    "description": "NEJC"
+                },
+                {
+                    "phone_number": "041 641 384",
+                    "description": "RADO"
+                },
+                {
+                    "phone_number": "041 854 620",
+                    "description": "DARIJA"
+                }
             ],
             "presentation": "<img class=\"img-fluid\" alt=\"\" src=\"https://i.imgur.com/HvoifAg.jpeg\" style=\"height:1329px; width:940px\"><br><br><span style=\"color:rgb(0, 0, 0); font-size:14px\">Možnost napak pri vnosu podatkov.</span><br><span style=\"color:rgb(0, 0, 0); font-size:14px\">Za točne podatke se obrnite na prodajalca, za pisne napake ne odgovarjamo.</span>",
             "logo": "https://avto.net/2004/logotipi/1060.gif?koda=15122024%20190018",
-            "tax_number": "DŠ:SI40871088",
+            "tax_number": "SI40871088",
             "website": "https://www.avtomiklavz.si"
         },
         "images": [
@@ -197,7 +204,7 @@
             "https://images.avto.net/photo/20392446/11035548_small.jpg"
         ],
         "archive_technical_data_url": null,
-        "published_on_avtonet_at": "Objava / zadnje urejanje: 14.12.2024 09:52:00"
+        "published_on_avtonet_at": "2024-12-14 09:52:00"
     },
     {
         "url": "file:///Users/vidpesko/Documents/Learning/Projects/AvtonetAPI/src/Scraper/Scraper/spiders/person.html",
@@ -207,7 +214,7 @@
         "price": 6500,
         "discount_price": null,
         "price_verbose": null,
-        "first_registration": "2007 / 9",
+        "first_registration": "2007-09-01 00:00:00",
         "new_vehicle": false,
         "mileage": null,
         "num_of_owners": null,
@@ -279,7 +286,7 @@
             "name": "Alen",
             "email": null,
             "address": "3320 Velenje, Slovenija",
-            "registered_from": "Registrirani uporabnik avto.net od 27.10.2021",
+            "registered_from": "2021-10-27 00:00:00",
             "phone_number": "070657364",
             "opening_hours": [],
             "phone_numbers": [],
@@ -305,7 +312,7 @@
             "https://images.avto.net/photo/20395908/5048263_small.jpg"
         ],
         "archive_technical_data_url": "https://www.avto.net/Avtokatalog/detailshistory.asp?vehicle=707050420080602",
-        "published_on_avtonet_at": "Objava / zadnje urejanje: 15.12.2024 13:25:00"
+        "published_on_avtonet_at": "2024-12-15 13:25:00"
     },
     {
         "url": "file:///Users/vidpesko/Documents/Learning/Projects/AvtonetAPI/src/Scraper/Scraper/spiders/company2.html",
@@ -414,54 +421,54 @@
             "name": "AC FRI-MOBIL d.o.o.",
             "email": null,
             "address": "Dečkova cesta 43, 3000 Celje",
-            "registered_from": "Registriran kot trgovec na www.avto.net od 1.9.2011",
+            "registered_from": "2011-09-01 00:00:00",
             "phone_number": null,
             "opening_hours": [],
             "phone_numbers": [
-                [
-                    "03 / 425 60 80",
-                    "PRODAJA NOVIH VOZIL TOYOTA"
-                ],
-                [
-                    "031/ 744 048",
-                    "PRODAJA NOVIH VOZIL SUZUKI"
-                ],
-                [
-                    "03 / 425 60 82",
-                    "SERVIS VOZIL"
-                ],
-                [
-                    "051 332559",
-                    "PRODAJA NOVIH VOZIL TOYOTA"
-                ],
-                [
-                    "041 311081",
-                    "PRODAJA NOVIH VOZIL TOYOTA"
-                ],
-                [
-                    "051 / 601 - 625",
-                    "PRODAJA VOZIL ISUZU"
-                ],
-                [
-                    "041 / 446 618",
-                    "RABLJENA VOZILA"
-                ],
-                [
-                    "051/661-488",
-                    "RABLJENA VOZILA"
-                ],
-                [
-                    "031/312-444",
-                    "RABLJENA VOZILA"
-                ],
-                [
-                    "041 311 082",
-                    "PRODAJA NOVIH VOZIL TOYOTA"
-                ]
+                {
+                    "phone_number": "03 / 425 60 80",
+                    "description": "PRODAJA NOVIH VOZIL TOYOTA"
+                },
+                {
+                    "phone_number": "031/ 744 048",
+                    "description": "PRODAJA NOVIH VOZIL SUZUKI"
+                },
+                {
+                    "phone_number": "03 / 425 60 82",
+                    "description": "SERVIS VOZIL"
+                },
+                {
+                    "phone_number": "051 332559",
+                    "description": "PRODAJA NOVIH VOZIL TOYOTA"
+                },
+                {
+                    "phone_number": "041 311081",
+                    "description": "PRODAJA NOVIH VOZIL TOYOTA"
+                },
+                {
+                    "phone_number": "051 / 601 - 625",
+                    "description": "PRODAJA VOZIL ISUZU"
+                },
+                {
+                    "phone_number": "041 / 446 618",
+                    "description": "RABLJENA VOZILA"
+                },
+                {
+                    "phone_number": "051/661-488",
+                    "description": "RABLJENA VOZILA"
+                },
+                {
+                    "phone_number": "031/312-444",
+                    "description": "RABLJENA VOZILA"
+                },
+                {
+                    "phone_number": "041 311 082",
+                    "description": "PRODAJA NOVIH VOZIL TOYOTA"
+                }
             ],
             "presentation": "<strong>AC FRI-MOBIL D.O.O. JE POOBLAŠČENI PRODAJALEC IN SERVISER VOZIL <span style=\"color:#FF0000\">TOYOTA,</span> <span style=\"color:#FF0000\">SUZUKI IN TOVORNIH VOZIL ISUZU, </span>V SVOJI ZALOGI PA IMAMO VES ČAS TUDI PESTRO IZBIRO RABLJENIH VOZIL RAZLIČNIH BLAGOVNIH ZNAMK.</strong><br>STRANKAM OB NAKUPU VOZILA CELOSTNO SVETUJEMO , UREDIMO FINANCIRANJE PO MERI KUPCA, POSKRBIMO ZA ZAVAROVANJE TER REGISTRACIJO VOZILA.<br>PRI NAS LAHKO V ZVEZI Z NAKUPOM UREDITE VSE NA ENEM MESTU! PRI NAS LAHKO SVOJE NOVO VOZILO KUPITE PO SISTEMU STARO ZA NOVO. <br><br><strong><u>V OKVIRU POOBLAŠČENEGA SERVISA</u></strong> SKRBIMO ZA VOZILA <strong>TOYOTA, SUZUKI, ISUZU</strong>, PRAV TAKO PA OPRAVLJAMO SERVISNE STORITVE ZA VOZILA DRUGIH BLAGOVNIH ZNAMK, PO VNAPREJŠNJEM NAROČILU. ZA REDNI SERVIS IN POPRAVILA VOZIL POKLIČITE <u><span style=\"font-size:14px\"><strong>TEL: <a class=\"GO-empty\" href=\"tel:03%20425%2060%2082\">03 425 60 82</a></strong></span></u><br><br><strong>NAŠE DEJAVNOSTI SO POLEG NAŠTETIH ŠE: </strong><br>- PRODAJA NADOMESTNIH DELOV IN OPREME - <strong>TEL. <a class=\"GO-empty\" href=\"tel:03%20425%2060%2085\">03 425 60 85</a></strong><br>- PRODAJA DODATNE OPREME ZA VOZILA - <strong>TEL <a class=\"GO-empty\" href=\"tel:03%20425%2060%2085\">03 425 60 85</a></strong><br>- PRODAJA PNEVMATIK - <strong>TEL: <a class=\"GO-empty\" href=\"tel:03%20425%2060%2085\">03 425 60 85</a></strong><br>- VULKANIZERSKE STORITVE - <strong><a class=\"GO-empty\" href=\"tel:03%20425%2060%2082\">03 425 60 82</a></strong><br>- OPTIČNA NASTAVITEV PODVOZJA - TEL: <strong><a class=\"GO-empty\" href=\"tel:03%20425%2060%2082\">03 425 60 82</a></strong><br>- AVTOKLEPARSKE IN AVTOLIČARSKE STORITVE - TEL:<strong><a class=\"GO-empty\" href=\"tel:051%20369%20900\">051 369 900</a></strong><br>- PREMOŽENJSKA IN OSEBNA ZAVAROVANJA - TEL: <strong><a class=\"GO-empty\" href=\"tel:041%20612%20605\">041 612 605</a></strong><br>- CENITVE POŠKODOVANIH VOZIL - TEL: <strong><a class=\"GO-empty\" href=\"tel:051%20369%20900\">051 369 900</a></strong><br>- VLEKA VOZIL <br><br><span style=\"font-size:16px\"><strong><span style=\"color:#FF0000\">VLJUDNO VABLJENI V AC FRI-MOBIL NA DEČKOVI CESTI 43 V CELJU!</span></strong></span><br><br><br>",
             "logo": "https://avto.net/2004/logotipi/12181.gif?koda=15122024%20132243",
-            "tax_number": "DŠ:SI95745521",
+            "tax_number": "SI95745521",
             "website": "https://www.fri-mobil.si"
         },
         "images": [
@@ -479,6 +486,6 @@
             "https://images.avto.net/photo/20362058/6037415_small.jpg"
         ],
         "archive_technical_data_url": "https://www.avto.net/Avtokatalog/detailshistory.asp?vehicle=58987920240805",
-        "published_on_avtonet_at": "Objava / zadnje urejanje: 13.12.2024 08:51:00"
+        "published_on_avtonet_at": "2024-12-13 08:51:00"
     }
 ]

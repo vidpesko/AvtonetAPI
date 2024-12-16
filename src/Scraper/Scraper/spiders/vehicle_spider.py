@@ -272,10 +272,6 @@ class VehicleSpider(scrapy.Spider):
         )
 
         # When was published / last updated
-        # vehicle.add_xpath(
-        #     "published_on_avtonet_at",
-        #     "//a[i[contains(@class, 'fa-info-calendar')]]/",
-        # )
         vehicle.add_xpath("published_on_avtonet_at", "//div[i[contains(@class, 'fa-calendar')]]/text()")
 
         # Images

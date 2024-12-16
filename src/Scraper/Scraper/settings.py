@@ -67,7 +67,8 @@ DOWNLOADER_MIDDLEWARES = {
 # See https://docs.scrapy.org/en/latest/topics/item-pipeline.html
 ITEM_PIPELINES = {
     "Scraper.pipelines.ErrorPipeline": 290,
-    # "Scraper.pipelines.VehiclePipeline": 300,
+    "Scraper.pipelines.VehiclePipeline": 300,
+    "Scraper.pipelines.SellerPipeline": 305,
     "Scraper.pipelines.ToDictPipeline": 310,
 }
 

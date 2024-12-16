@@ -1,6 +1,8 @@
 """
 Collection of HTML parsing function
 """
+import re
+from datetime import datetime
 from urllib.parse import parse_qs, urlparse
 
 import scrapy.selector
@@ -104,10 +106,49 @@ def get_id_from_url(url: str) -> int:
         )
         return int(id)
     except (IndexError, KeyError):
-        raise Exception(f"Url '{url}' does not have id parameter")
+        raise KeyError(f"Url '{url}' does not have id parameter")
     except ValueError:
         raise ValueError(f"Vehicle id extracted from url '{url}' can not be parsed to integer")
 
 
 def encode_url(url: str):
     pass
+
+
+def str_to_date(value: str, format="%d.%m.%Y", from_text=False, include_time=False, time_format="%H:%M:%S") -> datetime:
+    """Parses string with date inside to datetime object
+
+    Args:
+        value (str): value to parse
+        format (str, optional): datetime strptime format. Defaults to "%d.%m.%Y".
+        from_text (bool, optional): if True, searches for date inside text. Defaults to False.
+        include_time (bool, optional): if True, also searches & parses for time. Defaults to False.
+        time_format (bool, optional): if `include_time` is True, this will be added to `format` and used in datetime strptime. Defaults to "%H:%M:%S".
+
+    Returns:
+        datetime: returns datetime
+    """
+
+    if from_text:
+        pattern = r"(\d{2}\.\d{2}\.\d{4}) (\d{2}:\d{2}:\d{2})" if include_time else r"\b\d{1,2}\.\d{1,2}\.\d{4}\b"
+        value = re.search(pattern, value).group()
+
+    if include_time:
+        format += " " + time_format
+
+    date = datetime.strptime(value, format)
+
+    return date
+
+
+def encode_time(value: str) -> int:
+    """Encode time in str to minutes past midnight
+
+    Args:
+        value (str): time. Example: 9:00, 9:12,...
+
+    Returns:
+        int: minutes past midnight
+    """
+    hour, minute = value.split(":")
+    return int(hour) * 60 + int(minute)
