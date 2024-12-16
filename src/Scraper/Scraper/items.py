@@ -13,6 +13,7 @@ from .utils.item_utils import (
     take_last,
     dataclass_to_json,
     replace_relative_url,
+    process_phone_numbers,
 )
 
 
@@ -132,7 +133,7 @@ class SellerLoader(ItemLoader):
     # Logo
     logo_in = replace_relative_url
     # Phone numbers
-    phone_numbers_in = Identity()
+    phone_numbers_in = process_phone_numbers
     phone_numbers_out = Identity()
 
 

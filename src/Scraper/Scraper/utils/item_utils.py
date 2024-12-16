@@ -56,3 +56,7 @@ def dataclass_to_json(dtcls: dataclasses):
 
 def replace_relative_url(values: list[str]):
     return [url.replace("..", "https://avto.net").replace(" ", "%20") for url in values]
+
+
+def process_phone_numbers(values: list[tuple[str, str]]):
+    return [(cleanse_str(val[0]), cleanse_str("".join(val[1]))) for val in values]

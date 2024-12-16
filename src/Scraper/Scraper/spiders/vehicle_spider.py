@@ -131,18 +131,22 @@ class VehicleSpider(scrapy.Spider):
             seller_info_container = seller_container.css(
                 ".border-info > .row > .d-lg-block"
             )[0]
+            # Name
             name = seller_info_container.css("strong::text").get()
+            # Location
             location = seller_info_container.xpath("//a[@data-target='#MapModal']")[0].css("*::text").getall()
-
+            # Phone numbers
             phone_container = seller_info_container.css(".list-unstyled li")
-
-            seller.add_value("phone_numbers", [(num.css("a::text").get(), "title") for num in phone_container])
-            # for phone_number in phone_container:
-            #     print(phone_number.css("a::text").get(), phone_number.css("li::text").get())
-            # for row in seller_info_container.css(".row")[2:]:
-            #     value = row.css("*::text").getall()
-            #     print(value)
-            # print(seller_info_container.css(""))
+            seller.add_value(
+                "phone_numbers",
+                [
+                    (
+                        num.css("a::text").get(),  # Get actual phone number
+                        num.xpath("./text()").getall(),  # Get phone title
+                    )
+                    for num in phone_container
+                ],
+            )
         except IndexError:
             # Seller info - person
             location = "few"
