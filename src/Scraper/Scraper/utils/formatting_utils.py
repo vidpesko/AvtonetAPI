@@ -11,6 +11,7 @@ def cleanse_str(input: str) -> str:
 
     # Remove \n
     input = input.replace("\n", "")
+    input = input.replace("\r", "")
 
     # Strip str
     input = input.strip()

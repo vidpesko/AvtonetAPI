@@ -2,7 +2,7 @@ from ast import literal_eval
 
 import scrapy, time
 
-from ..items import Vehicle, VehicleLoader, Error
+from ..items import Vehicle, VehicleLoader, Seller, SellerLoader, Error
 from .translation_tables import CAR_BASIC_PROPERTY_DATA, CAR_METADATA_PARSING_TABLE, CAR_METADATA_VALUES_TABLE
 from ..utils.parsing_utils import get_table_title
 
@@ -14,7 +14,9 @@ class VehicleSpider(scrapy.Spider):
     start_urls = [
         # "https://www.avto.net/Ads/details.asp?id=20315148&display=Volkswagen%20Tiguan",
         # "https://www.avto.net/Ads/details.asp?id=20231532&display=Volkswagen%20Jetta",
-        "https://www.avto.net/Ads/details.asp?ID=20178302",
+        # "https://www.avto.net/Ads/details.asp?ID=20178302",
+        "file:///Users/vidpesko/Documents/Learning/Projects/AvtonetAPI/src/Scraper/Scraper/spiders/site2.html",
+        "file:///Users/vidpesko/Documents/Learning/Projects/AvtonetAPI/src/Scraper/Scraper/spiders/person.html"
     ]
 
     def __init__(self, start_urls = None, name = None, **kwargs):
@@ -30,17 +32,18 @@ class VehicleSpider(scrapy.Spider):
         if kwargs.get("url"):
             self.start_urls = [kwargs["url"], ]
 
-    def start_requests(self):
-        # GET request
-        for url in self.start_urls:
-            yield scrapy.Request(
-                url,
-                meta={"use_scraperapi": True},
-            )
+    # def start_requests(self):
+    #     # GET request
+    #     for url in self.start_urls:
+    #         yield scrapy.Request(
+    #             url,
+    #             # meta={"use_scraperapi": True},
+    #         )
 
     def parse(self, response, **kwargs):
         # Initialise and set all attributes on Item object
         vehicle = VehicleLoader(item=Vehicle(), response=response)
+        seller = SellerLoader(item=Seller(), response=response)
 
         # Add URL & check availability
         is_error = "".join(response.css("h4 *::text").getall()).find("Napaka")
@@ -111,8 +114,44 @@ class VehicleSpider(scrapy.Spider):
 
         vehicle.add_value("additional_data", additional_data)
 
-        # Seller type
-        vehicle.add_css("seller_type", "#DealerAddress::text")
+        # Seller
+        seller.add_css("seller_type", "#DealerAddress::text")  # Seller type
+
+        seller_container = response.xpath("//div[normalize-space(text())='Prodajalec']/ancestor::div[contains(@class, 'container')]")[-1]
+
+        # Logo
+        try:
+            logo = seller_container.css("img")[0]
+            seller.add_value("logo", logo.xpath("@src").get())
+        except IndexError:
+            pass
+
+        # Seller info - company
+        try:
+            seller_info_container = seller_container.css(
+                ".border-info > .row > .d-lg-block"
+            )[0]
+            name = seller_info_container.css("strong::text").get()
+            location = seller_info_container.xpath("//a[@data-target='#MapModal']")[0].css("*::text").getall()
+
+            phone_container = seller_info_container.css(".list-unstyled li")
+
+            seller.add_value("phone_numbers", [(num.css("a::text").get(), "title") for num in phone_container])
+            # for phone_number in phone_container:
+            #     print(phone_number.css("a::text").get(), phone_number.css("li::text").get())
+            # for row in seller_info_container.css(".row")[2:]:
+            #     value = row.css("*::text").getall()
+            #     print(value)
+            # print(seller_info_container.css(""))
+        except IndexError:
+            # Seller info - person
+            location = "few"
+            name = "fex"
+
+        seller.add_value("name", name)  # Name
+        seller.add_value("address", location)
+        # seller.add_value("email")
+        vehicle.add_value("seller", seller.load_item())
 
         # Images
         vehicle.add_value("images", [img.xpath("@data-src").get() for img in response.xpath("//div[@id='lightgallery']/p")])

@@ -107,3 +107,7 @@ def get_id_from_url(url: str) -> int:
         raise Exception(f"Url '{url}' does not have id parameter")
     except ValueError:
         raise ValueError(f"Vehicle id extracted from url '{url}' can not be parsed to integer")
+
+
+def encode_url(url: str):
+    pass

@@ -1,0 +1,275 @@
+[
+    {
+        "url": "file:///Users/vidpesko/Documents/Learning/Projects/AvtonetAPI/src/Scraper/Scraper/spiders/site2.html",
+        "vehicle_name": "Peugeot 508",
+        "vehicle_full_name": "Peugeot 508 HYBRID 225 ALLURE e-EAT8 LED.ACC.KAM",
+        "avtonet_id": null,
+        "price": 18980,
+        "discount_price": null,
+        "price_verbose": null,
+        "first_registration": "2021 / 6",
+        "new_vehicle": false,
+        "mileage": 87302,
+        "num_of_owners": "1",
+        "fuel_type": "hibridni pogon",
+        "engine_power": 165,
+        "comment": null,
+        "description": null,
+        "additional_data": {
+            "basic_data": {
+                "Starost": "rabljeno",
+                "Prva registracija": "2021 / 6",
+                "Leto proizvodnje": "2021",
+                "Prevoženi km": "87302",
+                "Tehnični pregled velja do": "2025 / 6",
+                "engine": "165 kW (224 KM), 1598 ccm",
+                "Gorivo": "hibridni pogon",
+                "Menjalnik": "avtomatski menjalnik",
+                "Oblika": "limuzina",
+                "Št.vrat": "5 vr.",
+                "Barva": "svetlo siva metalik",
+                "Notranjost": "temno siva / delno usnje",
+                "Kraj ogleda": ","
+            },
+            "other_data": {
+                "Podvozje": [
+                    "lahka - ALU platišča:-17",
+                    "ABS zavorni sistem",
+                    "BAS pomoč pri zaviranju",
+                    "ESP elektronski program stabilnosti"
+                ],
+                "Varnost": [
+                    "6 x zračna vreča / Airbag",
+                    "LED žarometi",
+                    "prednje (dnevne) LED luči",
+                    "zadnje LED luči",
+                    "samodejno upravljanje dolgih luči",
+                    "tretja zavorna luč",
+                    "sistem za ohranjanje voznega pasu",
+                    "sistem za samodejno zaviranje v sili",
+                    "sistem za opozarjanje na mrtvi kot",
+                    "opozorilnik spremembe voznega pasu"
+                ],
+                "Notranjost": [
+                    "štev. sedežev: 5",
+                    "usnje (delno usnje)",
+                    "ALU dodatki v notranjosti",
+                    "športni sedeži",
+                    "sedeži: nastavitev po višini",
+                    "sredinski naslon za roko"
+                ],
+                "Udobje": [
+                    "klimatska naprava: avtomatska",
+                    "klimatska naprava: 2 conska",
+                    "zatemnjena / tonirana stekla",
+                    "električni pomik prednjih in zadnjih stekel",
+                    "zunanja ogledala: el. zložljiva",
+                    "centralno zaklepanje",
+                    "centralno zaklepanje + daljinsko upravljanje",
+                    "električni paket",
+                    "volan: nastavljiv po višini",
+                    "servo volan",
+                    "volan: multifunkcijski",
+                    "volanski obroč oblečen v usnje",
+                    "obvolanski prestavni ročici / F1 prestave",
+                    "aktivni tempomat",
+                    "sistem Start-Stop",
+                    "Keyless Go",
+                    "el. parkirna zavora",
+                    "el. zapiranje prtljažnika"
+                ],
+                "Multimedia": [
+                    "avtoradio",
+                    "MP3 predvajalnik",
+                    "USB priključek (iPod, HD, ...)",
+                    "potovalni računalnik",
+                    "navigacijski sistem",
+                    "Bluetooth vmesnik",
+                    "Touch screen",
+                    "Apple CarPlay",
+                    "Android Auto"
+                ],
+                "Uporabnost": [
+                    "Isofix sistem za pritrditev otr.sedeža",
+                    "pripomoček za parkiranje PDC/Parktronic",
+                    "pomoč pri parkiranju: prednji senzorji",
+                    "pomoč pri parkiranju: zadnji senzorji",
+                    "vlečna kljuka",
+                    "vzvratna kamera"
+                ],
+                "Stanje": [
+                    "servisna knjiga / potrjena",
+                    "vozilo ni bilo karambolirano",
+                    "1. lastnik"
+                ]
+            }
+        },
+        "seller": {
+            "seller_type": "company",
+            "name": "AVTO MIKLAVŽ d.o.o.",
+            "email": null,
+            "address": "Ptujska cesta 68, 2204 Miklavž na Dravskem polju",
+            "registered_from": null,
+            "opening_hours": [],
+            "phone_numbers": [
+                [
+                    "\r\n        02 629 1662\r\n        ",
+                    "title"
+                ],
+                [
+                    "\r\n        041 274 604\r\n        ",
+                    "title"
+                ],
+                [
+                    "\r\n        031 795 500\r\n        ",
+                    "title"
+                ],
+                [
+                    "\r\n        041 641 384\r\n        ",
+                    "title"
+                ],
+                [
+                    "\r\n        041 854 620\r\n        ",
+                    "title"
+                ]
+            ],
+            "presentation": null,
+            "logo": "https://avto.net/2004/logotipi/1060.gif?koda=15122024%20190018",
+            "tax_number": null
+        },
+        "images": [
+            "https://images.avto.net/photo/20392446/1035492.jpg",
+            "https://images.avto.net/photo/20392446/2035497.jpg",
+            "https://images.avto.net/photo/20392446/3035502.jpg",
+            "https://images.avto.net/photo/20392446/4035508.jpg",
+            "https://images.avto.net/photo/20392446/5035514.jpg",
+            "https://images.avto.net/photo/20392446/6035520.jpg",
+            "https://images.avto.net/photo/20392446/7035526.jpg",
+            "https://images.avto.net/photo/20392446/8035532.jpg",
+            "https://images.avto.net/photo/20392446/9035537.jpg",
+            "https://images.avto.net/photo/20392446/10035543.jpg",
+            "https://images.avto.net/photo/20392446/11035548.jpg",
+            "https://images.avto.net/photo/20392446/12035552.jpg"
+        ],
+        "thumbnails": [
+            "https://images.avto.net/photo/20392446/1035492_small.jpg",
+            "https://images.avto.net/photo/20392446/2035497_small.jpg",
+            "https://images.avto.net/photo/20392446/3035502_small.jpg",
+            "https://images.avto.net/photo/20392446/4035508_small.jpg",
+            "https://images.avto.net/photo/20392446/5035514_small.jpg",
+            "https://images.avto.net/photo/20392446/6035520_small.jpg",
+            "https://images.avto.net/photo/20392446/7035526_small.jpg",
+            "https://images.avto.net/photo/20392446/8035532_small.jpg",
+            "https://images.avto.net/photo/20392446/9035537_small.jpg",
+            "https://images.avto.net/photo/20392446/10035543_small.jpg",
+            "https://images.avto.net/photo/20392446/11035548_small.jpg"
+        ],
+        "archive_technical_data_url": null,
+        "published_on_avtonet": null
+    },
+    {
+        "url": "file:///Users/vidpesko/Documents/Learning/Projects/AvtonetAPI/src/Scraper/Scraper/spiders/person.html",
+        "vehicle_name": "Volkswagen Golf",
+        "vehicle_full_name": "Volkswagen Golf 2.0 FSI turbo GTI 147 200",
+        "avtonet_id": null,
+        "price": 6500,
+        "discount_price": null,
+        "price_verbose": null,
+        "first_registration": "2007 / 9",
+        "new_vehicle": false,
+        "mileage": null,
+        "num_of_owners": "?",
+        "fuel_type": "bencin",
+        "engine_power": 147,
+        "comment": null,
+        "description": "Prodam omenjeno vozilo Golf 5 GTI 2.0 TFSI 2007 Letnik 302k prevoženih Avto je v odličnem stanju mehansko je tiptop dobil sem ga v račun ima vse račune narejen mali ter glavni servis generalka motorja narejena vozilo kar se tiče mehanike ni potrebno niti centa vložiti olje nepije vodo tudi ne kar se tiče notranjosti tudi v odličnem stanju ima zimske gume na 18col felgnah zadaj je R32 izgled ima tudi športni zvok za več info lahko pišeš v zs menjave so tudi možne z mojim ali vašim doplačilom za resnega kupca cena ni zadnja",
+        "additional_data": {
+            "basic_data": {
+                "Starost": "rabljeno",
+                "Prva registracija": "2007 / 9",
+                "engine": "147 kW (200 KM), 1984 ccm",
+                "Gorivo": "bencinski motor",
+                "Menjalnik": "ročni menjalnik (6 pr.)",
+                "Oblika": "kombilimuzina / hatchback",
+                "Št.vrat": "5 vr.",
+                "Kraj ogleda": "3320 Velenje, Slovenija"
+            },
+            "emission_data": {
+                "Kombinirana vožnja": "od 8 lit. / 100 km",
+                "Emisijski razred": "Euro 4",
+                "Emisija CO2": "192 g / km"
+            },
+            "other_data": {
+                "Podvozje": [
+                    "lahka - ALU platišča:lita",
+                    "ABS zavorni sistem",
+                    "BAS pomoč pri zaviranju",
+                    "ESP elektronski program stabilnosti",
+                    "ASR regulacija zdrsa pogonskih koles",
+                    "športno podvozje"
+                ],
+                "Varnost": [
+                    "senzor za dež",
+                    "tretja zavorna luč",
+                    "nadzor zračnega tlaka v pnevmatikah"
+                ],
+                "Notranjost": [
+                    "štev. sedežev: 5",
+                    "športni sedeži",
+                    "sedeži: nastavitev po višini"
+                ],
+                "Udobje": [
+                    "klimatska naprava",
+                    "električni pomik prednjih stekel",
+                    "zunanja ogledala: el. nastavljiva",
+                    "zunanja ogledala: ogrevanje",
+                    "centralno zaklepanje",
+                    "centralno zaklepanje + daljinsko upravljanje",
+                    "volan: nastavljiv po višini",
+                    "servo volan",
+                    "volanski obroč oblečen v usnje"
+                ],
+                "Multimedia": [
+                    "avtoradio",
+                    "avtoradio / CD",
+                    "MP3 predvajalnik",
+                    "potovalni računalnik"
+                ],
+                "Uporabnost": [
+                    "zadnja klop - deljiva 1/3 - 2/3"
+                ],
+                "Stanje": []
+            }
+        },
+        "seller": {
+            "seller_type": "person",
+            "name": "fex",
+            "email": null,
+            "address": "few",
+            "registered_from": null,
+            "opening_hours": [],
+            "phone_numbers": [],
+            "presentation": null,
+            "logo": null,
+            "tax_number": null
+        },
+        "images": [
+            "https://images.avto.net/photo/20395908/1048187.jpg",
+            "https://images.avto.net/photo/20395908/2048198.jpg",
+            "https://images.avto.net/photo/20395908/3048236.jpg",
+            "https://images.avto.net/photo/20395908/4048252.jpg",
+            "https://images.avto.net/photo/20395908/5048263.jpg",
+            "https://images.avto.net/photo/20395908/6048291.jpg",
+            "https://images.avto.net/photo/20395908/7048305.jpg"
+        ],
+        "thumbnails": [
+            "https://images.avto.net/photo/20395908/1048187_small.jpg",
+            "https://images.avto.net/photo/20395908/2048198_small.jpg",
+            "https://images.avto.net/photo/20395908/3048236_small.jpg",
+            "https://images.avto.net/photo/20395908/4048252_small.jpg",
+            "https://images.avto.net/photo/20395908/5048263_small.jpg"
+        ],
+        "archive_technical_data_url": null,
+        "published_on_avtonet": null
+    }
+]

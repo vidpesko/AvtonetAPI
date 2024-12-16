@@ -1,5 +1,7 @@
 import json
+from datetime import datetime
 from dataclasses import dataclass, field, asdict
+
 from scrapy import Item
 from scrapy.loader import ItemLoader
 from itemloaders.processors import TakeFirst, Identity, MapCompose, Compose, Join
@@ -10,7 +12,27 @@ from .utils.item_utils import (
     process_seller_type,
     take_last,
     dataclass_to_json,
+    replace_relative_url,
 )
+
+
+@dataclass
+class Seller:
+    seller_type: str | None = field(default=None)
+    name: str | None = field(default=None)
+    email: str | None = field(default=None)
+    address: str | None = field(default=None)
+
+    registered_from: datetime | None = field(default=None)
+    opening_hours: list[str] | None = field(default_factory=list)
+    phone_numbers: list[tuple[str, str]] | None = field(default_factory=list)
+    presentation: str | None = field(default=None)
+    logo: str | None = field(default=None)
+    tax_number: str | None = field(default=None)
+
+    # Converting methods
+    to_json = dataclass_to_json
+    to_dict = asdict
 
 
 @dataclass
@@ -41,10 +63,13 @@ class Vehicle:
     # Inconsistent data
     additional_data: dict = field(default_factory=dict)
     # Seller
-    seller_type: str | None = field(default=None)
+    seller: Seller | None = field(default=None)
     # Images
     images: list[str] = field(default_factory=list)
     thumbnails: list[str] = field(default_factory=list)
+    # Other
+    archive_technical_data_url: str | None = field(default=None)
+    published_on_avtonet: datetime | None = field(default=None)
 
     # Converting methods
     to_json = dataclass_to_json
@@ -86,14 +111,29 @@ class VehicleLoader(ItemLoader):
     additional_data_in = Identity()
     additional_data_out = take_last
 
-    # Seller type
-    seller_type_in = process_seller_type
+    # Seller
+    seller_in = TakeFirst()
 
     # Images
     images_in = Identity()
     images_out = Identity()
     thumbnails_in = Identity()
     thumbnails_out = Identity()
+
+
+class SellerLoader(ItemLoader):
+    default_input_processor = process_str()
+    default_output_processor = TakeFirst()
+
+    # Seller type
+    seller_type_in = process_seller_type
+    # Seller name
+    name_in = Identity()
+    # Logo
+    logo_in = replace_relative_url
+    # Phone numbers
+    phone_numbers_in = Identity()
+    phone_numbers_out = Identity()
 
 
 @dataclass

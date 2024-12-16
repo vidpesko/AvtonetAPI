@@ -30,6 +30,7 @@ class Vehicle(Base):
     price_verbose: Mapped[Optional[str]]
     first_registration: Mapped[Optional[str]]
     new_vehicle: Mapped[Optional[bool]]
+    available: Mapped[bool] = mapped_column(default=True)
     mileage: Mapped[Optional[int]]
     num_of_owners: Mapped[Optional[int]]
     fuel_type: Mapped[Optional[str]]
@@ -76,6 +77,7 @@ class Seller(Base):
 class SellerPhoneNumber(Base):
     __tablename__ = "sellers_phone_numbers"
 
+    phone_number_id: Mapped[int] = mapped_column(primary_key=True)
     seller_id: Mapped[int] = mapped_column(ForeignKey("sellers.seller_id"))
     phone_number: Mapped[str]
     description: Mapped[Optional[str]]

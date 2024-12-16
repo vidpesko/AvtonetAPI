@@ -2,6 +2,7 @@ import json, dataclasses
 from itemloaders.processors import TakeFirst, Identity, MapCompose, Compose
 
 from .formatting_utils import cleanse_str, str_to_int, set_empty_val_to_none
+from .parsing_utils import encode_url
 
 
 def process_int(*extra_functions):
@@ -26,7 +27,7 @@ def process_str(*extra_functions):
 
 def process_seller_type(values):
     """
-    Return ["compamy"] if values is not empty, else ["person"]
+    Return ["company"] if values is not empty, else ["person"]
     """
 
     return ["company"] if values else ["person"]
@@ -51,3 +52,7 @@ class EnhancedJSONEncoder(json.JSONEncoder):
 
 def dataclass_to_json(dtcls: dataclasses):
     return json.dumps(dtcls, cls=EnhancedJSONEncoder)
+
+
+def replace_relative_url(values: list[str]):
+    return [url.replace("..", "https://avto.net").replace(" ", "%20") for url in values]
