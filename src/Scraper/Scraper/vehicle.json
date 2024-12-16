@@ -107,9 +107,9 @@
         "seller": {
             "seller_type": "company",
             "name": "AVTO MIKLAVŽ d.o.o.",
-            "email": null,
+            "email": "[email protected]",
             "address": "Ptujska cesta 68, 2204 Miklavž na Dravskem polju",
-            "registered_from": null,
+            "registered_from": "Registriran kot trgovec na www.avto.net od 1.10.2002",
             "opening_hours": [
                 [
                     "Ponedeljek",
@@ -162,9 +162,9 @@
                     "DARIJA"
                 ]
             ],
-            "presentation": null,
+            "presentation": "<img class=\"img-fluid\" alt=\"\" src=\"https://i.imgur.com/HvoifAg.jpeg\" style=\"height:1329px; width:940px\"><br><br><span style=\"color:rgb(0, 0, 0); font-size:14px\">Možnost napak pri vnosu podatkov.</span><br><span style=\"color:rgb(0, 0, 0); font-size:14px\">Za točne podatke se obrnite na prodajalca, za pisne napake ne odgovarjamo.</span>",
             "logo": "https://avto.net/2004/logotipi/1060.gif?koda=15122024%20190018",
-            "tax_number": null,
+            "tax_number": "DŠ:SI40871088",
             "website": "https://www.avtomiklavz.si"
         },
         "images": [
@@ -274,9 +274,9 @@
         "seller": {
             "seller_type": "person",
             "name": "fex",
-            "email": null,
+            "email": "fex",
             "address": "few",
-            "registered_from": null,
+            "registered_from": "some",
             "opening_hours": [],
             "phone_numbers": [],
             "presentation": null,

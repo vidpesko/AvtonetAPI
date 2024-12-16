@@ -1,9 +1,14 @@
+import re
 from ast import literal_eval
 
 import scrapy, time
 
 from ..items import Vehicle, VehicleLoader, Seller, SellerLoader, Error
-from .translation_tables import CAR_BASIC_PROPERTY_DATA, CAR_METADATA_PARSING_TABLE, CAR_METADATA_VALUES_TABLE
+from .translation_tables import (
+    CAR_BASIC_PROPERTY_DATA,
+    CAR_METADATA_PARSING_TABLE,
+    CAR_METADATA_VALUES_TABLE,
+)
 from ..utils.parsing_utils import get_table_title
 
 
@@ -16,10 +21,10 @@ class VehicleSpider(scrapy.Spider):
         # "https://www.avto.net/Ads/details.asp?id=20231532&display=Volkswagen%20Jetta",
         # "https://www.avto.net/Ads/details.asp?ID=20178302",
         "file:///Users/vidpesko/Documents/Learning/Projects/AvtonetAPI/src/Scraper/Scraper/spiders/site2.html",
-        "file:///Users/vidpesko/Documents/Learning/Projects/AvtonetAPI/src/Scraper/Scraper/spiders/person.html"
+        "file:///Users/vidpesko/Documents/Learning/Projects/AvtonetAPI/src/Scraper/Scraper/spiders/person.html",
     ]
 
-    def __init__(self, start_urls = None, name = None, **kwargs):
+    def __init__(self, start_urls=None, name=None, **kwargs):
         super().__init__(name, **kwargs)
         # Check if start_urls have been provided as argument to init
 
@@ -30,7 +35,9 @@ class VehicleSpider(scrapy.Spider):
             self.start_urls = literal_eval(kwargs["urls"])
 
         if kwargs.get("url"):
-            self.start_urls = [kwargs["url"], ]
+            self.start_urls = [
+                kwargs["url"],
+            ]
 
     # def start_requests(self):
     #     # GET request
@@ -52,7 +59,12 @@ class VehicleSpider(scrapy.Spider):
             # Get error message
             error_msg = " ".join(response.css(".GO-Shadow-B *::text").getall())
 
-            yield Error(url=response.url, error_code=404, description="Listing not found. Has it expired?", error_message=error_msg)
+            yield Error(
+                url=response.url,
+                error_code=404,
+                description="Listing not found. Has it expired?",
+                error_message=error_msg,
+            )
             return  # Exit to avoid running the rest of the code
 
         vehicle.add_value("url", response.url)
@@ -60,10 +72,14 @@ class VehicleSpider(scrapy.Spider):
         # Name
         raw_name_selector = response.css("h3")[0]
         vehicle.add_value("vehicle_name", raw_name_selector.css("::text").get())
-        vehicle.add_value("vehicle_full_name", "".join(raw_name_selector.css("*::text").getall()))
+        vehicle.add_value(
+            "vehicle_full_name", "".join(raw_name_selector.css("*::text").getall())
+        )
 
         # Price
-        vehicle.add_css("price", ".h2 *::text")  # Regular price, without any modifiers (discounts,...)
+        vehicle.add_css(
+            "price", ".h2 *::text"
+        )  # Regular price, without any modifiers (discounts,...)
         vehicle.add_xpath(
             "discount_price",
             "normalize-space(//p[contains(@class, 'GO-OglasDataStaraCena')]/following-sibling::p[1][contains(@class, 'h2')]/span/text())",
@@ -73,9 +89,15 @@ class VehicleSpider(scrapy.Spider):
         basic_table_selector = response.xpath(
             "//div[contains(., 'Prevoženih')]/ancestor::div[contains(@class, 'col-12')][1]"
         )[1]
-        raw_properties = {property.css(".text-muted::text").get(): property.css("h5::text").get() for property in basic_table_selector.css(".col-6")}
+        raw_properties = {
+            property.css(".text-muted::text").get(): property.css("h5::text").get()
+            for property in basic_table_selector.css(".col-6")
+        }
         # Enumerate translation table and use specified properties
-        properties = {CAR_BASIC_PROPERTY_DATA.get(key, key):value for key, value in raw_properties.items()}
+        properties = {
+            CAR_BASIC_PROPERTY_DATA.get(key, key): value
+            for key, value in raw_properties.items()
+        }
         for key, value in properties.items():
             try:
                 vehicle.add_value(key, value)
@@ -117,7 +139,9 @@ class VehicleSpider(scrapy.Spider):
         # Seller
         seller.add_css("seller_type", "#DealerAddress::text")  # Seller type
 
-        seller_container = response.xpath("//div[normalize-space(text())='Prodajalec']/ancestor::div[contains(@class, 'container')]")[-1]
+        seller_container = response.xpath(
+            "//div[normalize-space(text())='Prodajalec']/ancestor::div[contains(@class, 'container')]"
+        )[-1]
 
         # Logo
         try:
@@ -135,7 +159,11 @@ class VehicleSpider(scrapy.Spider):
             name = seller_info_container.css("strong::text").get()
             # Location
             try:
-                location = seller_info_container.xpath("//a[@data-target='#MapModal']")[0].css("*::text").getall()
+                location = (
+                    seller_info_container.xpath("//a[@data-target='#MapModal']")[0]
+                    .css("*::text")
+                    .getall()
+                )
             except IndexError:
                 location = None
             # Phone numbers
@@ -152,45 +180,92 @@ class VehicleSpider(scrapy.Spider):
             )
             # External website
             try:
-                website = seller_info_container.xpath(
-                    ".//i[contains(@class, 'fa-external-link')]/ancestor::div[contains(@class, 'row align-items-center')]"
-                )[0].css("::text").getall()
+                website = (
+                    seller_info_container.xpath(
+                        ".//i[contains(@class, 'fa-external-link')]/ancestor::div[contains(@class, 'row align-items-center')]"
+                    )[0]
+                    .css("::text")
+                    .getall()
+                )
                 seller.add_value("website", website)
             except IndexError:
                 website = None
             # Email
             try:
-                email = seller_info_container.xpath(
-                    ".//i[contains(@class, 'fa-envelope')]/ancestor::div[contains(@class, 'row align-items-center')]"
-                )[0].css("::text").getall()
+                email = (
+                    seller_info_container.xpath(
+                        ".//i[contains(@class, 'fa-envelope')]/ancestor::div[contains(@class, 'row align-items-center')]"
+                    )[0]
+                    .css("::text")
+                    .getall()
+                )
                 # print(email)  # TODO: I get EMAIL PROTECTED???
             except IndexError:
                 email = None
             # Opening hours
             try:
                 hours_modal = response.css("#UrnikModal tr")
-                opening_hours = [(hour.css("th::text").get(), hour.css("td::text").get()) for hour in hours_modal]
+                opening_hours = [
+                    (hour.css("th::text").get(), hour.css("td::text").get())
+                    for hour in hours_modal
+                ]
                 seller.add_value("opening_hours", opening_hours)
             except IndexError:
                 opening_hours = []
+            # Registered from
+            try:
+                registered_from = seller_container.css(
+                    ".border-info > .row > .d-lg-block.text-center *::text"
+                ).getall()
+            except IndexError:
+                registered_from = None
+
+            # Presentation
+            try:
+                presentation_container = seller_container.css(".container > .row")[1]
+                presentation = presentation_container.xpath(
+                    "//div[contains(@class, 'row')]/div[contains(@class, 'col-12') and contains(@class, 'p-3') and contains(@class, 'font-weight-normal')]/node()"
+                ).getall()
+                seller.add_value("presentation", presentation)
+            except IndexError:
+                presentation = None
+
+            # Tax number
+            try:
+                last_container = seller_container.css(".container > .row")[2]
+                tax_number = "".join(last_container.css("*::text").getall())
+                tax_number = re.search(r"DŠ:[A-Za-z0-9]+", tax_number).group()
+                seller.add_value("tax_number", tax_number)
+            except IndexError:
+                tax_number = None
         except IndexError:
             # Seller info - person
             location = "few"
             name = "fex"
             email = "fex"
+            registered_from = "some"
 
         seller.add_value("name", name)  # Name
         seller.add_value("address", location)
-        # seller.add_value("email", email)
-        # seller.add_value("email")
+        seller.add_value("email", email)
+        seller.add_value("registered_from", registered_from)
         vehicle.add_value("seller", seller.load_item())
 
         # Images
-        vehicle.add_value("images", [img.xpath("@data-src").get() for img in response.xpath("//div[@id='lightgallery']/p")])
-        vehicle.add_value("thumbnails", [
-            img.xpath("@src").get()
-            for img in response.xpath("//div[@class='GO-OglasThumb']/img")
-        ])
+        vehicle.add_value(
+            "images",
+            [
+                img.xpath("@data-src").get()
+                for img in response.xpath("//div[@id='lightgallery']/p")
+            ],
+        )
+        vehicle.add_value(
+            "thumbnails",
+            [
+                img.xpath("@src").get()
+                for img in response.xpath("//div[@class='GO-OglasThumb']/img")
+            ],
+        )
 
         vehicle_item = vehicle.load_item()
         yield vehicle_item

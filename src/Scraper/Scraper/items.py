@@ -14,6 +14,7 @@ from .utils.item_utils import (
     dataclass_to_json,
     replace_relative_url,
     process_list_of_tuples,
+    process_seller_presentation,
 )
 
 
@@ -139,6 +140,8 @@ class SellerLoader(ItemLoader):
     # Opening hours
     opening_hours_in = process_list_of_tuples
     opening_hours_out = Identity()
+    # Seller presentation
+    presentation_in = process_seller_presentation
 
 
 @dataclass

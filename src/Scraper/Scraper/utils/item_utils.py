@@ -72,3 +72,7 @@ def process_list_of_tuples(values: list[tuple[str, str]]):
         output.append((cleanse_str(val_1), cleanse_str(val_2)))
 
     return output
+
+
+def process_seller_presentation(values: list[str]):
+    return cleanse_str("".join(values))
