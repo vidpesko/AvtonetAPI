@@ -12,7 +12,10 @@ def process_int(*extra_functions):
     :param extra_functions: if you wish to apply any additional function to list
     """
 
-    return MapCompose(cleanse_str, str_to_int, set_empty_val_to_none, *extra_functions)
+    # If number is /, replace that with 0
+    replace_slash = lambda x: x.replace("/", "0")
+
+    return MapCompose(replace_slash, cleanse_str, str_to_int, set_empty_val_to_none, *extra_functions)
 
 
 def process_str(*extra_functions):

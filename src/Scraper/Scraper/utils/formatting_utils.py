@@ -58,4 +58,4 @@ def str_to_int(input: str, replace_unit: str = "€") -> int | None:
     return input
 
 
-set_empty_val_to_none = lambda x: x if x else None
+set_empty_val_to_none = lambda x: x if (x == 0) or x  else None
