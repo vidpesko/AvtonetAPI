@@ -110,7 +110,36 @@
             "email": null,
             "address": "Ptujska cesta 68, 2204 Miklavž na Dravskem polju",
             "registered_from": null,
-            "opening_hours": [],
+            "opening_hours": [
+                [
+                    "Ponedeljek",
+                    "od 9:00 do 17:00"
+                ],
+                [
+                    "Torek",
+                    "od 9:00 do 17:00"
+                ],
+                [
+                    "Sreda",
+                    "od 9:00 do 17:00"
+                ],
+                [
+                    "Četrtek",
+                    "od 9:00 do 17:00"
+                ],
+                [
+                    "Petek",
+                    "od 9:00 do 17:00"
+                ],
+                [
+                    "Sobota",
+                    "od 8:00 do 12:00"
+                ],
+                [
+                    "Nedelja",
+                    "ZAPRTO"
+                ]
+            ],
             "phone_numbers": [
                 [
                     "02 629 1662",
@@ -135,7 +164,8 @@
             ],
             "presentation": null,
             "logo": "https://avto.net/2004/logotipi/1060.gif?koda=15122024%20190018",
-            "tax_number": null
+            "tax_number": null,
+            "website": "https://www.avtomiklavz.si"
         },
         "images": [
             "https://images.avto.net/photo/20392446/1035492.jpg",
@@ -251,7 +281,8 @@
             "phone_numbers": [],
             "presentation": null,
             "logo": null,
-            "tax_number": null
+            "tax_number": null,
+            "website": null
         },
         "images": [
             "https://images.avto.net/photo/20395908/1048187.jpg",

@@ -13,7 +13,7 @@ from .utils.item_utils import (
     take_last,
     dataclass_to_json,
     replace_relative_url,
-    process_phone_numbers,
+    process_list_of_tuples,
 )
 
 
@@ -23,13 +23,14 @@ class Seller:
     name: str | None = field(default=None)
     email: str | None = field(default=None)
     address: str | None = field(default=None)
-
     registered_from: datetime | None = field(default=None)
+
     opening_hours: list[str] | None = field(default_factory=list)
     phone_numbers: list[tuple[str, str]] | None = field(default_factory=list)
     presentation: str | None = field(default=None)
     logo: str | None = field(default=None)
     tax_number: str | None = field(default=None)
+    website: str | None = field(default=None)
 
     # Converting methods
     to_json = dataclass_to_json
@@ -133,8 +134,11 @@ class SellerLoader(ItemLoader):
     # Logo
     logo_in = replace_relative_url
     # Phone numbers
-    phone_numbers_in = process_phone_numbers
+    phone_numbers_in = process_list_of_tuples
     phone_numbers_out = Identity()
+    # Opening hours
+    opening_hours_in = process_list_of_tuples
+    opening_hours_out = Identity()
 
 
 @dataclass

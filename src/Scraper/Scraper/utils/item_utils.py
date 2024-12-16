@@ -58,5 +58,17 @@ def replace_relative_url(values: list[str]):
     return [url.replace("..", "https://avto.net").replace(" ", "%20") for url in values]
 
 
-def process_phone_numbers(values: list[tuple[str, str]]):
-    return [(cleanse_str(val[0]), cleanse_str("".join(val[1]))) for val in values]
+def process_list_of_tuples(values: list[tuple[str, str]]):
+    output = []
+    for val_1, val_2 in values:
+        if not val_1 or not val_2:
+            continue
+
+        if isinstance(val_1, list):
+            val_1 = "".join(val_1)
+        if isinstance(val_2, list):
+            val_2 = "".join(val_2)
+
+        output.append((cleanse_str(val_1), cleanse_str(val_2)))
+
+    return output

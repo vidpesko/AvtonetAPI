@@ -134,7 +134,10 @@ class VehicleSpider(scrapy.Spider):
             # Name
             name = seller_info_container.css("strong::text").get()
             # Location
-            location = seller_info_container.xpath("//a[@data-target='#MapModal']")[0].css("*::text").getall()
+            try:
+                location = seller_info_container.xpath("//a[@data-target='#MapModal']")[0].css("*::text").getall()
+            except IndexError:
+                location = None
             # Phone numbers
             phone_container = seller_info_container.css(".list-unstyled li")
             seller.add_value(
@@ -147,13 +150,38 @@ class VehicleSpider(scrapy.Spider):
                     for num in phone_container
                 ],
             )
+            # External website
+            try:
+                website = seller_info_container.xpath(
+                    ".//i[contains(@class, 'fa-external-link')]/ancestor::div[contains(@class, 'row align-items-center')]"
+                )[0].css("::text").getall()
+                seller.add_value("website", website)
+            except IndexError:
+                website = None
+            # Email
+            try:
+                email = seller_info_container.xpath(
+                    ".//i[contains(@class, 'fa-envelope')]/ancestor::div[contains(@class, 'row align-items-center')]"
+                )[0].css("::text").getall()
+                # print(email)  # TODO: I get EMAIL PROTECTED???
+            except IndexError:
+                email = None
+            # Opening hours
+            try:
+                hours_modal = response.css("#UrnikModal tr")
+                opening_hours = [(hour.css("th::text").get(), hour.css("td::text").get()) for hour in hours_modal]
+                seller.add_value("opening_hours", opening_hours)
+            except IndexError:
+                opening_hours = []
         except IndexError:
             # Seller info - person
             location = "few"
             name = "fex"
+            email = "fex"
 
         seller.add_value("name", name)  # Name
         seller.add_value("address", location)
+        # seller.add_value("email", email)
         # seller.add_value("email")
         vehicle.add_value("seller", seller.load_item())
 

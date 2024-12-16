@@ -58,13 +58,16 @@ class Seller(Base):
 
     seller_id: Mapped[int] = mapped_column(primary_key=True, nullable=False)
     seller_type: Mapped[str]
+    # Seller -person
     name: Mapped[Optional[str]]
     email: Mapped[Optional[str]]
     registered_from: Mapped[Optional[DateTime]] = mapped_column(DateTime)
     address: Mapped[Optional[str]]
+    # Seller - company
     opening_hours: Mapped[Optional[dict]] = mapped_column(JSONB)
     presentation: Mapped[Optional[str]]
     logo: Mapped[Optional[str]]
+    website: Mapped[Optional[str]]
     tax_number: Mapped[Optional[str]]
 
     phone_numbers: Mapped[List["SellerPhoneNumber"]] = relationship(back_populates="seller")
