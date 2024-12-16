@@ -197,7 +197,7 @@
             "https://images.avto.net/photo/20392446/11035548_small.jpg"
         ],
         "archive_technical_data_url": null,
-        "published_on_avtonet": null
+        "published_on_avtonet_at": "Objava / zadnje urejanje: 14.12.2024 09:52:00"
     },
     {
         "url": "file:///Users/vidpesko/Documents/Learning/Projects/AvtonetAPI/src/Scraper/Scraper/spiders/person.html",
@@ -304,8 +304,8 @@
             "https://images.avto.net/photo/20395908/4048252_small.jpg",
             "https://images.avto.net/photo/20395908/5048263_small.jpg"
         ],
-        "archive_technical_data_url": null,
-        "published_on_avtonet": null
+        "archive_technical_data_url": "https://www.avto.net/Avtokatalog/detailshistory.asp?vehicle=707050420080602",
+        "published_on_avtonet_at": "Objava / zadnje urejanje: 15.12.2024 13:25:00"
     },
     {
         "url": "file:///Users/vidpesko/Documents/Learning/Projects/AvtonetAPI/src/Scraper/Scraper/spiders/company2.html",
@@ -478,7 +478,7 @@
             "https://images.avto.net/photo/20362058/5037409_small.jpg",
             "https://images.avto.net/photo/20362058/6037415_small.jpg"
         ],
-        "archive_technical_data_url": null,
-        "published_on_avtonet": null
+        "archive_technical_data_url": "https://www.avto.net/Avtokatalog/detailshistory.asp?vehicle=58987920240805",
+        "published_on_avtonet_at": "Objava / zadnje urejanje: 13.12.2024 08:51:00"
     }
 ]

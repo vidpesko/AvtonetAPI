@@ -265,6 +265,19 @@ class VehicleSpider(scrapy.Spider):
         # Add location
         vehicle.add_value("location", seller_location)
 
+        # Archive technical data url
+        vehicle.add_xpath(
+            "archive_technical_data_url",
+            "//a[i[contains(@class, 'fa-info-circle')]]/@href",
+        )
+
+        # When was published / last updated
+        # vehicle.add_xpath(
+        #     "published_on_avtonet_at",
+        #     "//a[i[contains(@class, 'fa-info-calendar')]]/",
+        # )
+        vehicle.add_xpath("published_on_avtonet_at", "//div[i[contains(@class, 'fa-calendar')]]/text()")
+
         # Images
         vehicle.add_value(
             "images",
