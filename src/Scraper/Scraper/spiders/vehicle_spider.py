@@ -245,9 +245,10 @@ class VehicleSpider(scrapy.Spider):
 
             # Tax number
             try:
-                last_container = seller_container.css(".container > .row")[2]
+                last_container = seller_container.css(".container > .row")[-1]
                 tax_number = "".join(last_container.css("*::text").getall())
                 tax_number = re.search(r"DŠ:[A-Za-z0-9]+", tax_number).group()
+                print(tax_number)
                 seller.add_value("tax_number", tax_number)
             except IndexError:
                 tax_number = None

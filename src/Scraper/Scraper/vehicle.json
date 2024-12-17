@@ -122,7 +122,7 @@
             ],
             "presentation": null,
             "logo": "https://avto.net/2004/logotipi/20155.gif?koda=16122024%20192022",
-            "tax_number": null,
+            "tax_number": "SI35105267",
             "website": "https://www.avto.net/RS5AVTO"
         },
         "images": [
@@ -307,7 +307,7 @@
             ],
             "presentation": null,
             "logo": "https://avto.net/2004/logotipi/10740.gif?koda=16122024%20192939",
-            "tax_number": null,
+            "tax_number": "SI64454991",
             "website": "https://www.krik-avto.si"
         },
         "images": [
@@ -339,6 +339,191 @@
         ],
         "archive_technical_data_url": "https://www.avto.net/Avtokatalog/detailshistory.asp?vehicle=766019320190205",
         "published_on_avtonet_at": "2024-11-24 20:06:00"
+    },
+    {
+        "url": "file:///Users/vidpesko/Documents/Learning/Projects/AvtonetAPI/src/Scraper/Scraper/test_pages/mercedes.html",
+        "vehicle_name": "Mercedes-Benz CLA Shooting Brake",
+        "vehicle_full_name": "Mercedes-Benz CLA Shooting Brake CLA 200 D AMG LINE",
+        "avtonet_id": null,
+        "price": 20490,
+        "discount_price": null,
+        "price_verbose": null,
+        "first_registration": "2019-11-01 00:00:00",
+        "new_vehicle": false,
+        "mileage": null,
+        "num_of_owners": null,
+        "fuel_type": "diesel",
+        "engine_power": 110,
+        "location": "Linhartova ulica 18, 3000 Celje",
+        "comment": null,
+        "description": null,
+        "additional_data": {
+            "basic_data": {
+                "Starost": "rabljeno",
+                "Prva registracija": "2019 / 11",
+                "Leto proizvodnje": "2019",
+                "engine": "110 kW (150 KM), 1950 ccm",
+                "Gorivo": "diesel motor",
+                "Menjalnik": "avtomatski menjalnik",
+                "Oblika": "karavan",
+                "Št.vrat": "5 vr.",
+                "Barva": "siva metalik",
+                "Notranjost": "črna / alcantara",
+                "location": ","
+            },
+            "emission_data": {
+                "Kombinirana vožnja": "od 4,2 lit. / 100 km",
+                "Emisijski razred": "Euro 6d",
+                "Emisija CO2": "112 g / km"
+            },
+            "other_data": {
+                "Podvozje": [
+                    "lahka - ALU platišča:lita",
+                    "ABS zavorni sistem",
+                    "BAS pomoč pri zaviranju",
+                    "ESP elektronski program stabilnosti",
+                    "ASR regulacija zdrsa pogonskih koles",
+                    "športno podvozje"
+                ],
+                "Varnost": [
+                    "7 x zračna vreča / Airbag",
+                    "senzor za dež",
+                    "LED žarometi",
+                    "prednje (dnevne) LED luči",
+                    "zadnje LED luči",
+                    "samodejno upravljanje dolgih luči",
+                    "Adaptive light / dinamično prilagodljivi žarometi",
+                    "meglenke",
+                    "tretja zavorna luč",
+                    "sistem za ohranjanje voznega pasu",
+                    "sistem za samodejno zaviranje v sili",
+                    "sistem za opozarjanje na mrtvi kot",
+                    "opozorilnik spremembe voznega pasu",
+                    "sistem za prepoznavo prometnih znakov",
+                    "nadzor zračnega tlaka v pnevmatikah"
+                ],
+                "Notranjost": [
+                    "štev. sedežev: 5",
+                    "ambientna osvetlitev notranjosti",
+                    "ALU dodatki v notranjosti",
+                    "krom dodatki v notranjosti",
+                    "športni sedeži",
+                    "sedeži: nastavitev po višini",
+                    "električno nastavljiv sedež",
+                    "sedeži: paket Memory",
+                    "sedeži: gretje spredaj",
+                    "sredinski naslon za roko",
+                    "hladilni predal",
+                    "12V vtičnica"
+                ],
+                "Udobje": [
+                    "gretje mirujočega vozila (Webasto)",
+                    "steklena pomična streha + električni pomik",
+                    "klimatska naprava",
+                    "klimatska naprava: avtomatska",
+                    "klimatska naprava: 2 conska",
+                    "zatemnjena / tonirana stekla",
+                    "električni pomik prednjih stekel",
+                    "električni pomik prednjih in zadnjih stekel",
+                    "zunanja ogledala: el. nastavljiva",
+                    "zunanja ogledala: ogrevanje",
+                    "zunanja ogledala: el. zložljiva",
+                    "centralno zaklepanje",
+                    "centralno zaklepanje + daljinsko upravljanje",
+                    "električni paket",
+                    "volan: nastavljiv po višini",
+                    "volan: nastavljiv po globini",
+                    "servo volan",
+                    "volan: multifunkcijski",
+                    "volan: športni",
+                    "obvolanski prestavni ročici / F1 prestave",
+                    "tempomat",
+                    "aktivni tempomat",
+                    "sistem Start-Stop",
+                    "Keyless Go",
+                    "el. parkirna zavora",
+                    "el. zapiranje prtljažnika"
+                ],
+                "Multimedia": [
+                    "USB priključek (iPod, HD, ...)",
+                    "potovalni računalnik",
+                    "navigacijski sistem",
+                    "Bluetooth vmesnik",
+                    "Touch screen",
+                    "digitalni radio DAB",
+                    "Apple CarPlay"
+                ],
+                "Uporabnost": [
+                    "zadnja klop - deljiva 1/3 - 2/3",
+                    "rolo prtljažnega prostora",
+                    "pripomoček za parkiranje PDC/Parktronic",
+                    "pomoč pri parkiranju: parkirna kamera",
+                    "pomoč pri parkiranju: prednji senzorji",
+                    "pomoč pri parkiranju: zadnji senzorji",
+                    "sistem za aktivno pomoč pri parkiranju",
+                    "pomoč pri speljevanju v klanec",
+                    "dvojno dno prtljažnika",
+                    "bočne stopnice"
+                ],
+                "Stanje": [
+                    "servisna knjiga",
+                    "vozilo ni bilo karambolirano",
+                    "vozilo je bilo garažirano"
+                ]
+            }
+        },
+        "seller": {
+            "seller_type": "company",
+            "name": "GRIFFIN, d.o.o.",
+            "email": null,
+            "address": "Linhartova ulica 18, 3000 Celje",
+            "registered_from": "2019-03-01 00:00:00",
+            "phone_number": null,
+            "opening_hours": [],
+            "phone_numbers": [
+                {
+                    "phone_number": "041 / 675 - 702",
+                    "description": "Robi"
+                },
+                {
+                    "phone_number": "041 / 430 - 929",
+                    "description": "Stanko"
+                }
+            ],
+            "presentation": null,
+            "logo": "https://avto.net/2004/logotipi/16283.gif?koda=16122024%20193036",
+            "tax_number": "SI93968507",
+            "website": "https://www.avto.net/GRIFFIN"
+        },
+        "images": [
+            "https://images.avto.net/photo/20315123/1072101.jpg",
+            "https://images.avto.net/photo/20315123/2072212.jpg",
+            "https://images.avto.net/photo/20315123/3072263.jpg",
+            "https://images.avto.net/photo/20315123/4072322.jpg",
+            "https://images.avto.net/photo/20315123/5072466.jpg",
+            "https://images.avto.net/photo/20315123/6072556.jpg",
+            "https://images.avto.net/photo/20315123/7072607.jpg",
+            "https://images.avto.net/photo/20315123/8072685.jpg",
+            "https://images.avto.net/photo/20315123/9072736.jpg",
+            "https://images.avto.net/photo/20315123/10072859.jpg",
+            "https://images.avto.net/photo/20315123/11073006.jpg",
+            "https://images.avto.net/photo/20315123/12073108.jpg"
+        ],
+        "thumbnails": [
+            "https://images.avto.net/photo/20315123/1072101_small.jpg",
+            "https://images.avto.net/photo/20315123/2072212_small.jpg",
+            "https://images.avto.net/photo/20315123/3072263_small.jpg",
+            "https://images.avto.net/photo/20315123/4072322_small.jpg",
+            "https://images.avto.net/photo/20315123/5072466_small.jpg",
+            "https://images.avto.net/photo/20315123/6072556_small.jpg",
+            "https://images.avto.net/photo/20315123/7072607_small.jpg",
+            "https://images.avto.net/photo/20315123/8072685_small.jpg",
+            "https://images.avto.net/photo/20315123/9072736_small.jpg",
+            "https://images.avto.net/photo/20315123/10072859_small.jpg",
+            "https://images.avto.net/photo/20315123/11073006_small.jpg"
+        ],
+        "archive_technical_data_url": "https://www.avto.net/Avtokatalog/detailshistory.asp?vehicle=799840420191106",
+        "published_on_avtonet_at": "2024-11-24 20:18:00"
     },
     {
         "url": "file:///Users/vidpesko/Documents/Learning/Projects/AvtonetAPI/src/Scraper/Scraper/test_pages/page5.html",
@@ -557,7 +742,7 @@
         "price_verbose": null,
         "first_registration": "2007-09-01 00:00:00",
         "new_vehicle": false,
-        "mileage": 0,
+        "mileage": null,
         "num_of_owners": null,
         "fuel_type": "bencin",
         "engine_power": 147,
@@ -665,8 +850,8 @@
         "price_verbose": null,
         "first_registration": null,
         "new_vehicle": true,
-        "mileage": 0,
-        "num_of_owners": 0,
+        "mileage": null,
+        "num_of_owners": null,
         "fuel_type": "bencin",
         "engine_power": 92,
         "location": "Dečkova cesta 43, 3000 Celje",
@@ -948,7 +1133,7 @@
             ],
             "presentation": null,
             "logo": "https://avto.net/2004/logotipi/20155.gif?koda=16122024%20192848",
-            "tax_number": null,
+            "tax_number": "SI35105267",
             "website": "https://www.avto.net/RS5AVTO"
         },
         "images": [

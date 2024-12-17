@@ -111,15 +111,16 @@ class VehiclePipeline:
         #         adapter["avtonet_id"] = avtonet_id
 
         # If error has occured (e.g. vehicle is no longer available), set available to false in db
-        if isinstance(item, Error):
-            with Session(engine) as session:
-                vehicle = session.get(VehicleDB, avtonet_id)
+        # if isinstance(item, Error):
+        #     with Session(engine) as session:
+        #         vehicle = session.get(VehicleDB, avtonet_id)
 
-                # If vehicle does not exist
-                if not vehicle:
-                    session.add(VehicleDB(avtonet_id=avtonet_id, url=adapter.get("url"), available=False))
-                else:
-                    vehicle.available = False
+        #         # If vehicle does not exist
+        #         if not vehicle:
+        #             session.add(VehicleDB(avtonet_id=avtonet_id, url=adapter.get("url"), available=False))
+        #         else:
+        #             vehicle.available = False
+        #     return item
 
         # Normalize data
         # Parse first_registration. 2007 / 9 -> datetime
@@ -139,7 +140,7 @@ class VehiclePipeline:
 
         # Save data
         # with Session(engine) as session:
-        #     item_dict = item.to_dict()
+        #     item_dict = item.to_dict()  # TODO: Why to dict??? Use Vehicle item directly (via adapter)
         #     del item_dict["images"]
         #     del item_dict["thumbnails"]
         #     del item_dict["seller_type"]
